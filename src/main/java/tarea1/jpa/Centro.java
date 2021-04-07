@@ -1,5 +1,6 @@
 package tarea1.jpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,10 +10,18 @@ public class Centro {
 
 	@Id @GeneratedValue
 	private Long id;
+	@Column(nullable = false)
 	private String nombre;
 	private String direccion;
 	private Long TLF_Conserjeria;
 	
+	public Centro(Long id, String nombre, String direccion, Long tLF_Conserjeria) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.direccion = direccion;
+		TLF_Conserjeria = tLF_Conserjeria;
+	}
 	public Long getId() {
 		return id;
 	}
