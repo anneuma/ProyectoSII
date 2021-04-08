@@ -7,6 +7,7 @@ import javax.persistence.*;
 
 @Entity
 
+
 public class Titulacion implements Serializable {
 
 	@Id
