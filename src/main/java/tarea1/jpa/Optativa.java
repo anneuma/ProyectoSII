@@ -1,22 +1,25 @@
-package es.informatica.uma.ProyectoGrupo;
+  
+package tarea1.jpa;
 
-import es.informatica.uma.ProyectoGrupo.Asignatura;
 import java.io.Serializable;
-import java.lang.String;
 import javax.persistence.*;
 
-/**
- * Entity implementation class for Entity: Optativa
- *
- */
+
 @Entity
 
 public class Optativa extends Asignatura implements Serializable {
 
-	
+	@Column(nullable = false)
 	private int Plazas;
-	private String Mención;
+	private String Mencion;
 	private static final long serialVersionUID = 1L;
+	
+	public Optativa(int plaz, String menc)
+	{
+		super();
+		this.Plazas = plaz;
+		this.Mencion = menc;
+	}
 
 	public Optativa() {
 		super();
@@ -28,18 +31,18 @@ public class Optativa extends Asignatura implements Serializable {
 	public void setPlazas(int Plazas) {
 		this.Plazas = Plazas;
 	}   
-	public String getMención() {
+	public String getMencion() {
 		return this.Mención;
 	}
 
-	public void setMención(String Mención) {
-		this.Mención = Mención;
+	public void setMencion(String Mencion) {
+		this.Mencion = Mencion;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((Mención == null) ? 0 : Mención.hashCode());
+		result = prime * result + ((Mencion == null) ? 0 : Mención.hashCode());
 		result = prime * result + Plazas;
 		return result;
 	}
@@ -52,10 +55,10 @@ public class Optativa extends Asignatura implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Optativa other = (Optativa) obj;
-		if (Mención == null) {
-			if (other.Mención != null)
+		if (Mencion == null) {
+			if (other.Mencion != null)
 				return false;
-		} else if (!Mención.equals(other.Mención))
+		} else if (!Mencion.equals(other.Mencion))
 			return false;
 		if (Plazas != other.Plazas)
 			return false;
@@ -66,8 +69,8 @@ public class Optativa extends Asignatura implements Serializable {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Optativa [Plazas=");
 		builder.append(Plazas);
-		builder.append(", Mención=");
-		builder.append(Mención);
+		builder.append(", Mencion=");
+		builder.append(Mencion);
 		builder.append("]");
 		return builder.toString();
 	}
