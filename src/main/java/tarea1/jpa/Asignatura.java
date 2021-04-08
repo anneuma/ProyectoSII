@@ -32,6 +32,20 @@ public class Asignatura implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	public Asignatura(Long ref, Long cod, Integer credtot, Integer credprac, Integer credteo, Integer ofer, String nomb)
+	{
+		super();
+		this.referencia = ref;
+		this.codigo = cod;
+		this.creditos_totales = credtot;
+		this.creditos_practicos = credprac;
+		this.creditos_teoricos = credteo;
+		this.oferta = ofer;
+		this.nombre = nomb;
+		
+		
+	}
+	
 	public Asignatura(){
 		
 	}
