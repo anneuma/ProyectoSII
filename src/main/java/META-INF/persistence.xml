@@ -12,7 +12,10 @@
 		<class>tarea1.jpa.Titulacion</class>
 		<class>tarea1.jpa.Expediente</class>
 		<class>tarea1.jpa.Asignaturas_matricula</class>
-		<class>tarea1.jpa.Encuesta</class>	
+		<class>tarea1.jpa.Encuesta</class>
+		<class>tarea1.jpa.Alumno</class>
+		<class>tarea1.jpa.Clase</class>	
+		<class>tarea1.jpa.Optativa</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/sii"/>
 			<property name="javax.persistence.jdbc.user" value="siiuser"/>
