@@ -24,7 +24,7 @@ public class Asignaturas_matricula implements Serializable {
 	private List<Asignatura> asignatura;
 	
 	@ManyToOne
-	privare List<Grupo> grupo;
+	private List<Grupo> grupo;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -46,27 +46,27 @@ public class Asignaturas_matricula implements Serializable {
 		this.Calificacion = Calificacion;
 	}
 	
-	public Asignatura getAsignatura () {
+	public List<Asignatura> getAsignatura () {
 		return asignatura;
 	}
 	
-	public void setAsignatura (Asignatura asignatura) {
+	public void setAsignatura (List<Asignatura> asignatura) {
 		this.asignatura = asignatura;
 	}
 	
-	public Grupo getGrupo () {
+	public List<Grupo> getGrupo () {
 		return grupo;
 	}
 	
-	public void setGrupo (Grupo grupo) {
+	public void setGrupo (List<Grupo> grupo) {
 		this.grupo = grupo;
 	}
 	
-	public Matricula getMatricula () {
-		return matricula;
+	public List<Matricula> getMatricula () {
+		return matriculas;
 	}
 	
-	public void setMatricula (Matricula matricula) {
-		this.matricula = matricula;
+	public void setMatricula (List<Matricula> matricula) {
+		this.matriculas = matricula;
 	}
 }
