@@ -1,14 +1,16 @@
 package tarea1.jpa;
 
 import javax.annotation.Generated;
+import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2021-04-08T12:08:33.923-0700")
+@Generated(value="Dali", date="2021-04-08T12:16:03.669-0700")
 @StaticMetamodel(Expediente.class)
 public class Expediente_ {
 	public static volatile SingularAttribute<Expediente, Long> num_expediente;
 	public static volatile SingularAttribute<Expediente, Boolean> activo;
 	public static volatile SingularAttribute<Expediente, Long> nota_media_provisional;
-	public static volatile SingularAttribute<Expediente, List> matriculas;
+	public static volatile SingularAttribute<Expediente, Object> matriculas;
+	public static volatile ListAttribute<Expediente, Encuesta> encuestas;
 }

@@ -25,7 +25,7 @@ public class Encuesta implements Serializable {
 	private List<Grupo_asignatura> grupo_asignaturas;
 	
 	@ManyToOne
-	private List<Expedientes> expedientes;
+	private List<Expediente> expedientes;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -47,20 +47,20 @@ public class Encuesta implements Serializable {
 		this.fecha_envio = fecha_envio;
 	}
 	
-	public Expedientes getExpedientes () {
+	public List<Expediente> getExpedientes () {
 		return expedientes;
 	}
 	
-	public void setExpedientes (Expedientes expedientes) {
+	public void setExpedientes (List<Expediente> expedientes) {
 		this.expedientes = expedientes;
 	}
 	
-	public Grupo_Asignatura getGrupos_Por_Asignatura () {
-		return grupo_asignatura;
+	public List<Grupo_asignatura> getGrupos_Por_Asignatura () {
+		return grupo_asignaturas;
 	}
 	
-	public void setGrupo_Asignatura (Grupo_Asignatura grupo_asignatura) {
-		this.grupo_asignatura = grupo_asignatura;
+	public void setGrupo_Asignatura (List<Grupo_asignatura> grupo_asignatura) {
+		this.grupo_asignaturas = grupo_asignatura;
 	}
    
 }

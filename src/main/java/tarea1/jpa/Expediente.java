@@ -1,6 +1,8 @@
 package tarea1.jpa;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -54,7 +56,7 @@ public class Expediente implements Serializable {
 		return this.matriculas;
 	}
 	
-	public void setMatriculas (List<Matriculas> matr)
+	public void setMatriculas (List<Matricula> matr)
 	{
 		this.matriculas = matr;
 	}
@@ -74,9 +76,9 @@ public class Expediente implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (Activo ? 1231 : 1237);
-		result = prime * result + nota_media_provisional;
-		result = prime * result + numero_expediente;
+		result = prime * result + (activo ? 1231 : 1237);
+		result = (int) (prime * result + nota_media_provisional);
+		result = (int) (prime * result + num_expediente);
 		return result;
 	}
 	

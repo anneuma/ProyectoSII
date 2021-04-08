@@ -1,4 +1,7 @@
+package tarea1.jpa;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -39,19 +42,19 @@ public class Clase implements Serializable {
 		this.hora_fin = hora_fin;
 	}
 	
-	public Asignatura getAsignatura () {
+	public List<Asignatura> getAsignatura () {
 		return asignatura;
 	}
 	
-	public void setAsignatura (Asignatura asignatura) {
+	public void setAsignatura (List<Asignatura> asignatura) {
 		this.asignatura = asignatura;
 	}
 	
-	public Grupo getGrupo () {
+	public List<Grupo> getGrupo () {
 		return grupo;
 	}
 	
-	public void setGrupo (Grupo grupo) {
+	public void setGrupo (List<Grupo> grupo) {
 		this.grupo = grupo;
 	}
 }

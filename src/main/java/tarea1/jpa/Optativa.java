@@ -32,7 +32,7 @@ public class Optativa extends Asignatura implements Serializable {
 		this.Plazas = Plazas;
 	}   
 	public String getMencion() {
-		return this.Mención;
+		return this.Mencion;
 	}
 
 	public void setMencion(String Mencion) {
@@ -42,7 +42,7 @@ public class Optativa extends Asignatura implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = super.hashCode();
-		result = prime * result + ((Mencion == null) ? 0 : Mención.hashCode());
+		result = prime * result + ((Mencion == null) ? 0 : Mencion.hashCode());
 		result = prime * result + Plazas;
 		return result;
 	}
