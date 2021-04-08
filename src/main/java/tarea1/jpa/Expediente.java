@@ -18,7 +18,9 @@ public class Expediente implements Serializable {
 	private Long nota_media_provisional;
 	
 	@ManyToOne
-	private Matricula matricula;
+	private List<Matricula> matriculas;
+	
+	private List<Encuesta> encuestas;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -46,6 +48,27 @@ public class Expediente implements Serializable {
 	public void setNota_media_provisional(long nota_media_provisional) {
 		this.nota_media_provisional = nota_media_provisional;
 	}
+	
+	public List<Matricula>  getMatriculas()
+	{
+		return this.matriculas;
+	}
+	
+	public void setMatriculas (List<Matriculas> matr)
+	{
+		this.matriculas = matr;
+	}
+	
+	public List<Encuesta>  getEncuestas()
+	{
+		return this.encuestas;
+	}
+	
+	public void setEncuestas (List<Encuesta> enc)
+	{
+		this.encuestas = enc;
+	}
+	
 	
 	@Override
 	public int hashCode() {
