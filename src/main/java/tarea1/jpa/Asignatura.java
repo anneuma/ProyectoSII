@@ -48,8 +48,6 @@ public class Asignatura implements Serializable {
 		this.creditos_teoricos = credteo;
 		this.oferta = ofer;
 		this.nombre = nomb;
-		
-		
 	}
 	
 	public Asignatura(){

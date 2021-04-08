@@ -62,5 +62,52 @@ public class Encuesta implements Serializable {
 	public void setGrupo_Asignatura (List<Grupo_asignatura> grupo_asignatura) {
 		this.grupo_asignaturas = grupo_asignatura;
 	}
-   
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
+		result = prime * result + ((fecha_envio == null) ? 0 : fecha_envio.hashCode());
+		result = prime * result + ((grupo_asignaturas == null) ? 0 : grupo_asignaturas.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Encuesta other = (Encuesta) obj;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
+			return false;
+		if (fecha_envio == null) {
+			if (other.fecha_envio != null)
+				return false;
+		} else if (!fecha_envio.equals(other.fecha_envio))
+			return false;
+		if (grupo_asignaturas == null) {
+			if (other.grupo_asignaturas != null)
+				return false;
+		} else if (!grupo_asignaturas.equals(other.grupo_asignaturas))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Encuesta [id=" + id + ", fecha_envio=" + fecha_envio + ", grupo_asignaturas=" + grupo_asignaturas
+				+ ", expedientes=" + expedientes + "]";
+	}
+  
+	
 }
