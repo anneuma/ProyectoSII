@@ -18,8 +18,15 @@ public class Titulacion implements Serializable {
 	@ManyToMany
 	private List<Centro> centros;
 	
+	@ManyToMany
+	private List<Expediente> expedientes;
+	
 	@ManyToOne
 	private Titulacion titulacion;
+	
+	private List<Grupo> grupos;
+	
+	private List<Asignatura> asignaturas;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -52,6 +59,46 @@ public class Titulacion implements Serializable {
 
 	public void setCreditos(Integer Creditos) {
 		this.Creditos = Creditos;
+	}
+	
+	public List<Centro> getCentros()
+	{
+		return this.centros;
+	}
+	
+	public void setCentros(List<Centro> lista)
+	{
+		this.centros = lista;
+	}
+	
+	public List<Grupo> getGrupos()
+	{
+		return this.grupos;
+	}
+	
+	public void setGrupos(List<Grupo> lista)
+	{
+		this.grupos = lista;
+	}
+	
+	public List<Expediente> getExpedientes()
+	{
+		return this.expedientes;
+	}
+	
+	public void setExpedientes(List<Expediente> lista)
+	{
+		this.expedientes = lista;
+	}
+	
+	public List<Asignatura> getAsignaturas()
+	{
+		return this.asignaturas;
+	}
+	
+	public void setAsignaturas(List<Asignatura> lista)
+	{
+		this.asignaturas = lista;
 	}
 	
 	@Override
