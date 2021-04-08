@@ -46,5 +46,45 @@ public class Expediente implements Serializable {
 	public void setNota_media_provisional(long nota_media_provisional) {
 		this.nota_media_provisional = nota_media_provisional;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (Activo ? 1231 : 1237);
+		result = prime * result + nota_media_provisional;
+		result = prime * result + numero_expediente;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Expediente other = (Expediente) obj;
+		if (activo != other.activo)
+			return false;
+		if (nota_media_provisional != other.nota_media_provisional)
+			return false;
+		if (num_expediente != other.num_expediente)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Expediente [Numero_expediente=");
+		builder.append(num_expediente);
+		builder.append(", Activo=");
+		builder.append(activo);
+		builder.append(", Nota_Media_Provisional=");
+		builder.append(nota_media_provisional);
+		builder.append("]");
+		return builder.toString();
+	}
    
 }
