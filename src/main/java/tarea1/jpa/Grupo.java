@@ -19,6 +19,7 @@ public class Grupo {
 	private Boolean visible;
 	private Boolean asignar;
 	private Long plazas;
+	
 	public Grupo(Long id, String curso, String letra, String turno_mañana_tarde, Boolean ingles, Boolean visible,
 			Boolean asignar, Long plazas) {
 		super();
@@ -31,6 +32,10 @@ public class Grupo {
 		this.asignar = asignar;
 		this.plazas = plazas;
 	}
+	public Grupo() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

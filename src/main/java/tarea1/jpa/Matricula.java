@@ -35,6 +35,9 @@ public class Matricula {
 		this.nuevo_ingreso = nuevo_ingreso;
 		this.listado_asignaturas = listado_asignaturas;
 	}
+	public Matricula() {
+		
+	}
 	
 	public Long getId() {
 		return id;

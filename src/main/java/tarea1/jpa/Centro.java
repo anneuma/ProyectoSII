@@ -22,6 +22,11 @@ public class Centro {
 		this.direccion = direccion;
 		TLF_Conserjeria = tLF_Conserjeria;
 	}
+	
+	public Centro() {
+		
+	}
+	
 	public Long getId() {
 		return id;
 	}

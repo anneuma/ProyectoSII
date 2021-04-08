@@ -9,6 +9,7 @@ public class Grupo_asignatura {
 	@Id
 	private String curso_academico;
 	private String oferta;
+	
 	public String getCurso_academico() {
 		return curso_academico;
 	}
@@ -21,6 +22,7 @@ public class Grupo_asignatura {
 	public void setOferta(String oferta) {
 		this.oferta = oferta;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -29,6 +31,7 @@ public class Grupo_asignatura {
 		result = prime * result + ((oferta == null) ? 0 : oferta.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
