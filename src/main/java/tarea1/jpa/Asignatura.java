@@ -34,7 +34,7 @@ public class Asignatura implements Serializable {
 	
 	private List<Clase> clases;
 	
-	private List<Asignatura_Matricula> asignatura_matricula;
+	private List<Asignaturas_matricula> asignatura_matricula;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -113,7 +113,7 @@ public class Asignatura implements Serializable {
 		this.nombre = Nombre;
 	}   
 	public String getCurso() {
-		return this.Curso;
+		return this.curso;
 	}
 
 	public void setCurso(String Curso) {
@@ -141,18 +141,18 @@ public class Asignatura implements Serializable {
 		this.unidad_temporal = unidad_temporal;
 	}   
 	public String getIdiomas() {
-		return this.Idiomas;
+		return this.idiomas;
 	}
 
 	public void setIdiomas(String idiomas) {
 		this.idiomas = idiomas;
 	}
 	
-	public List<Asignatura_Matricula> getAsignatura_Matricula() {
+	public List<Asignaturas_matricula> getAsignatura_Matricula() {
 		return this.asignatura_matricula;
 	}
 
-	public void setAsignatura_Matricula(List<Asignatura_Matricula> asg) {
+	public void setAsignatura_Matricula(List<Asignaturas_matricula> asg) {
 		this.asignatura_matricula = asg;
 	}
 	
@@ -164,7 +164,7 @@ public class Asignatura implements Serializable {
 		this.grupo_asignatura = grup;
 	}
 	
-	public List<Clase> getClase) {
+	public List<Clase> getClase() {
 		return this.clases;
 	}
 
@@ -177,13 +177,13 @@ public class Asignatura implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + codigo;
+		result = (int) (prime * result + codigo);
 		result = prime * result + creditos_practicos;
 		result = prime * result + creditos_teoricos;
 		result = prime * result + creditos_totales;
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + oferta;
-		result = prime * result + referencia;
+		result = (int) (prime * result + referencia);
 		return result;
 	}
 	
@@ -204,8 +204,8 @@ public class Asignatura implements Serializable {
 			return false;
 		if (creditos_totales != other.creditos_totales)
 			return false;
-		if (Nombre == null) {
-			if (other.Nombre != null)
+		if (nombre == null) {
+			if (other.nombre != null)
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
