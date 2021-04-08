@@ -8,11 +8,11 @@
 CREATE TABLE alumno (
     id                       INTEGER NOT NULL,
     dni                      INTEGER NOT NULL,
-    nombre_completo          VARCHAR2(60) NOT NULL,
+    nombre                    VARCHAR2(60) NOT NULL,
     email_institucional      VARCHAR2(60) NOT NULL,
     email_personal           VARCHAR2(60) NOT NULL,
-    tel閒ono                 INTEGER,
-    m髒il                    INTEGER,
+    tel茅fono                 INTEGER,
+    m贸vil                    INTEGER,
     direccion_notificacion   VARCHAR2(30) NOT NULL,
     localidad_notificacion   VARCHAR2(30) NOT NULL,
     provincia_notificacion   VARCHAR2(30) NOT NULL,
@@ -28,17 +28,17 @@ ALTER TABLE alumno ADD CONSTRAINT alumno_dni_un UNIQUE ( dni );
 CREATE TABLE asignatura (
     referencia                         INTEGER NOT NULL,
     codigo                             INTEGER NOT NULL,
-    cr閐itos_totales                   INTEGER NOT NULL,
+    cr茅ditos_totales                   INTEGER NOT NULL,
     ofertada                           CHAR(1) NOT NULL,
     nombre                             VARCHAR2(30) NOT NULL,
     curso                              INTEGER,
-    car醕ter                           VARCHAR2(20),
-    duraci髇                           INTEGER,
+    car谩cter                           VARCHAR2(20),
+    duraci贸n                           INTEGER,
     "Unidad_Temporal_(Cuatrimestre)"   INTEGER,
-    idiomas_de_impartici髇             VARCHAR2(20),
-    titulaci髇_c骴igo                  INTEGER NOT NULL,
-    cr閐itos_practicos                 INTEGER NOT NULL,
-    cr閐itos_teoricos                  INTEGER NOT NULL
+    idiomas_de_impartici贸n             VARCHAR2(20),
+    titulaci贸n_c贸digo                  INTEGER NOT NULL,
+    cr茅ditos_practicos                 INTEGER NOT NULL,
+    cr茅ditos_teoricos                  INTEGER NOT NULL
 );
 
 ALTER TABLE asignatura ADD CONSTRAINT asignatura_pk PRIMARY KEY ( referencia );
@@ -61,7 +61,7 @@ ALTER TABLE asignaturas_matricula
 CREATE TABLE centro (
     id                INTEGER NOT NULL,
     nombre            VARCHAR2(60) NOT NULL,
-    direcci髇         VARCHAR2(60) NOT NULL,
+    direcci贸n         VARCHAR2(60) NOT NULL,
     tlf_conserjeria   VARCHAR2(60) NOT NULL
 );
 
@@ -84,7 +84,7 @@ ALTER TABLE clase
                                           grupo_id );
 
 CREATE TABLE encuesta (
-    fecha_de_env韔               DATE NOT NULL,
+    fecha_de_env铆o               DATE NOT NULL,
     expedientes_num_expediente   INTEGER NOT NULL,
     id                           INTEGER NOT NULL
 );
@@ -96,7 +96,7 @@ CREATE TABLE expedientes (
     num_expediente           INTEGER NOT NULL,
     activo                   CHAR(1),
     nota_media_provisional   NUMBER,
-    titulaci髇_c骴igo        INTEGER NOT NULL,
+    titulaci贸n_c贸digo        INTEGER NOT NULL,
     alumno_id                INTEGER NOT NULL,
     creditos_superados       INTEGER NOT NULL,
     creditos_fb              INTEGER NOT NULL,
@@ -113,9 +113,9 @@ CREATE TABLE grupo (
     id                   INTEGER NOT NULL,
     curso                INTEGER NOT NULL,
     letra                VARCHAR2(1) NOT NULL,
-    turno_ma馻na_tarde   VARCHAR2(10) NOT NULL,
+    turno_ma帽ana_tarde   VARCHAR2(10) NOT NULL,
     ingles               CHAR(1) NOT NULL,
-    titulaci髇_c骴igo    INTEGER NOT NULL,
+    titulaci贸n_c贸digo    INTEGER NOT NULL,
     grupo_id             INTEGER,
     visible              CHAR(1),
     asignar              VARCHAR2(20),
@@ -163,7 +163,7 @@ CREATE TABLE optativas (
 ALTER TABLE optativas ADD CONSTRAINT optativas_pk PRIMARY KEY ( referencia );
 
 CREATE TABLE relation_8 (
-    encuesta_fecha_de_env韔                       DATE NOT NULL, 
+    encuesta_fecha_de_env铆o                       DATE NOT NULL, 
 --  ERROR: Column name length exceeds maximum allowed length(30) 
     encuesta_expedientes_num_expediente           INTEGER NOT NULL, 
 --  ERROR: Column name length exceeds maximum allowed length(30) 
@@ -175,7 +175,7 @@ CREATE TABLE relation_8 (
 );
 
 ALTER TABLE relation_8
-    ADD CONSTRAINT relation_8_pk PRIMARY KEY ( encuesta_fecha_de_env韔,
+    ADD CONSTRAINT relation_8_pk PRIMARY KEY ( encuesta_fecha_de_env铆o,
                                                encuesta_expedientes_num_expediente,
                                                grupos_por_asignatura_curso_academico,
                                                grupos_por_asignatura_grupo_id,
@@ -184,23 +184,23 @@ ALTER TABLE relation_8
 
 CREATE TABLE relation_9 (
     centro_id           INTEGER NOT NULL,
-    titulaci髇_c骴igo   INTEGER NOT NULL
+    titulaci贸n_c贸digo   INTEGER NOT NULL
 );
 
 ALTER TABLE relation_9 ADD CONSTRAINT relation_9_pk PRIMARY KEY ( centro_id,
-                                                                  titulaci髇_c骴igo );
+                                                                  titulaci贸n_c贸digo );
 
-CREATE TABLE titulaci髇 (
-    c骴igo     INTEGER NOT NULL,
+CREATE TABLE titulaci贸n (
+    c贸digo     INTEGER NOT NULL,
     nombre     VARCHAR2(50) NOT NULL,
-    cr閐itos   INTEGER NOT NULL
+    cr茅ditos   INTEGER NOT NULL
 );
 
-ALTER TABLE titulaci髇 ADD CONSTRAINT titulaci髇_pk PRIMARY KEY ( c骴igo );
+ALTER TABLE titulaci贸n ADD CONSTRAINT titulaci贸n_pk PRIMARY KEY ( c贸digo );
 
 ALTER TABLE asignatura
-    ADD CONSTRAINT asignatura_titulaci髇_fk FOREIGN KEY ( titulaci髇_c骴igo )
-        REFERENCES titulaci髇 ( c骴igo );
+    ADD CONSTRAINT asignatura_titulaci贸n_fk FOREIGN KEY ( titulaci贸n_c贸digo )
+        REFERENCES titulaci贸n ( c贸digo );
 
 ALTER TABLE asignaturas_matricula
     ADD CONSTRAINT asignaturas_matricula_grupo_fk FOREIGN KEY ( grupo_id )
@@ -235,16 +235,16 @@ ALTER TABLE expedientes
         REFERENCES alumno ( id );
 
 ALTER TABLE expedientes
-    ADD CONSTRAINT expedientes_titulaci髇_fk FOREIGN KEY ( titulaci髇_c骴igo )
-        REFERENCES titulaci髇 ( c骴igo );
+    ADD CONSTRAINT expedientes_titulaci贸n_fk FOREIGN KEY ( titulaci贸n_c贸digo )
+        REFERENCES titulaci贸n ( c贸digo );
 
 ALTER TABLE grupo
     ADD CONSTRAINT grupo_grupo_fk FOREIGN KEY ( grupo_id )
         REFERENCES grupo ( id );
 
 ALTER TABLE grupo
-    ADD CONSTRAINT grupo_titulaci髇_fk FOREIGN KEY ( titulaci髇_c骴igo )
-        REFERENCES titulaci髇 ( c骴igo );
+    ADD CONSTRAINT grupo_titulaci贸n_fk FOREIGN KEY ( titulaci贸n_c贸digo )
+        REFERENCES titulaci贸n ( c贸digo );
 
 --  ERROR: FK name length exceeds maximum allowed length(30) 
 ALTER TABLE grupos_por_asignatura
@@ -266,7 +266,7 @@ ALTER TABLE optativas
 ALTER TABLE relation_8
     ADD CONSTRAINT relation_8_encuesta_fk FOREIGN KEY ( encuesta_expedientes_num_expediente,
                                                         encuesta_id,
-                                                        encuesta_fecha_de_env韔 )
+                                                        encuesta_fecha_de_env铆o )
         REFERENCES encuesta ( expedientes_num_expediente,
                               id );
 
@@ -284,8 +284,8 @@ ALTER TABLE relation_9
         REFERENCES centro ( id );
 
 ALTER TABLE relation_9
-    ADD CONSTRAINT relation_9_titulaci髇_fk FOREIGN KEY ( titulaci髇_c骴igo )
-        REFERENCES titulaci髇 ( c骴igo );
+    ADD CONSTRAINT relation_9_titulaci贸n_fk FOREIGN KEY ( titulaci贸n_c贸digo )
+        REFERENCES titulaci贸n ( c贸digo );
 
 
 
