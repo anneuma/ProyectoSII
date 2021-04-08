@@ -12,10 +12,13 @@ public class Matricula implements Serializable {
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@Column(nullable = false)
 	private String curso_academico;
+	@Column(nullable = false)
 	private String estado;
 	private Long num_archivo;
 	private String turno_preferente;
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date fecha_matricula;
 	private Boolean nuevo_ingreso;

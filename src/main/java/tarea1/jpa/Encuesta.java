@@ -17,6 +17,7 @@ public class Encuesta implements Serializable {
 	   
 	@Id
 	private Integer id;
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
 	private Date fecha_envio;
 	

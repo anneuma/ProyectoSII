@@ -16,7 +16,9 @@ public class Grupo implements Serializable {
 	private String curso;
 	@Column(nullable = false)
 	private String letra;
+	@Column(nullable = false)
 	private String turno_mañana_tarde;
+	@Column(nullable = false)
 	private Boolean ingles;
 	private Boolean visible;
 	private Boolean asignar;

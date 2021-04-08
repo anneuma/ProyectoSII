@@ -9,11 +9,17 @@ public class Asignatura implements Serializable {
 	
 	@Id
 	private Long referencia;
+	@Column(nullable = false)
 	private Long codigo;
+	@Column(nullable = false)
 	private Integer creditos_totales;
+	@Column(nullable = false)
 	private Integer creditos_practicos;
+	@Column(nullable = false)
 	private Integer creditos_teoricos;
+	@Column(nullable = false)
 	private Integer oferta;
+	@Column(nullable = false)
 	private String nombre;
 	private String curso;
 	private String caracter;

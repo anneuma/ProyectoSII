@@ -14,6 +14,7 @@ public class Centro implements Serializable {
 	private Long id;
 	@Column(nullable = false)
 	private String nombre;
+	@Column(nullable = false)
 	private String direccion;
 	private Long TLF_Conserjeria;
 	@ManyToMany(mappedBy = "centros")
