@@ -1,15 +1,17 @@
 package tarea1.jpa;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
+
 
 @Entity
-public class Grupo_asignatura {
+public class Grupo_asignatura implements Serializable {
 
 	@Id
 	private String curso_academico;
 	private String oferta;
+	
+	private static final long serialVersionUID = 1L;
 	
 	public String getCurso_academico() {
 		return curso_academico;

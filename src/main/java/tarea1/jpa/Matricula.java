@@ -1,17 +1,13 @@
 package tarea1.jpa;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-public class Matricula {
+public class Matricula implements Serializable {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +20,8 @@ public class Matricula {
 	private Date fecha_matricula;
 	private Boolean nuevo_ingreso;
 	private List<Asignatura> listado_asignaturas;
+	
+	private static final long serialVersionUID = 1L;
 	
 	public Matricula(Long id, String curso_academico, String estado, Long num_archivo, String turno_preferente,
 			Date fecha_matricula, Boolean nuevo_ingreso, List<Asignatura> listado_asignaturas) {

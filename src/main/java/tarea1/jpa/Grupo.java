@@ -1,13 +1,11 @@
 package tarea1.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
+import javax.persistence.*;
+
 
 @Entity
-public class Grupo {
+public class Grupo implements Serializable {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -22,6 +20,8 @@ public class Grupo {
 	private Boolean asignar;
 	private Long plazas;
 	
+	private static final long serialVersionUID = 1L;
+	
 	public Grupo(Long id, String curso, String letra, String turno_mañana_tarde, Boolean ingles, Boolean visible,
 			Boolean asignar, Long plazas) {
 		super();
@@ -34,6 +34,7 @@ public class Grupo {
 		this.asignar = asignar;
 		this.plazas = plazas;
 	}
+	
 	public Grupo() {
 		
 	}
@@ -86,6 +87,7 @@ public class Grupo {
 	public void setPlazas(Long plazas) {
 		this.plazas = plazas;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -100,6 +102,7 @@ public class Grupo {
 		result = prime * result + ((visible == null) ? 0 : visible.hashCode());
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -151,6 +154,7 @@ public class Grupo {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno_mañana_tarde="

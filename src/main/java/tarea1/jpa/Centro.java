@@ -1,13 +1,13 @@
 package tarea1.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.*;
+
 
 @Entity
-public class Centro {
+public class Centro implements Serializable {
 
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -16,13 +16,17 @@ public class Centro {
 	private String nombre;
 	private String direccion;
 	private Long TLF_Conserjeria;
+	@ManyToMany(mappedBy = "centros")
+	private List<Titulacion> titulaciones;
+	
+	private static final long serialVersionUID = 1L;
 	
 	public Centro(Long id, String nombre, String direccion, Long tLF_Conserjeria) {
 		super();
 		this.id = id;
 		this.nombre = nombre;
 		this.direccion = direccion;
-		TLF_Conserjeria = tLF_Conserjeria;
+		this.TLF_Conserjeria = tLF_Conserjeria;
 	}
 	
 	public Centro() {
