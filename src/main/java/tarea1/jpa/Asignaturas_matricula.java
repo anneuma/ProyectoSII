@@ -20,10 +20,10 @@ public class Asignaturas_matricula implements Serializable {
 	@ManyToOne(targetEntity=Matricula.class)
 	private List<Matricula> matriculas;
 	
-	@ManyToOne
+	@OneToMany(targetEntity=Asignatura.class)
 	private List<Asignatura> asignatura;
 	
-	@ManyToOne
+	@OneToMany(targetEntity=Grupo.class)
 	private List<Grupo> grupo;
 	
 	private static final long serialVersionUID = 1L;

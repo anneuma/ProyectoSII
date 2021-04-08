@@ -20,9 +20,10 @@ public class Expediente implements Serializable {
 	private Long nota_media_provisional;
 	
 	@ManyToOne
-	private List<Matricula> matriculas;
+	private Matricula matriculas;
 	
-	private List<Encuesta> encuestas;
+	@ManyToOne
+	private Encuesta encuestas;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -51,22 +52,22 @@ public class Expediente implements Serializable {
 		this.nota_media_provisional = nota_media_provisional;
 	}
 	
-	public List<Matricula>  getMatriculas()
+	public Matricula  getMatriculas()
 	{
 		return this.matriculas;
 	}
 	
-	public void setMatriculas (List<Matricula> matr)
+	public void setMatriculas (Matricula matr)
 	{
 		this.matriculas = matr;
 	}
 	
-	public List<Encuesta>  getEncuestas()
+	public Encuesta  getEncuestas()
 	{
 		return this.encuestas;
 	}
 	
-	public void setEncuestas (List<Encuesta> enc)
+	public void setEncuestas (Encuesta enc)
 	{
 		this.encuestas = enc;
 	}

@@ -24,7 +24,7 @@ public class Encuesta implements Serializable {
 	@ManyToMany(mappedBy = "encuestas")
 	private List<Grupo_asignatura> grupo_asignaturas;
 	
-	@ManyToOne
+	@OneToMany(targetEntity=Expediente.class)
 	private List<Expediente> expedientes;
 	
 	private static final long serialVersionUID = 1L;

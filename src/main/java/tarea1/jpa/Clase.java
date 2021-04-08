@@ -13,9 +13,11 @@ public class Clase implements Serializable {
 	private String hora_inicio;
 	private String hora_fin;
 	private String aula;
-	@ManyToOne
+	
+	@OneToMany(targetEntity=Asignatura.class)
 	private List<Asignatura> asignatura;
-	@ManyToOne
+	
+	@OneToMany(targetEntity=Grupo.class)
 	private List<Grupo> grupo;
 	
 	public String getDia () {

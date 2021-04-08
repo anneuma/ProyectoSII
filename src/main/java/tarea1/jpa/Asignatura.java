@@ -30,11 +30,13 @@ public class Asignatura implements Serializable {
 	private String idiomas;
 	
 	@ManyToOne 
-	private List<Grupo_asignatura> grupo_asignatura;
+	private Grupo_asignatura grupo_asignatura;
 	
-	private List<Clase> clases;
+	@ManyToOne 
+	private Clase clases;
 	
-	private List<Asignaturas_matricula> asignatura_matricula;
+	@ManyToOne 
+	private Asignaturas_matricula asignatura_matricula;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -146,27 +148,27 @@ public class Asignatura implements Serializable {
 		this.idiomas = idiomas;
 	}
 	
-	public List<Asignaturas_matricula> getAsignatura_Matricula() {
+	public Asignaturas_matricula getAsignatura_Matricula() {
 		return this.asignatura_matricula;
 	}
 
-	public void setAsignatura_Matricula(List<Asignaturas_matricula> asg) {
+	public void setAsignatura_Matricula(Asignaturas_matricula asg) {
 		this.asignatura_matricula = asg;
 	}
 	
-	public List<Grupo_asignatura> getGrupo_asignatura() {
+	public Grupo_asignatura getGrupo_asignatura() {
 		return this.grupo_asignatura;
 	}
 
-	public void setGrupo_asignatura(List<Grupo_asignatura> grup) {
+	public void setGrupo_asignatura(Grupo_asignatura grup) {
 		this.grupo_asignatura = grup;
 	}
 	
-	public List<Clase> getClase() {
+	public Clase getClase() {
 		return this.clases;
 	}
 
-	public void setClases(List<Clase> clases) {
+	public void setClases(Clase clases) {
 		this.clases = clases;
 	}
 	
