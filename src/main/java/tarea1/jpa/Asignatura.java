@@ -71,7 +71,7 @@ public class Asignatura implements Serializable {
 	
 	public void setCodigo(Long codigo)
 	{
-		this.referencia = referencia;
+		this.codigo = codigo;
 	}
 	
 	public Integer getCreditos_totales() {
