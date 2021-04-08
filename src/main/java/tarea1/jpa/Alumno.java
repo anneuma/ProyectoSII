@@ -1,4 +1,7 @@
+package tarea1.jpa;
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -24,7 +27,7 @@ public class Alumno implements Serializable {
 	private String provincia;
 	private String CP;
 	@OneToMany
-	private List<Expedientes> expedientes;
+	private List<Expediente> expedientes;
 	
 	public Long getId () {
    return id;
@@ -118,11 +121,11 @@ public class Alumno implements Serializable {
 		this.CP = CP;
 	}
 	
-	public Expedientes getExpedientes () {
+	public List<Expediente> getExpedientes () {
 		return expedientes;
 	}
 	
-	public void setExpedientes (Expedientes expedientes) {
+	public void setExpedientes (List<Expediente> expedientes) {
 		this.expedientes = expedientes;
 	}
 }
