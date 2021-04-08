@@ -13,9 +13,12 @@ public class Titulacion implements Serializable {
 	private Long Codigo;
 	private String Nombre;
 	private Integer Creditos;
-	@ManyToMany
 	
+	@ManyToMany
 	private List<Centro> centros;
+	
+	@ManyToOne
+	private Titulacion titulacion;
 	
 	private static final long serialVersionUID = 1L;
 	

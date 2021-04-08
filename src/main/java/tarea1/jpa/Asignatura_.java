@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2021-04-08T09:05:50.888-0700")
+@Generated(value="Dali", date="2021-04-08T09:35:51.074-0700")
 @StaticMetamodel(Asignatura.class)
 public class Asignatura_ {
 	public static volatile SingularAttribute<Asignatura, Long> referencia;
@@ -19,4 +19,5 @@ public class Asignatura_ {
 	public static volatile SingularAttribute<Asignatura, String> duracion;
 	public static volatile SingularAttribute<Asignatura, String> unidad_temporal;
 	public static volatile SingularAttribute<Asignatura, String> idiomas;
+	public static volatile SingularAttribute<Asignatura, Grupo_asignatura> grupo_asignatura;
 }

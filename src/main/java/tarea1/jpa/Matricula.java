@@ -21,6 +21,12 @@ public class Matricula implements Serializable {
 	private Boolean nuevo_ingreso;
 	private List<Asignatura> listado_asignaturas;
 	
+	@OneToMany (targetEntity=Expediente.class)
+	private List<Expediente> expedientes;
+	
+	@ManyToOne
+	private Asignaturas_matricula asignaturas_matricula;
+	
 	private static final long serialVersionUID = 1L;
 	
 	public Matricula(Long id, String curso_academico, String estado, Long num_archivo, String turno_preferente,

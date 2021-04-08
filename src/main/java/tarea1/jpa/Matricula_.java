@@ -6,7 +6,7 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="Dali", date="2021-04-08T09:04:40.765-0700")
+@Generated(value="Dali", date="2021-04-08T09:39:35.024-0700")
 @StaticMetamodel(Matricula.class)
 public class Matricula_ {
 	public static volatile SingularAttribute<Matricula, Long> id;
@@ -17,4 +17,6 @@ public class Matricula_ {
 	public static volatile SingularAttribute<Matricula, Date> fecha_matricula;
 	public static volatile SingularAttribute<Matricula, Boolean> nuevo_ingreso;
 	public static volatile ListAttribute<Matricula, Asignatura> listado_asignaturas;
+	public static volatile ListAttribute<Matricula, Expediente> expedientes;
+	public static volatile SingularAttribute<Matricula, Asignaturas_matricula> asignaturas_matricula;
 }

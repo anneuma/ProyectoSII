@@ -17,6 +17,9 @@ public class Expediente implements Serializable {
 	private Boolean activo;
 	private Long nota_media_provisional;
 	
+	@ManyToOne
+	private Matricula matricula;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Expediente() {

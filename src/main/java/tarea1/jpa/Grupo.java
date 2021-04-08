@@ -1,6 +1,8 @@
 package tarea1.jpa;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -19,6 +21,18 @@ public class Grupo implements Serializable {
 	private Boolean visible;
 	private Boolean asignar;
 	private Long plazas;
+	
+	@ManyToOne
+	private Grupo_asignatura grupo_asignatura;
+	
+	@ManyToOne
+	private Grupo grupo;
+	
+	@OneToMany(targetEntity=Grupo.class)
+	private List<Grupo> grupos;
+	
+	@OneToMany(targetEntity=Titulacion.class)
+	private List<Titulacion> titulacion;
 	
 	private static final long serialVersionUID = 1L;
 	

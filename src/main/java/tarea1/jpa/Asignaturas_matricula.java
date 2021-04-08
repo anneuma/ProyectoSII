@@ -1,6 +1,8 @@
 package tarea1.jpa;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 /**
@@ -14,6 +16,10 @@ public class Asignaturas_matricula implements Serializable {
 	@Id
 	private Long id;
 	private Integer Calificacion;
+	
+	@OneToMany(targetEntity=Matricula.class)
+	private List<Matricula> matriculas;
+	
 	private static final long serialVersionUID = 1L;
 
 	public Asignaturas_matricula() {

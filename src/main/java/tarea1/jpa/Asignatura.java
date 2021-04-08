@@ -21,6 +21,9 @@ public class Asignatura implements Serializable {
 	private String unidad_temporal;
 	private String idiomas;
 	
+	@ManyToOne 
+	private Grupo_asignatura grupo_asignatura;
+	
 	private static final long serialVersionUID = 1L;
 	
 	public Asignatura(){
