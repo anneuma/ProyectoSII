@@ -31,7 +31,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	}
 	
 	@Override
-	public List<Titulacion> obtenerTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
+	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
 		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
