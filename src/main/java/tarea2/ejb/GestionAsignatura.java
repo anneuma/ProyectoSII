@@ -19,3 +19,4 @@ public interface GestionAsignatura {
 	public Clase obtenerClase (Clase clase) throws ProyectoException;
 	
 	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
+}
