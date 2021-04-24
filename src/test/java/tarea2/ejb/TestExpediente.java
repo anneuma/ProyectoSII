@@ -27,7 +27,7 @@ import tarea2.exception.*;
 public class TestExpediente {
 	private static final Logger LOG = Logger.getLogger(TestExpediente.class.getCanonicalName());
 	
-	private static final String ASIGNATURA_EJB = "java:global/classes/ExpedienteEJB";
+	private static final String EXPEDIENTE_EJB = "java:global/classes/ExpedienteEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "ProyectoSII_Test";
 
 	private GestionExpediente gestionExpediente;
@@ -59,7 +59,7 @@ public class TestExpediente {
 			
 			gestionExpediente.eliminarExpediente(expediente1);
 
-		} catch (ExpedienteNoEncontradaException e) {
+		} catch (ExpedienteNoEncontradoException e) {
 		} catch (ProyectoException e) {
 			fail("Debería lanzar la excepción de expediente no encontrado");
 		}
@@ -77,4 +77,5 @@ public class TestExpediente {
 		} catch (ProyectoException e) {
 			fail("Debería lanzar la excepción de expediente no encontrado");
 		}
+	}
 }

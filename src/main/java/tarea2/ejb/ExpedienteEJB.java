@@ -65,4 +65,22 @@ public class ExpedienteEJB implements GestionExpediente {
 		}
 		return matricula;
 	}
+
+	@Override
+	public void actualizarExpediente(Expediente expediente) throws ProyectoException {
+		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
+		if (expedienteEntity == null) {
+			throw new ExpedienteNoEncontradoException();
+		}
+		em.merge(expediente);
+	}
+
+	@Override
+	public void insertarExpediente(Expediente expediente) throws ProyectoException {
+		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
+		if (expedienteEntity == null) {
+			throw new ExpedienteNoEncontradoException();
+		}
+		em.persist(expediente);
+	}
 }

@@ -23,4 +23,8 @@ public interface GestionAsignatura {
 	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
 
 	Titulacion obtenerTitulacion(Titulacion titulacion) throws ProyectoException;
+	
+	public void insertarAsignatura(Asignatura asignatura) throws ProyectoException;
+	
+	public void actualizarAsignatura(Asignatura asignatura) throws ProyectoException;
 }

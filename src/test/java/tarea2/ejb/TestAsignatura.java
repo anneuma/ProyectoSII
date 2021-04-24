@@ -25,7 +25,7 @@ import tarea2.exception.*;
 
 
 public class TestAsignatura {
-	private static final Logger LOG = Logger.getLogger(TestAsignaturas.class.getCanonicalName());
+	private static final Logger LOG = Logger.getLogger(TestAsignatura.class.getCanonicalName());
 	
 	private static final String ASIGNATURA_EJB = "java:global/classes/AsignaturaEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "ProyectoSII_Test";
@@ -78,4 +78,5 @@ public class TestAsignatura {
 		} catch (ProyectoException e) {
 			fail("Debería lanzar la excepción de asignatura no encontrada");
 		}
+	}
 }

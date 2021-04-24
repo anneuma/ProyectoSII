@@ -75,4 +75,22 @@ public class AsignaturaEJB implements GestionAsignatura {
 		}
 		return optativa;
 	}
+
+	@Override
+	public void insertarAsignatura(Asignatura asignatura) throws ProyectoException {
+		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getReferencia());
+		if (asignaturaEntity == null) {
+			throw new AsignaturaNoEncontradaException();
+		}
+		em.persist(asignatura);
+	}
+
+	@Override
+	public void actualizarAsignatura(Asignatura asignatura) throws ProyectoException {
+		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getReferencia());
+		if (asignaturaEntity == null) {
+			throw new AsignaturaNoEncontradaException();
+		}
+		em.merge(asignatura);
+	}
 }

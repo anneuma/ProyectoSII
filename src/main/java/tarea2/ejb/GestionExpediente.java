@@ -21,4 +21,8 @@ public interface GestionExpediente {
 	public Alumno obtenerAlumno(Alumno alumno) throws ProyectoException;
 
 	public Titulacion obtenerTitulacion(Titulacion titulacion) throws ProyectoException;
+	
+	public void actualizarExpediente(Expediente expediente) throws ProyectoException;
+	
+	public void insertarExpediente(Expediente expediente) throws ProyectoException;
 }
