@@ -95,4 +95,20 @@ public class TestAlumnos {
 		}
 	}
 	
+	@Requisitos({"RF-013"})
+	@Test
+	public void testSolicitarCambioHorario()
+	{
+		try {
+			Alumno alumno1 = new Alumno("95115697E", "Carmelita", "Enríquez", "Navarro", "06104200001@uma.es", "CarmelitaEnriquezNavarro@gustr.com", (long) 795115697, (long) 795115697, "Ventanilla de Beas 72", "Ourol", "MÁLAGA", "27865");
+			new String documento;
+			gestionAlumno.solicitarCambioHorario(al1, documento);
+
+		} catch (AlumnoNoExisteException|DocumentoNoExisteException e){
+			//OK
+		} catch (ProyectoException e) {
+			fail("Debería lanzar la excepción de alumno no existente");
+		}
+	}
+	
 }
