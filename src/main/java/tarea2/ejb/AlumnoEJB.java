@@ -64,6 +64,22 @@ public class AlumnoEJB implements GestionAlumno {
 		return alumno.getExpedientes();
 	}
 	
+	@Override
+	public void public void solicitarCambioHorario(Alumno alumno, String documento) throws AlumnoNoExistenteException, DocumentoNoExistenteException
+	{
+		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
+		if (alumnoentity == null)
+		{
+			throw new AlumnoNoExisteException("El alumno no existe");
+		}
+		
+		if (documento == null)
+		{
+			throw new DocumentoNoExistenteException("El documento para solicitar el cambio no existe");
+		}
+		
+	}
+	
 	
 	
 }
