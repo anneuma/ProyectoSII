@@ -18,5 +18,7 @@ public interface GestionAsignatura {
 	
 	public Clase obtenerClase (Clase clase) throws ProyectoException;
 	
+	public Asignatura_matricula obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
+	
 	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
 }
