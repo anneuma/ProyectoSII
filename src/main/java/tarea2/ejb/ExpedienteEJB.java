@@ -29,13 +29,4 @@ public class AsignaturaEJB implements GestionExpediente {
 		}
 		em.remove(em.merge(expediente));
 	}
-	
-	@Override
-	public List<Expediente> consultarExpediente(Expediente) throws ExpedienteNoEncontradoException {
-		Expediente expedienteEntity = em.find(Expediente.class, expediente.getId());
-		if (expedienteEntity == null) {
-			throw new ExpedienteNoEncontradoException();
-		}
-		return expediente.getExpedientes();
-	}
 }
