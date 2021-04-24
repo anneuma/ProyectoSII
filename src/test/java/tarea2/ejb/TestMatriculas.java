@@ -130,4 +130,25 @@ public class TestMatriculas {
 		
 	}
 	
+	@Requisitos({"RF-012"})
+	@Test
+	public void testelegirHorarioPreferente() throws ParseException 
+	{
+		try
+		{
+			new String horario = "horario";
+			List<Asignatura> asignaturas = new ArrayList();
+			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+			Date date1 = (Date) dateformat3.parse("22/09/2020");
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+			
+			gestionMatricula.elegirHorario(matr1, horario);
+			
+		} catch (MatriculaNoEncontradaException e) {
+			//OK
+		} catch (ProyectoException e) {
+			fail("Debe lanzar excepción de matricula no encontrada"); 
+		}
+	}
+	
 }
