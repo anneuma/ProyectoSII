@@ -1,7 +1,5 @@
 package tarea2.ejb;
 
-import java.util.List;
-
 import javax.ejb.Local;
 
 import tarea1.jpa.*;
@@ -25,7 +23,7 @@ public interface GestionMatricula {
 	
 	public List<Expediente> obtenerExpedientes(Matricula matricula) throws ProyectoException;
 	
-	
+	public void elegirHorario(Matricula matricula, String horario) throws ProyectoException;
 	
 	
 	
