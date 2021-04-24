@@ -39,7 +39,7 @@ public class Titulacion implements Serializable {
 		Creditos = creditos;
 	}
 	public Titulacion() {
-		
+		super();
 	}   
 	public Long getCodigo() {
 		return this.Codigo;
@@ -103,6 +103,13 @@ public class Titulacion implements Serializable {
 		this.asignaturas = lista;
 	}
 	
+	public Titulacion getTitulacion() {
+		return titulacion;
+	}
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -110,6 +117,11 @@ public class Titulacion implements Serializable {
 		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
 		result = prime * result + ((Creditos == null) ? 0 : Creditos.hashCode());
 		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + ((asignaturas == null) ? 0 : asignaturas.hashCode());
+		result = prime * result + ((centros == null) ? 0 : centros.hashCode());
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
+		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		return result;
 	}
 	
@@ -137,11 +149,39 @@ public class Titulacion implements Serializable {
 				return false;
 		} else if (!Nombre.equals(other.Nombre))
 			return false;
+		if (asignaturas == null) {
+			if (other.asignaturas != null)
+				return false;
+		} else if (!asignaturas.equals(other.asignaturas))
+			return false;
+		if (centros == null) {
+			if (other.centros != null)
+				return false;
+		} else if (!centros.equals(other.centros))
+			return false;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
+			return false;
+		if (titulacion == null) {
+			if (other.titulacion != null)
+				return false;
+		} else if (!titulacion.equals(other.titulacion))
+			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
-		return "Titulacion [Codigo=" + Codigo + ", Nombre=" + Nombre + ", Creditos=" + Creditos + "]";
+		return "Titulacion [Codigo=" + Codigo + ", Nombre=" + Nombre + ", Creditos=" + Creditos + ", centros=" + centros
+				+ ", expedientes=" + expedientes + ", titulacion=" + titulacion + ", grupos=" + grupos
+				+ ", asignaturas=" + asignaturas + "]";
 	}
 	
 }

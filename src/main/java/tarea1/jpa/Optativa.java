@@ -66,13 +66,7 @@ public class Optativa extends Asignatura implements Serializable {
 	}
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Optativa [Plazas=");
-		builder.append(Plazas);
-		builder.append(", Mencion=");
-		builder.append(Mencion);
-		builder.append("]");
-		return builder.toString();
+		return "Optativa [Plazas=" + Plazas + ", Mencion=" + Mencion + "]";
 	}
    
 }

@@ -117,12 +117,18 @@ public class Matricula implements Serializable {
 		this.asignaturas_matricula = asig;
 	}
 
+	public Asignaturas_matricula getAsignaturas_matricula() {
+		return asignaturas_matricula;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((asignaturas_matricula == null) ? 0 : asignaturas_matricula.hashCode());
 		result = prime * result + ((curso_academico == null) ? 0 : curso_academico.hashCode());
 		result = prime * result + ((estado == null) ? 0 : estado.hashCode());
+		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
 		result = prime * result + ((fecha_matricula == null) ? 0 : fecha_matricula.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((listado_asignaturas == null) ? 0 : listado_asignaturas.hashCode());
@@ -141,6 +147,11 @@ public class Matricula implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Matricula other = (Matricula) obj;
+		if (asignaturas_matricula == null) {
+			if (other.asignaturas_matricula != null)
+				return false;
+		} else if (!asignaturas_matricula.equals(other.asignaturas_matricula))
+			return false;
 		if (curso_academico == null) {
 			if (other.curso_academico != null)
 				return false;
@@ -150,6 +161,11 @@ public class Matricula implements Serializable {
 			if (other.estado != null)
 				return false;
 		} else if (!estado.equals(other.estado))
+			return false;
+		if (expedientes == null) {
+			if (other.expedientes != null)
+				return false;
+		} else if (!expedientes.equals(other.expedientes))
 			return false;
 		if (fecha_matricula == null) {
 			if (other.fecha_matricula != null)
@@ -188,7 +204,8 @@ public class Matricula implements Serializable {
 	public String toString() {
 		return "Matricula [id=" + id + ", curso_academico=" + curso_academico + ", estado=" + estado + ", num_archivo="
 				+ num_archivo + ", turno_preferente=" + turno_preferente + ", fecha_matricula=" + fecha_matricula
-				+ ", nuevo_ingreso=" + nuevo_ingreso + ", listado_asignaturas=" + listado_asignaturas + "]";
+				+ ", nuevo_ingreso=" + nuevo_ingreso + ", listado_asignaturas=" + listado_asignaturas + ", expedientes="
+				+ expedientes + ", asignaturas_matricula=" + asignaturas_matricula + "]";
 	}
 
 }

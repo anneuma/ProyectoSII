@@ -59,6 +59,15 @@ public class Centro implements Serializable {
 		TLF_Conserjeria = tLF_Conserjeria;
 	}
 	
+	public List<Titulacion> getTitulaciones() {
+		return titulaciones;
+	}
+
+	public void setTitulaciones(List<Titulacion> titulaciones) {
+		this.titulaciones = titulaciones;
+	}
+
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -67,8 +76,10 @@ public class Centro implements Serializable {
 		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((titulaciones == null) ? 0 : titulaciones.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -98,13 +109,18 @@ public class Centro implements Serializable {
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
+		if (titulaciones == null) {
+			if (other.titulaciones != null)
+				return false;
+		} else if (!titulaciones.equals(other.titulaciones))
+			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Centro [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", TLF_Conserjeria="
-				+ TLF_Conserjeria + "]";
+				+ TLF_Conserjeria + ", titulaciones=" + titulaciones + "]";
 	}
 	
 }

@@ -28,6 +28,17 @@ public class Asignaturas_matricula implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	
+	public Asignaturas_matricula(Long id, Integer calificacion, List<Matricula> matriculas, List<Asignatura> asignatura,
+			List<Grupo> grupo) {
+		super();
+		this.id = id;
+		Calificacion = calificacion;
+		this.matriculas = matriculas;
+		this.asignatura = asignatura;
+		this.grupo = grupo;
+	}
+	
 	public Asignaturas_matricula() {
 		super();
 	}   
@@ -68,6 +79,13 @@ public class Asignaturas_matricula implements Serializable {
 	
 	public void setMatricula (List<Matricula> matricula) {
 		this.matriculas = matricula;
+	}
+	
+	public List<Matricula> getMatriculas() {
+		return matriculas;
+	}
+	public void setMatriculas(List<Matricula> matriculas) {
+		this.matriculas = matriculas;
 	}
 	@Override
 	public int hashCode() {
@@ -116,11 +134,13 @@ public class Asignaturas_matricula implements Serializable {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Asignaturas_matricula [id=" + id + ", Calificacion=" + Calificacion + ", matriculas=" + matriculas
 				+ ", asignatura=" + asignatura + ", grupo=" + grupo + "]";
 	}
+	
 	
 	
 }

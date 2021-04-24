@@ -147,6 +147,18 @@ public class Alumno implements Serializable {
 		this.expedientes = expedientes;
 	}
 
+	public String getDNI() {
+		return DNI;
+	}
+
+	public void setDNI(String dNI) {
+		DNI = dNI;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

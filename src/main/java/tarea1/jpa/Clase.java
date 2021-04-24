@@ -20,6 +20,22 @@ public class Clase implements Serializable {
 	@OneToMany(targetEntity=Grupo.class)
 	private List<Grupo> grupo;
 	
+	
+	public Clase(String dia, String hora_inicio, String hora_fin, String aula, List<Asignatura> asignatura,
+			List<Grupo> grupo) {
+		super();
+		this.dia = dia;
+		this.hora_inicio = hora_inicio;
+		this.hora_fin = hora_fin;
+		this.aula = aula;
+		this.asignatura = asignatura;
+		this.grupo = grupo;
+	}
+	
+	public Clase() {
+		super();
+	}
+
 	public String getDia () {
 		return dia;
 	}
@@ -58,6 +74,30 @@ public class Clase implements Serializable {
 	
 	public void setGrupo (List<Grupo> grupo) {
 		this.grupo = grupo;
+	}
+
+	public String getHora_inicio() {
+		return hora_inicio;
+	}
+
+	public void setHora_inicio(String hora_inicio) {
+		this.hora_inicio = hora_inicio;
+	}
+
+	public String getHora_fin() {
+		return hora_fin;
+	}
+
+	public void setHora_fin(String hora_fin) {
+		this.hora_fin = hora_fin;
+	}
+
+	public String getAula() {
+		return aula;
+	}
+
+	public void setAula(String aula) {
+		this.aula = aula;
 	}
 
 	@Override

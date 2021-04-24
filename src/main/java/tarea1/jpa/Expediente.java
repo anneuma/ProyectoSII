@@ -27,6 +27,15 @@ public class Expediente implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	public Expediente(Long num_expediente, Boolean activo, Long nota_media_provisional, Matricula matriculas,
+			Encuesta encuestas) {
+		super();
+		this.num_expediente = num_expediente;
+		this.activo = activo;
+		this.nota_media_provisional = nota_media_provisional;
+		this.matriculas = matriculas;
+		this.encuestas = encuestas;
+	}
 	public Expediente() {
 
 	}   
@@ -72,14 +81,25 @@ public class Expediente implements Serializable {
 		this.encuestas = enc;
 	}
 	
+	public void setNum_expediente(Long num_expediente) {
+		this.num_expediente = num_expediente;
+	}
+	public void setActivo(Boolean activo) {
+		this.activo = activo;
+	}
+	public void setNota_media_provisional(Long nota_media_provisional) {
+		this.nota_media_provisional = nota_media_provisional;
+	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (activo ? 1231 : 1237);
-		result = (int) (prime * result + nota_media_provisional);
-		result = (int) (prime * result + num_expediente);
+		result = prime * result + ((activo == null) ? 0 : activo.hashCode());
+		result = prime * result + ((encuestas == null) ? 0 : encuestas.hashCode());
+		result = prime * result + ((matriculas == null) ? 0 : matriculas.hashCode());
+		result = prime * result + ((nota_media_provisional == null) ? 0 : nota_media_provisional.hashCode());
+		result = prime * result + ((num_expediente == null) ? 0 : num_expediente.hashCode());
 		return result;
 	}
 	
@@ -92,25 +112,38 @@ public class Expediente implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Expediente other = (Expediente) obj;
-		if (activo != other.activo)
+		if (activo == null) {
+			if (other.activo != null)
+				return false;
+		} else if (!activo.equals(other.activo))
 			return false;
-		if (nota_media_provisional != other.nota_media_provisional)
+		if (encuestas == null) {
+			if (other.encuestas != null)
+				return false;
+		} else if (!encuestas.equals(other.encuestas))
 			return false;
-		if (num_expediente != other.num_expediente)
+		if (matriculas == null) {
+			if (other.matriculas != null)
+				return false;
+		} else if (!matriculas.equals(other.matriculas))
+			return false;
+		if (nota_media_provisional == null) {
+			if (other.nota_media_provisional != null)
+				return false;
+		} else if (!nota_media_provisional.equals(other.nota_media_provisional))
+			return false;
+		if (num_expediente == null) {
+			if (other.num_expediente != null)
+				return false;
+		} else if (!num_expediente.equals(other.num_expediente))
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Expediente [Numero_expediente=");
-		builder.append(num_expediente);
-		builder.append(", Activo=");
-		builder.append(activo);
-		builder.append(", Nota_Media_Provisional=");
-		builder.append(nota_media_provisional);
-		builder.append("]");
-		return builder.toString();
+		return "Expediente [num_expediente=" + num_expediente + ", activo=" + activo + ", nota_media_provisional="
+				+ nota_media_provisional + ", matriculas=" + matriculas + ", encuestas=" + encuestas + "]";
 	}
    
 }

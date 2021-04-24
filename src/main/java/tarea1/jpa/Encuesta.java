@@ -29,6 +29,14 @@ public class Encuesta implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
+	public Encuesta(Integer id, Date fecha_envio, List<Grupo_asignatura> grupo_asignaturas,
+			List<Expediente> expedientes) {
+		super();
+		this.id = id;
+		this.fecha_envio = fecha_envio;
+		this.grupo_asignaturas = grupo_asignaturas;
+		this.expedientes = expedientes;
+	}
 	public Encuesta() {
 		super();
 	}   
@@ -62,6 +70,14 @@ public class Encuesta implements Serializable {
 	public void setGrupo_Asignatura (List<Grupo_asignatura> grupo_asignatura) {
 		this.grupo_asignaturas = grupo_asignatura;
 	}
+	
+	public List<Grupo_asignatura> getGrupo_asignaturas() {
+		return grupo_asignaturas;
+	}
+	public void setGrupo_asignaturas(List<Grupo_asignatura> grupo_asignaturas) {
+		this.grupo_asignaturas = grupo_asignaturas;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,6 +119,7 @@ public class Encuesta implements Serializable {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Encuesta [id=" + id + ", fecha_envio=" + fecha_envio + ", grupo_asignaturas=" + grupo_asignaturas
