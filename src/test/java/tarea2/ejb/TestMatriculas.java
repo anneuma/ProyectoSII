@@ -136,7 +136,7 @@ public class TestMatriculas {
 	{
 		try
 		{
-			new String horario = "horario";
+			String horario = "horario";
 			List<Asignatura> asignaturas = new ArrayList();
 			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = (Date) dateformat3.parse("22/09/2020");
