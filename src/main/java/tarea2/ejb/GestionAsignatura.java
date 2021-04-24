@@ -12,7 +12,7 @@ public interface GestionAsignatura {
 
 	public void eliminarAsignatura(Asignatura asignatura) throws ProyectoException;
 	
-	public List<Titulacion> obtenerTitulacion(Titulacion titulacion) throws ProyectoException;
+	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws ProyectoException;
 	
 	public GrupoAsignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
