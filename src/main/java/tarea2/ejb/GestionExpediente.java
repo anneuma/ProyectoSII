@@ -12,11 +12,11 @@ public interface GestionExpediente {
 
 	public void eliminarExpediente(Expediente expediente) throws ProyectoException;
 	
-	public List<Titulacion> obtenerTitulacion(Titulacion titulacion) throws ProyectoException;
+	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws ProyectoException;
 	
 	public Encuesta obtenerEncuesta (Encuesta encuesta) throws ProyectoException;
 	
-	public List<Alumno> obtenerAlumno (Alumno alumno) throws ProyectoException;
+	public List<Alumno> obtenerListaAlumno (Alumno alumno) throws ProyectoException;
 	
-	public List<Matricula> obtenerMatricula (Matricula matricula) throws ProyectoException;
+	public Matricula obtenerMatricula (Matricula matricula) throws ProyectoException;
 }
