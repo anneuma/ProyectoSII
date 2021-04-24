@@ -14,7 +14,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	
 	@Override
 	public void modificarAsignatura (Asignatura asignatura) throws AsignaturaNoEncontradaException {
-		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getId());
+		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getReferencia());
 		if (asignaturaEntity == null) {
 			throw new AsignaturaNoEncontradaException();
 		}
@@ -23,7 +23,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	
 	@Override
 	public void eliminarAsignatura (Asignatura asignatura) throws AsignaturaNoEncontradaException {
-		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getId());
+		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getReferencia());
 		if (asignaturaEntity == null) {
 			throw new AsignaturaNoEncontradaException();
 		}
@@ -32,7 +32,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	
 	@Override
 	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
-		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
 		}
@@ -50,7 +50,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	
 	@Override
 	public Clase obtenerClase (Clase clase) throws ClaseNoEncontradaException {
-		Clase claseEntity = em.find(Clase.class, clase.getId());
+		Clase claseEntity = em.find(Clase.class, clase.getDia());
 		if (claseEntity == null) {
 			throw new ClaseNoEncontradaException();
 		}

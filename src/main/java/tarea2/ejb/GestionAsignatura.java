@@ -14,11 +14,11 @@ public interface GestionAsignatura {
 	
 	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws ProyectoException;
 	
-	public GrupoAsignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
+	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
 	public Clase obtenerClase (Clase clase) throws ProyectoException;
 	
-	public Asignatura_matricula obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
+	public Asignaturas_matricula obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
 	
 	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
 }

@@ -58,7 +58,7 @@ public class TestAlumnos {
 			try {
 				Alumno alumno1 = new Alumno("95115697E", "Carmelita", "Enríquez", "Navarro", "06104200001@uma.es", "CarmelitaEnriquezNavarro@gustr.com", (long) 795115697, (long) 795115697, "Ventanilla de Beas 72", "Ourol", "MÁLAGA", "27865");
 				gestionAlumno.obtenerExpedientes(alumno1);
-			} catch (AlumnoNoExiste e) {
+			} catch (AlumnoNoExisteException e) {
 				//OK
 			} catch (ProyectoException e) {
 				fail("Debe lanzar excepción de alumno no existente"); 

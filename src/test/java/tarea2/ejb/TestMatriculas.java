@@ -6,6 +6,9 @@ import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -40,9 +43,11 @@ public class TestMatriculas {
 
 	@Requisitos({"RF-007"})
 	@Test
-	public void testAlumnoExistente() {
-		
-		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
+	public void testAlumnoExistente() throws ParseException {
+		List<Asignatura> asignaturas = new ArrayList();
+		SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+		Date date1 = (Date) dateformat3.parse("22/09/2020");
+		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
 			try {
 				gestionMatricula.insertarMatricula(matr1);
 			} catch (MatriculaExisteException e) {
@@ -54,9 +59,12 @@ public class TestMatriculas {
 	
 	@Requisitos({"RF-007"})
 	@Test
-	public void testEliminarMatriculaNoExiste() {
+	public void testEliminarMatriculaNoExiste() throws ParseException {
 		try {
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
+			List<Asignatura> asignaturas = new ArrayList();
+			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+			Date date1 = (Date) dateformat3.parse("22/09/2020");
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas);
 			
 			gestionMatricula.eliminarMatricula(matr1);
 
@@ -69,9 +77,12 @@ public class TestMatriculas {
 	
 	@Requisitos({"RF-007"})
 	@Test
-	public void testActualizarMatriculaNoExiste() {
+	public void testActualizarMatriculaNoExiste() throws ParseException {
 		try {
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
+			List<Asignatura> asignaturas = new ArrayList();
+			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+			Date date1 = (Date) dateformat3.parse("22/09/2020");
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
 
 			gestionMatricula.actualizarMatricula(matr1);
 
@@ -84,10 +95,13 @@ public class TestMatriculas {
 	
 	@Requisitos({"RF-007"})
 	@Test
-	public Asignaturas_matricula testObtenerAsignaturaMatriculaMatriculaNoEncontrada() {
+	public void testObtenerAsignaturaMatriculaMatriculaNoEncontrada() throws ParseException {
 				
 			try {
-				Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
+				List<Asignatura> asignaturas = new ArrayList();
+				SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+				Date date1 = (Date) dateformat3.parse("22/09/2020");
+				Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false,asignaturas );
 
 				gestionMatricula.obtenerAsignaturaMatricula(matr1);
 				
@@ -99,9 +113,12 @@ public class TestMatriculas {
 	}
 	@Requisitos({"RF-007"})
 	@Test
-	public List<Expediente> testObtenerExpedientesMatriculaNoEncontrada() {
+	public void testObtenerExpedientesMatriculaNoEncontrada() throws ParseException {
 		try {
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
+			List<Asignatura> asignaturas = new ArrayList();
+			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+			Date date1 = (Date) dateformat3.parse("22/09/2020");
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
 
 			gestionMatricula.obtenerExpedientes(matr1);
 			

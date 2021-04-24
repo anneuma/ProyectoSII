@@ -1,5 +1,7 @@
 package tarea2.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -22,7 +24,7 @@ public class AlumnoEJB implements GestionAlumno {
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity != null)
 		{
-			throw new AlumnoExisteException("El alumno ya existe")
+			throw new AlumnoExisteException();
 		}
 		
 		em.persist(alumno);
@@ -34,48 +36,48 @@ public class AlumnoEJB implements GestionAlumno {
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity == null)
 		{
-			throw new AlumnoNoExisteException("El alumno no existe");
+			throw new AlumnoNoExisteException();
 		}
 		
 		em.merge(alumno);
 	}
 	
 	@Override
-	public void eliminarAlumno(Alumno alumno) throws AlumnoNoExistenteException
+	public void eliminarAlumno(Alumno alumno) throws AlumnoNoExisteException
 	{
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity == null)
 		{
-			throw new AlumnoNoExisteException("El alumno no existe");
+			throw new AlumnoNoExisteException();
 		}
 		
 		em.remove(em.merge(alumno));
 	}
 	
 	@Override
-	public void List<Expediente> obtenerExpedientes(Alumno alumno) throws AlumnoNoExistenteException
+	public List<Expediente> obtenerExpedientes(Alumno alumno) throws AlumnoNoExisteException
 	{
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity == null)
 		{
-			throw new AlumnoNoExisteException("El alumno no existe");
+			throw new AlumnoNoExisteException();
 		}
 		
 		return alumno.getExpedientes();
 	}
 	
 	@Override
-	public void public void solicitarCambioHorario(Alumno alumno, String documento) throws AlumnoNoExistenteException, DocumentoNoExistenteException
+	public void solicitarCambioHorario(Alumno alumno, String documento) throws AlumnoNoExisteException, DocumentoNoExisteException
 	{
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity == null)
 		{
-			throw new AlumnoNoExisteException("El alumno no existe");
+			throw new AlumnoNoExisteException();
 		}
 		
 		if (documento == null)
 		{
-			throw new DocumentoNoExistenteException("El documento para solicitar el cambio no existe");
+			throw new DocumentoNoExisteException();
 		}
 		
 	}
