@@ -49,7 +49,7 @@ public class AsignaturaEJB implements GestionAsignatura {
 	}
 	
 	@Override
-	public List<Clase> obtenerClase (Clase clase) throws ClaseNoEncontradaException {
+	public Clase obtenerClase (Clase clase) throws ClaseNoEncontradaException {
 		Clase claseEntity = em.find(Clase.class, clase.getId());
 		if (claseEntity == null) {
 			throw new ClaseNoEncontradaException();
