@@ -16,5 +16,6 @@ public interface GestionAsignatura {
 	
 	public GrupoAsignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
-	public List<Clase> obtenerClase (Clase clase) throws ProyectoException;
-}
+	public Clase obtenerClase (Clase clase) throws ProyectoException;
+	
+	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
