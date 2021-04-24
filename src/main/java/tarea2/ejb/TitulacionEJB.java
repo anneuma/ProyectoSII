@@ -40,7 +40,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	}
 	
 	@Override
-	public void eliminarTitulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+	public void eliminarTitulacion(Titulacion titulacion) throws TitulacionNoExisteException
 	{
 		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionentity == null)
@@ -52,7 +52,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	}
 	
 	@Override
-	public void List<Expediente> obtenerExpedientes(Titulacion titulacion) throws AlumnoNoExistenteException
+	public void List<Expediente> obtenerExpedientes(Titulacion titulacion) throws TitulacionNoExistenteException
 	{
 		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionentity == null)
@@ -64,7 +64,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	}
 	
 	@Override
-	public void List<Centro> obtenerCentros(Titulacion titulacion) throws AlumnoNoExistenteException
+	public void List<Centro> obtenerCentros(Titulacion titulacion) throws TitulacionNoExistenteException
 	{
 		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionentity == null)
@@ -76,7 +76,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	}
 	
 	@Override
-	public void List<Grupo> obtenerGrupos(Titulacion titulacion) throws AlumnoNoExistenteException
+	public void List<Grupo> obtenerGrupos(Titulacion titulacion) throws TitulacionNoExistenteException
 	{
 		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionentity == null)
@@ -88,7 +88,7 @@ public class TitulacionEJB implements GestionTitulacion {
 	}
 	
 	@Override
-	public void List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws AlumnoNoExistenteException
+	public void List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws TitulacionNoExistenteException
 	{
 		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionentity == null)
