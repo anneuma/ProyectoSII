@@ -56,4 +56,13 @@ public class AsignaturaEJB implements GestionAsignatura {
 		}
 		return clase.getClases();
 	}
+	
+	@Override
+	public Optativa obtenerOptativa (Optativa optativa) throws OptativaNoEncontradaException {
+		Optativa optativaEntity = em.find(Optativa.class, optativa.getId());
+		if (optativaEntity == null) {
+			throw new OptativaNoEncontradaException();
+		}
+		return optativa.getOptativas();
+	}
 }
