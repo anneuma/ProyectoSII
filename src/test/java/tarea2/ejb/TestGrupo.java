@@ -6,6 +6,7 @@ import static org.junit.Assert.fail;
 
 import java.math.BigDecimal;
 import java.sql.Date;
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -33,7 +34,7 @@ public class TestGrupo {
 	private GestionGrupo gestionGrupo;
 
 	@Before
-	public void setup() throws NamingException  {
+	public void setup() throws NamingException, ParseException  {
 		gestionGrupo = (GestionGrupo) SuiteTest.ctx.lookup(GRUPO_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}

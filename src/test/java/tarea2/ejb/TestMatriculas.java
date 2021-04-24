@@ -36,14 +36,14 @@ public class TestMatriculas {
 	private GestionMatricula gestionMatricula;
 
 	@Before
-	public void setup() throws NamingException  {
+	public void setup() throws NamingException, ParseException  {
 		gestionMatricula = (GestionMatricula) SuiteTest.ctx.lookup(Matricula_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
 	@Requisitos({"RF-007"})
 	@Test
-	public void testAlumnoExistente() throws ParseException {
+	public void testMatriculaExistente() throws ParseException {
 		List<Asignatura> asignaturas = new ArrayList();
 		SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 		Date date1 = (Date) dateformat3.parse("22/09/2020");
