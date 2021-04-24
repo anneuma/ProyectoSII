@@ -86,9 +86,7 @@ public class GrupoEJB implements GestionGrupo {
 		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
 		if (expedienteEntity == null) {
 			throw new ExpedienteNoEncontradoException();
-		}		
+		}
+		
 	}
-
-	
-
 }
