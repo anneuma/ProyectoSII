@@ -8,13 +8,13 @@ import tarea1.jpa.*;
 import tarea2.exception.*;
 
 @Stateless
-public class AsignaturaEJB implements GestionExpediente {
+public class ExpedienteEJB implements GestionExpediente {
 	@PersistenceContext(name="ProyectoSII")
 	private EntityManager em;
 	
 	@Override
 	public void modificarExpediente (Expediente expediente) throws ExpedienteNoEncontradoException {
-		Expediente expedienteEntity = em.find(Expediente.class, expediente.getId());
+		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
 		if (expedienteEntity == null) {
 			throw new ExpedienteNoEncontradoException();
 		}
@@ -23,7 +23,7 @@ public class AsignaturaEJB implements GestionExpediente {
 	
 	@Override
 	public void eliminarExpediente (Expediente expediente) throws ExpedienteNoEncontradoException {
-		Expediente expedienteEntity = em.find(Expediente.class, expediente.getId());
+		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
 		if (expedienteEntity == null) {
 			throw new ExpedienteNoEncontradoException();
 		}
@@ -32,7 +32,7 @@ public class AsignaturaEJB implements GestionExpediente {
 	
 	@Override
 	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
-		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
 		}

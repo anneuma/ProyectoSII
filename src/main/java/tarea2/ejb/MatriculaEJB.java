@@ -1,11 +1,14 @@
 package tarea2.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import tarea1.jpa.Matricula;
 import tarea1.jpa.Asignaturas_matricula;
+import tarea1.jpa.Expediente;
 import tarea2.exception.*;
 
 // @autor: Jose Vargas
@@ -22,7 +25,7 @@ public class MatriculaEJB implements GestionMatricula
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity != null)
 		{
-			throw new MatriculaExisteException("La matricula ya existe")
+			throw new MatriculaExisteException();
 		}
 		
 		em.persist(matricula);
@@ -34,7 +37,7 @@ public class MatriculaEJB implements GestionMatricula
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null)
 		{
-			throw new MatriculaNoExisteException("La matricula no existe");
+			throw new MatriculaNoExisteException();
 		}
 		
 		em.merge(matricula);
@@ -46,7 +49,7 @@ public class MatriculaEJB implements GestionMatricula
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null)
 		{
-			throw new MatriculaNoExisteException("La matricula no existe");
+			throw new MatriculaNoExisteException();
 		}
 		
 		em.remove(em.merge(matricula));
@@ -58,19 +61,19 @@ public class MatriculaEJB implements GestionMatricula
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null)
 		{
-			throw new MatriculaNoExisteException("La matricula no existe");
+			throw new MatriculaNoExisteException();
 		}
 		
-		return matricula.getAsignaturas_matricula();
+		return matricula.getAsignatura_matricula();
 	}
 	
 	@Override
-	public List<Expediente> obtenerExpedientes(Matricula matricula) throws MatriculaNoExistenException
+	public List<Expediente> obtenerExpedientes(Matricula matricula) throws MatriculaNoExisteException
 	{
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null)
 		{
-			throw new MatriculaNoExisteException("La matricula no existe");
+			throw new MatriculaNoExisteException();
 		}
 		
 		return matricula.getExpedientes();
