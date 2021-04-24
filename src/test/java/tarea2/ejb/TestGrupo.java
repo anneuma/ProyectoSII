@@ -95,6 +95,18 @@ public class TestGrupo {
 		} catch (ProyectoException e) {
 			fail("Debería lanzar la excepción de grupo no encontrado");
 		}
-
+	}
+	
+	@Requisitos({"RF09"})
+	@Test
+	public void testAsignarAlumnoNoEncontrado() {
+		try {
+			Expediente expediente = new Expediente();
+			gestionGrupo.asignarGrupo(expediente);
+		} catch (ExpedienteNoEncontradoException e) {
+			//OK
+		} catch (ProyectoException e) {
+			fail("Debería lanzar la exceptión de alumno no encontrado");
+		}
 	}
 }

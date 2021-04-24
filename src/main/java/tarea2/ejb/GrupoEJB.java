@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import tarea1.jpa.Alumno;
+import tarea1.jpa.Expediente;
 import tarea1.jpa.Grupo;
 import tarea1.jpa.Grupo_asignatura;
 import tarea1.jpa.Titulacion;
@@ -81,9 +82,11 @@ public class GrupoEJB implements GestionGrupo {
 	}
 
 	@Override
-	public void asignarGrupo(Alumno alumno) throws AlumnoNoExisteException {
-		// TODO Auto-generated method stub
-		
+	public void asignarGrupo(Expediente expediente) throws ExpedienteNoEncontradoException {
+		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
+		if (expedienteEntity == null) {
+			throw new ExpedienteNoEncontradoException();
+		}		
 	}
 
 	
