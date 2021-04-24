@@ -31,7 +31,7 @@ public class AsignaturaEJB implements GestionExpediente {
 	}
 	
 	@Override
-	public List<Asignatura> consultarAsignatura(Asignatura asignatura) throws ExpedienteNoEncontradoException {
+	public List<Expediente> consultarExpediente(Expediente) throws ExpedienteNoEncontradoException {
 		Expediente expedienteEntity = em.find(Expediente.class, expediente.getId());
 		if (expedienteEntity == null) {
 			throw new ExpedienteNoEncontradoException();
