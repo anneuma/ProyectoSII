@@ -24,7 +24,7 @@ import tarea1.jpa.*;
 import tarea2.exception.*;
 
 
-public class TestAsignaturas {
+public class TestAsignatura {
 	private static final Logger LOG = Logger.getLogger(TestAsignaturas.class.getCanonicalName());
 	
 	private static final String ASIGNATURA_EJB = "java:global/classes/AsignaturaEJB";
