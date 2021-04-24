@@ -53,7 +53,7 @@ public class AlumnoEJB implements GestionAlumno {
 	}
 	
 	@Override
-	public void List<Expediente> obtenerExpedientes(Alumno alumno) AlumnoNoExistenteException
+	public void List<Expediente> obtenerExpedientes(Alumno alumno) throws AlumnoNoExistenteException
 	{
 		Alumno alumnoentity = em.find(Alumno.class, alumno.getId());
 		if (alumnoentity == null)
