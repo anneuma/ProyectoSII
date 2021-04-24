@@ -99,12 +99,22 @@ public class Matricula implements Serializable {
 	
 	public List<Expediente> getExpedientes()
 	{
-		return expedientes;
+		return this.expedientes;
 	}
 	
 	public void setExpedientes(List<Expediente> expedientes)
 	{
 		this.expedientes = expedientes;
+	}
+	
+	public Asignaturas_matricula getAsignatura_matricula()
+	{
+		return asignaturas_matricula;
+	}
+	
+	public void setAsignaturas_matricula(Asignaturas_matricula asig)
+	{
+		this.asignaturas_matricula = asig;
 	}
 
 	@Override
