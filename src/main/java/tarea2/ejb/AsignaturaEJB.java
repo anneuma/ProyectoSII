@@ -58,6 +58,16 @@ public class AsignaturaEJB implements GestionAsignatura {
 	}
 	
 	@Override
+	public Asignatura_matricula obtenerAsignaturaMatricula(Matricula matricula) throws MatriculaNoEncontradaException {
+		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
+		if (matriculaentity == null) {
+			throw new MatriculaNoEncontradaException();
+		}
+		
+		return matricula.getAsignaturas_matricula();
+	}
+	
+	@Override
 	public Optativa obtenerOptativa (Optativa optativa) throws OptativaNoEncontradaException {
 		Optativa optativaEntity = em.find(Optativa.class, optativa.getId());
 		if (optativaEntity == null) {
