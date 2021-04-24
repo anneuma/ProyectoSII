@@ -4,7 +4,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import tarea1.jpa.Expediente;
+import tarea1.jpa.*;
 import tarea2.exception.*;
 
 @Stateless
