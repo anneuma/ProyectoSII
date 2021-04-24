@@ -2,7 +2,7 @@ package tarea2.ejb;
 
 import java.util.List;
 import javax.ejb.Local;
-import tarea1.jpa.Asignatura;
+import tarea1.jpa.*;
 import tarea2.exception.ProyectoException;
 
 @Local
