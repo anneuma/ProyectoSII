@@ -18,6 +18,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import tarea1.jpa.*;
 import tarea2.exception.*;
 
 
@@ -38,26 +39,29 @@ public class TestGrupo {
 
 	@Test
 	public void testGrupoExistente() {
-				
-		try {
+		
+			Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
 			try {
+				gestionGrupo.insertarGrupo(grupo1A);
 			} catch (GrupoExisteException e) {
-				fail("Lanzó excepción al insertar");
+				//OK
+			} catch (ProyectoException e) {
+				fail("Debe lanzar excepción de grupo existente"); 
 			}
-		} catch (TrazabilidadException e) {
-			throw new RuntimeException(e);
-		}
+	}
+	
+	@Test
+	public void testActualizarGrupoTitulacion() {
 				
-		try {
-			List<Lote> lotes = gestionLotes.obtenerLotesDeProducto(productoSalchicha);
-			assertEquals(1, lotes.size());
-			assertEquals(4,lotes.get(0).getLoteIngredientes().size());
-			assertEquals("ST1", lotes.get(0).getCodigo());
-			assertTrue(BigDecimal.valueOf(10L).compareTo(lotes.get(0).getCantidad())==0);
-			assertEquals(Date.valueOf("2021-04-11"), lotes.get(0).getFechaFabricacion());
-		} catch (TrazabilidadException e) {
-			fail("No debería lanzar excepción");
-		}
+			try {
+				Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
+				Titulacion informatica = new Titulacion((long) 1, "Ingenieria Informática",240);
+				gestionGrupo.actualizarGrupoTitulacion(grupo1A, informatica);
+			} catch (GrupoNoEncontradoException|TitulacionNoEncontradaException e) {
+				//OK
+			} catch (ProyectoException e) {
+				fail("Debe lanzar excepción de titulacion no encontrada"); 
+			}
 	}
 
 }
