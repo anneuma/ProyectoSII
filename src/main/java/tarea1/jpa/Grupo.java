@@ -34,7 +34,7 @@ public class Grupo implements Serializable {
 	private List<Grupo> grupos;
 	
 	@OneToMany(targetEntity=Titulacion.class)
-	private List<Titulacion> titulacion;
+	private Titulacion titulacion;
 	
 	private static final long serialVersionUID = 1L;
 	

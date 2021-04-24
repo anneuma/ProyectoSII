@@ -24,8 +24,10 @@ public class Titulacion implements Serializable {
 	@ManyToOne
 	private Titulacion titulacion;
 	
+	@ManyToOne
 	private List<Grupo> grupos;
 	
+	@ManyToOne
 	private List<Asignatura> asignaturas;
 	
 	private static final long serialVersionUID = 1L;
