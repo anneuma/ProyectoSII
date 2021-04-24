@@ -18,6 +18,8 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import tarea2.exception.*;
+
 
 public class TestGrupo {
 	
@@ -34,5 +36,28 @@ public class TestGrupo {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
+	@Test
+	public void testGrupoExistente() {
+				
+		try {
+			try {
+			} catch (GrupoExisteException e) {
+				fail("Lanzó excepción al insertar");
+			}
+		} catch (TrazabilidadException e) {
+			throw new RuntimeException(e);
+		}
+				
+		try {
+			List<Lote> lotes = gestionLotes.obtenerLotesDeProducto(productoSalchicha);
+			assertEquals(1, lotes.size());
+			assertEquals(4,lotes.get(0).getLoteIngredientes().size());
+			assertEquals("ST1", lotes.get(0).getCodigo());
+			assertTrue(BigDecimal.valueOf(10L).compareTo(lotes.get(0).getCantidad())==0);
+			assertEquals(Date.valueOf("2021-04-11"), lotes.get(0).getFechaFabricacion());
+		} catch (TrazabilidadException e) {
+			fail("No debería lanzar excepción");
+		}
+	}
 
 }
