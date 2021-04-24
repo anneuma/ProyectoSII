@@ -1,8 +1,8 @@
-package tarea2.exception
+package tarea2.exception;
 
 //@autor: Jose Vargas
 
-public class MatriculaNoExisteException extends ProyectoException()
+public class MatriculaNoExisteException extends ProyectoException
 {
 	
 }
