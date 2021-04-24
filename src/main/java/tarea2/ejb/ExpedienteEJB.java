@@ -31,7 +31,7 @@ public class AsignaturaEJB implements GestionExpediente {
 	}
 	
 	@Override
-	public List<Titulacion> obtenerTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
+	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
 		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getId());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
@@ -49,7 +49,7 @@ public class AsignaturaEJB implements GestionExpediente {
 	}
 	
 	@Override
-	public List<Alumno> obtenerAlumno (Alumno alumno) throws AlumnoNoEncontradoException {
+	public List<Alumno> obtenerListaAlumno (Alumno alumno) throws AlumnoNoEncontradoException {
 		Alumno alumnoEntity = em.find(Alumno.class, alumno.getId());
 		if (alumnoEntity == null) {
 			throw new AlumnoNoEncontradoException();
