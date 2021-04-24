@@ -103,22 +103,58 @@ public class Grupo implements Serializable {
 	public void setPlazas(Long plazas) {
 		this.plazas = plazas;
 	}
-	
+
+	public Grupo_asignatura getGrupo_asignatura() {
+		return grupo_asignatura;
+	}
+
+	public void setGrupo_asignatura(Grupo_asignatura grupo_asignatura) {
+		this.grupo_asignatura = grupo_asignatura;
+	}
+
+	public Grupo getGrupo() {
+		return grupo;
+	}
+
+	public void setGrupo(Grupo grupo) {
+		this.grupo = grupo;
+	}
+
+	public List<Grupo> getGrupos() {
+		return grupos;
+	}
+
+	public void setGrupos(List<Grupo> grupos) {
+		this.grupos = grupos;
+	}
+
+	public Titulacion getTitulacion() {
+		return titulacion;
+	}
+
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((asignar == null) ? 0 : asignar.hashCode());
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
+		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
+		result = prime * result + ((grupo_asignatura == null) ? 0 : grupo_asignatura.hashCode());
+		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((ingles == null) ? 0 : ingles.hashCode());
 		result = prime * result + ((letra == null) ? 0 : letra.hashCode());
 		result = prime * result + ((plazas == null) ? 0 : plazas.hashCode());
+		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		result = prime * result + ((turno_mañana_tarde == null) ? 0 : turno_mañana_tarde.hashCode());
 		result = prime * result + ((visible == null) ? 0 : visible.hashCode());
 		return result;
 	}
-	
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -137,6 +173,21 @@ public class Grupo implements Serializable {
 			if (other.curso != null)
 				return false;
 		} else if (!curso.equals(other.curso))
+			return false;
+		if (grupo == null) {
+			if (other.grupo != null)
+				return false;
+		} else if (!grupo.equals(other.grupo))
+			return false;
+		if (grupo_asignatura == null) {
+			if (other.grupo_asignatura != null)
+				return false;
+		} else if (!grupo_asignatura.equals(other.grupo_asignatura))
+			return false;
+		if (grupos == null) {
+			if (other.grupos != null)
+				return false;
+		} else if (!grupos.equals(other.grupos))
 			return false;
 		if (id == null) {
 			if (other.id != null)
@@ -158,6 +209,11 @@ public class Grupo implements Serializable {
 				return false;
 		} else if (!plazas.equals(other.plazas))
 			return false;
+		if (titulacion == null) {
+			if (other.titulacion != null)
+				return false;
+		} else if (!titulacion.equals(other.titulacion))
+			return false;
 		if (turno_mañana_tarde == null) {
 			if (other.turno_mañana_tarde != null)
 				return false;
@@ -170,12 +226,13 @@ public class Grupo implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno_mañana_tarde="
 				+ turno_mañana_tarde + ", ingles=" + ingles + ", visible=" + visible + ", asignar=" + asignar
-				+ ", plazas=" + plazas + "]";
+				+ ", plazas=" + plazas + ", grupo_asignatura=" + grupo_asignatura + ", grupo=" + grupo + ", grupos="
+				+ grupos + ", titulacion=" + titulacion + "]";
 	}
-	
+
 }

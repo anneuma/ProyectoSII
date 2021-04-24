@@ -1,14 +1,27 @@
 package tarea2.ejb;
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import tarea1.jpa.*;
 import tarea2.exception.ProyectoException;;
-
+/**
+*
+* @author Francisco José Aragonés de la Rosa
+*/
 @Local
 public interface GestionGrupo {
 	
-	public void insertarGrupo(String curso, String letra, String turno_mañana_tarde, Boolean ingles, Boolean visible, Boolean asignar, Long plazas, Titulacion nombre) throws ProyectoException;
+	public void insertarGrupo(Grupo grupo) throws ProyectoException;
+	
+	public void actualizarGrupoTitulacion(Grupo grupo, Titulacion titulacion) throws ProyectoException;
+	
+	public void actualizarGrupo(Grupo grupo) throws ProyectoException;
 
-	public void eleminarGrupo(Long id) throws ProyectoException;
+	public void eliminarGrupo(Grupo grupo) throws ProyectoException;
+	
+	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
+	
+	public List<Grupo> obtenerListaGrupos(Grupo grupo) throws ProyectoException;
 }
