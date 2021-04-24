@@ -30,11 +30,11 @@ public class TestMatriculas {
 	private static final String Matricula_EJB = "java:global/classes/MatriculaEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "ProyectoSII_Test";
 
-	private GestionMatricula gestional;
+	private GestionMatricula gestionMatricula;
 
 	@Before
 	public void setup() throws NamingException  {
-		gestional = (GestionMatricula) SuiteTest.ctx.lookup(Matricula_EJB);
+		gestionMatricula = (GestionMatricula) SuiteTest.ctx.lookup(Matricula_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
@@ -84,7 +84,7 @@ public class TestMatriculas {
 	
 	@Requisitos({"RF-007"})
 	@Test
-	public Asignaturas_Matricula testObtenerAsignaturaMatriculaMatriculaNoEncontrada {
+	public Asignaturas_matricula testObtenerAsignaturaMatriculaMatriculaNoEncontrada() {
 				
 			try {
 				Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
@@ -99,7 +99,7 @@ public class TestMatriculas {
 	}
 	@Requisitos({"RF-007"})
 	@Test
-	public List<Expediente> testObtenerExpedientesMatriculaNoEncontrada {
+	public List<Expediente> testObtenerExpedientesMatriculaNoEncontrada() {
 		try {
 			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", 22/09/2020, false, new List<Asignatura> asignaturas );
 
