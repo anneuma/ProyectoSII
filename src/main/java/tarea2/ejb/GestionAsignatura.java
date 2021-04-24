@@ -4,6 +4,7 @@ import java.util.List;
 import javax.ejb.Local;
 import tarea1.jpa.*;
 import tarea2.exception.ProyectoException;
+import tarea2.exception.TitulacionNoEncontradaException;
 
 @Local
 public interface GestionAsignatura {
@@ -12,7 +13,6 @@ public interface GestionAsignatura {
 
 	public void eliminarAsignatura(Asignatura asignatura) throws ProyectoException;
 	
-	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws ProyectoException;
 	
 	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
@@ -21,4 +21,6 @@ public interface GestionAsignatura {
 	public Asignaturas_matricula obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
 	
 	public Optativa obtenerOptativa (Optativa optativa) throws ProyectoException;
+
+	Titulacion obtenerTitulacion(Titulacion titulacion) throws ProyectoException;
 }

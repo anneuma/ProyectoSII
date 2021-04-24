@@ -31,12 +31,12 @@ public class ExpedienteEJB implements GestionExpediente {
 	}
 	
 	@Override
-	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
+	public Titulacion obtenerTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
 		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
 		}
-		return titulacion.getTitulaciones();
+		return titulacion;
 	}
 	
 	@Override
@@ -45,16 +45,16 @@ public class ExpedienteEJB implements GestionExpediente {
 		if (encuestaEntity == null) {
 			throw new EncuestaNoEncontradaException();
 		}
-		return encuesta.getEncuestas();
+		return encuesta;
 	}
 	
 	@Override
-	public List<Alumno> obtenerListaAlumno (Alumno alumno) throws AlumnoNoEncontradoException {
+	public Alumno obtenerAlumno (Alumno alumno) throws AlumnoNoEncontradoException {
 		Alumno alumnoEntity = em.find(Alumno.class, alumno.getId());
 		if (alumnoEntity == null) {
 			throw new AlumnoNoEncontradoException();
 		}
-		return alumno.getAlumnos();
+		return alumno;
 	}
 	
 	@Override
@@ -63,6 +63,6 @@ public class ExpedienteEJB implements GestionExpediente {
 		if (matriculaEntity == null) {
 			throw new MatriculaNoEncontradaException();
 		}
-		return matricula.getMatriculas();
+		return matricula;
 	}
 }

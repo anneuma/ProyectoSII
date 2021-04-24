@@ -29,6 +29,24 @@ public class Alumno implements Serializable {
 	@OneToMany
 	private List<Expediente> expedientes;
 
+	public Alumno(Long id, String dni, String nombre, String apellido1, String apellido2, String email_i, String email_p, long telefono,
+			long movil, String direccion, String localidad, String provincia, String CP) {
+		super();
+		this.id = id;
+		this.DNI = dni;
+		this.nombre = nombre;
+		this.apellido1 = apellido1;
+		this.apellido2 = apellido2;
+		this.email_i = email_i;
+		this.email_p = email_p;
+		this.telefono = telefono;
+		this.movil = movil;
+		this.direccion = direccion;
+		this.localidad = localidad;
+		this.provincia = provincia;
+		this.CP = CP;
+	}
+
 	public Long getId () {
    return id;
 	}

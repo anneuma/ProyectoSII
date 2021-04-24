@@ -31,21 +31,21 @@ public class AsignaturaEJB implements GestionAsignatura {
 	}
 	
 	@Override
-	public List<Titulacion> obtenerListaTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
+	public Titulacion obtenerTitulacion(Titulacion titulacion) throws TitulacionNoEncontradaException {
 		Titulacion titulacionEntity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
 		}
-		return titulacion.getTitulaciones();
+		return titulacion;
 	}
 	
 	@Override
-	public GrupoAsignatura obtenerGrupoAsignatura(Grupo grupo) throws GrupoNoEncontradoException {
+	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws GrupoNoEncontradoException {
 		Grupo grupoEntity = em.find(Grupo.class, grupo.getId());
 		if (grupoEntity == null) {
 			throw new GrupoNoEncontradoException();
 		}
-		return grupo.getGrupos();
+		return grupo.getGrupo_asignatura();
 	}
 	
 	@Override
@@ -54,25 +54,25 @@ public class AsignaturaEJB implements GestionAsignatura {
 		if (claseEntity == null) {
 			throw new ClaseNoEncontradaException();
 		}
-		return clase.getClases();
+		return clase;
 	}
 	
 	@Override
-	public Asignatura_matricula obtenerAsignaturaMatricula(Matricula matricula) throws MatriculaNoEncontradaException {
+	public Asignaturas_matricula obtenerAsignaturaMatricula(Matricula matricula) throws MatriculaNoEncontradaException {
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null) {
 			throw new MatriculaNoEncontradaException();
 		}
 		
-		return matricula.getAsignaturas_matricula();
+		return matricula.getAsignatura_matricula();
 	}
 	
 	@Override
 	public Optativa obtenerOptativa (Optativa optativa) throws OptativaNoEncontradaException {
-		Optativa optativaEntity = em.find(Optativa.class, optativa.getId());
+		Optativa optativaEntity = em.find(Optativa.class, optativa.getCodigo());
 		if (optativaEntity == null) {
 			throw new OptativaNoEncontradaException();
 		}
-		return optativa.getOptativas();
+		return optativa;
 	}
 }
