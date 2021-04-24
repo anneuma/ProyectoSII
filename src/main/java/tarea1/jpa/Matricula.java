@@ -96,6 +96,16 @@ public class Matricula implements Serializable {
 	public void setListado_asignaturas(List<Asignatura> listado_asignaturas) {
 		this.listado_asignaturas = listado_asignaturas;
 	}
+	
+	public List<Expediente> getExpedientes()
+	{
+		return expedientes;
+	}
+	
+	public void setExpedientes(List<Expediente> expedientes)
+	{
+		this.expedientes = expedientes;
+	}
 
 	@Override
 	public int hashCode() {
