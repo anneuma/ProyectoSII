@@ -11,7 +11,7 @@ public class AccesoEJB implements GestionAcceso {
 	@PersistenceContext(name = "ProyectoSII")
     private EntityManager em;
 	
-	public void validarCuenta(Alumno alumno, String contrasenya) throws CorreoNoEncontradoException, ContraseñaIncorrectaException {
+	public void validarCuenta(Alumno alumno, String contrasenya) throws CorreoNoEncontradoException, ContrasenyaIncorrectaException {
         Alumno alumnoEntity = em.find(Alumno.class, alumno.getEmail_i());
         if (alumnoEntity == null) {
             throw new CorreoNoEncontradoException();
@@ -23,7 +23,7 @@ public class AccesoEJB implements GestionAcceso {
         }
 
         if (!alumnoEntity.getEmail_i().equals(contrasenya)) {
-            throw new ContraseñaIncorrectaException();
+            throw new ContrasenyaIncorrectaException();
         }
     }
 }
