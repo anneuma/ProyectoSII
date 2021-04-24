@@ -79,5 +79,17 @@ public class MatriculaEJB implements GestionMatricula
 		return matricula.getExpedientes();
 	}
 	
+	@Override
+	public void elegirHorario(Matricula matricula, String horario) throws MatriculaNoExisteException
+	{
+		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
+		if (matriculaentity == null)
+		{
+			throw new MatriculaNoExisteException();
+		}
+		
+		matricula.setTurno_preferente(horario);
+	}
+	
 	
 }
