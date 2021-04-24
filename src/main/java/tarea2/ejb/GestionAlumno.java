@@ -22,6 +22,7 @@ public interface GestionAlumno {
 	public List<Expediente> obtenerExpedientes(Alumno alumno) throws ProyectoException;
 	
 	
+	public void solicitarCambioHorario(Alumno alumno, String documento) throws ProyectoException;
 	
 	
 	
