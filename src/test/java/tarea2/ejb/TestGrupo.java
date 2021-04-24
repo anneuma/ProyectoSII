@@ -18,6 +18,7 @@ import javax.naming.NamingException;
 import org.junit.Before;
 import org.junit.Test;
 
+import es.uma.informatica.sii.anotaciones.Requisitos;
 import tarea1.jpa.*;
 import tarea2.exception.*;
 
@@ -37,6 +38,7 @@ public class TestGrupo {
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 
+	@Requisitos({"RF8"})
 	@Test
 	public void testGrupoExistente() {
 		
@@ -49,9 +51,9 @@ public class TestGrupo {
 				fail("Debe lanzar excepción de grupo existente"); 
 			}
 	}
-	
+	@Requisitos({"RF8"})
 	@Test
-	public void testActualizarGrupoTitulacion() {
+	public void testActualizarGrupoTitulacionNoencontrada() {
 				
 			try {
 				Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
@@ -63,5 +65,36 @@ public class TestGrupo {
 				fail("Debe lanzar excepción de titulacion no encontrada"); 
 			}
 	}
+	
+	@Requisitos({"RF8"})
+	@Test
+	public void testEliminarGrupoNoEncontrado() {
+		try {
+			Grupo grupo3A = new Grupo((long) 3, "tercero", "A", "mañana", false, true, true, (long) 42);
+			
+			gestionGrupo.eliminarGrupo(grupo3A);
 
+			fail("Debería lanzar la excepción de grupo no encontrado");
+		} catch (GrupoNoEncontradoException e) {
+			// OK
+		} catch (ProyectoException e) {
+			fail("Debería lanzar la excepción de grupo no encontrado");
+		}
+	}
+	
+	@Requisitos({"RF8"})
+	@Test
+	public void testActualizarGrupoNoEncontrado() {
+		try {
+			Grupo grupo3A = new Grupo((long) 3, "tercero", "A", "mañana", false, true, true, (long) 42);
+
+			gestionGrupo.actualizarGrupo(grupo3A);
+
+		} catch (GrupoNoEncontradoException e){
+			//OK
+		} catch (ProyectoException e) {
+			fail("Debería lanzar la excepción de grupo no encontrado");
+		}
+
+	}
 }

@@ -24,4 +24,6 @@ public interface GestionGrupo {
 	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
 	public List<Grupo> obtenerListaGrupos(Grupo grupo) throws ProyectoException;
+	
+	public void asignarGrupo(Alumno alumno) throws ProyectoException;
 }

@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
+import tarea1.jpa.Alumno;
 import tarea1.jpa.Grupo;
 import tarea1.jpa.Grupo_asignatura;
 import tarea1.jpa.Titulacion;
@@ -78,6 +78,12 @@ public class GrupoEJB implements GestionGrupo {
 			throw new GrupoNoEncontradoException();
 		}
 		return grupo.getGrupos();
+	}
+
+	@Override
+	public void asignarGrupo(Alumno alumno) throws AlumnoNoExisteException {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
