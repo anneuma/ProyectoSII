@@ -5,7 +5,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import tarea1.jpa.Expediente;
-import tarea2.exception.*;
+import tarea2.exception.ExpedienteNoEncontradoException;
 
 @Stateless
 public class AsignaturaEJB implements GestionAsignatura {
