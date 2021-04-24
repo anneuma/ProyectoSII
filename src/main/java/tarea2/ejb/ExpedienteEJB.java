@@ -8,7 +8,7 @@ import tarea1.jpa.Expediente;
 import tarea2.exception.ExpedienteNoEncontradoException;
 
 @Stateless
-public class AsignaturaEJB implements GestionAsignatura {
+public class AsignaturaEJB implements GestionExpediente {
 	@PersistenceContext(name="ProyectoSII")
 	private EntityManager em;
 	
