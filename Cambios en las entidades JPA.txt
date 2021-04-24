@@ -1,0 +1,4 @@
+Cambios en las entidades JPA
+
+- Se han añadido los contructores que faltaban para poder realizar los EJB.
+- Se han añadido los métodos getters y setters que faltaban.
