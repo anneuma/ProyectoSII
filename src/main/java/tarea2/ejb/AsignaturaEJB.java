@@ -29,13 +29,4 @@ public class AsignaturaEJB implements GestionAsignatura {
 		}
 		em.remove(em.merge(asignatura));
 	}
-	
-	@Override
-	public List<Asignatura> consultarAsignatura(Asignatura asignatura) throws AsignaturaNoEncontradaException {
-		Asignatura asignaturaEntity = em.find(Asignatura.class, asignatura.getId());
-		if (asignaturaEntity == null) {
-			throw new AsignaturaNoEncontradaException();
-		}
-		return asignatura.getAsignaturas();
-	}
 }
