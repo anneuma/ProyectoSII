@@ -27,14 +27,14 @@ public class TestAlumnos {
 	
 	private static final Logger LOG = Logger.getLogger(TestAlumnos.class.getCanonicalName());
 
-	private static final String Alumno_EJB = "java:global/classes/AlumnoEJB";
+	private static final String ALUMNO_EJB = "java:global/classes/AlumnoEJB";
 	private static final String UNIDAD_PERSITENCIA_PRUEBAS = "ProyectoSII_Test";
 
-	private GestionAlumno gestional;
+	private GestionAlumno gestionAlumno;
 
 	@Before
 	public void setup() throws NamingException  {
-		gestional = (GestionAlumno) SuiteTest.ctx.lookup(ALUMNO_EJB);
+		gestionAlumno = (GestionAlumno) SuiteTest.ctx.lookup(ALUMNO_EJB);
 		BaseDatos.inicializaBaseDatos(UNIDAD_PERSITENCIA_PRUEBAS);
 	}
 

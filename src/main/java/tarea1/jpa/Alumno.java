@@ -28,7 +28,7 @@ public class Alumno implements Serializable {
 	private String CP;
 	@OneToMany
 	private List<Expediente> expedientes;
-	
+
 	public Long getId () {
    return id;
 	}
