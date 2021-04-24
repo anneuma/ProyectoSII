@@ -1,4 +1,6 @@
-ackage tarea2.ejb;
+package tarea2.ejb;
+
+import java.util.List;
 
 import javax.ejb.Local;
 
@@ -22,9 +24,9 @@ public interface GestionTitulacion {
 	public List<Expediente> obtenerExpedientes(Titulacion titulacion) throws ProyectoException;
 	
 	
-	public List<Expediente> obtenerGrupos(Titulacion titulacion) throws ProyectoException;
+	public List<Grupo> obtenerGrupos(Titulacion titulacion) throws ProyectoException;
 	
-	public List<Expediente> obtenerAsignaturas(Titulacion titulacion) throws ProyectoException;
+	public List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws ProyectoException;
 	
-	public List<Expediente> obtenerCentros(Titulacion titulacion) throws ProyectoException;
+	public  List<Centro> obtenerCentros(Titulacion titulacion) throws ProyectoException;
 }

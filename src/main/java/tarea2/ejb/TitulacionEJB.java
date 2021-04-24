@@ -1,5 +1,7 @@
 package tarea2.ejb;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -18,10 +20,10 @@ public class TitulacionEJB implements GestionTitulacion {
 	@Override
 	public void insertarTitulacion(Titulacion titulacion) throws TitulacionExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
-		if (alumnoentity != null)
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
+		if (titulacionentity != null)
 		{
-			throw new AlumnoExisteException("La titulacion ya existe")
+			throw new TitulacionExisteException();
 		}
 		
 		em.persist(titulacion);
@@ -30,10 +32,10 @@ public class TitulacionEJB implements GestionTitulacion {
 	@Override
 	public void actualizarTitulacion(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		em.merge(titulacion);
@@ -42,58 +44,58 @@ public class TitulacionEJB implements GestionTitulacion {
 	@Override
 	public void eliminarTitulacion(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		em.remove(em.merge(titulacion));
 	}
 	
 	@Override
-	public void List<Expediente> obtenerExpedientes(Titulacion titulacion) throws TitulacionNoExistenteException
+	public List<Expediente> obtenerExpedientes(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		return titulacion.getExpedientes();
 	}
 	
 	@Override
-	public void List<Centro> obtenerCentros(Titulacion titulacion) throws TitulacionNoExistenteException
+	public List<Centro> obtenerCentros(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		return titulacion.getCentros();
 	}
 	
 	@Override
-	public void List<Grupo> obtenerGrupos(Titulacion titulacion) throws TitulacionNoExistenteException
+	public List<Grupo> obtenerGrupos(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		return titulacion.getGrupos();
 	}
 	
 	@Override
-	public void List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws TitulacionNoExistenteException
+	public List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws TitulacionNoExisteException
 	{
-		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getId());
+		Titulacion titulacionentity = em.find(Titulacion.class, titulacion.getCodigo());
 		if (titulacionentity == null)
 		{
-			throw new TitulacionNoExisteException("La titulacion no existe");
+			throw new TitulacionNoExisteException();
 		}
 		
 		return titulacion.getAsignaturas();
