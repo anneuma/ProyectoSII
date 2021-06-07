@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+        <title>Lista de grupos</title>
+</h:head>
+<h:body>
+                <h:form id="grupos">
+                    <h:dataTable value="#{GrupoEJB.obtenerListaGrupos()}" var="g">
+                        <h:column>
+                            <f:facet name="header">Curso</f:facet>
+                            <h:outputText value="#{g.curso}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Letra</f:facet>
+                            <h:outputText value="#{g.letra}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <f:facet name="header">Plazas</f:facet>
+                            <h:outputText value="#{g.plazas}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <h:commandButton value="Modificar" action="#{Grupos.actualizar(g)}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <h:commandButton value="Eliminar" action="#{Grupos.eliminar(g)}"/>
+                        </h:column>
+                    </h:dataTable>
+                    <h:commandButton value="Insertar" action="#{Grupos.insertarGrupo()}"/>
+                </h:form>
+		<h:button outcome="index.xhtml" value="Volver"/>
+    </h:body>
+    
+</html>

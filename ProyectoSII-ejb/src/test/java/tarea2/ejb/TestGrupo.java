@@ -7,6 +7,8 @@ import static org.junit.Assert.fail;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
@@ -100,14 +102,35 @@ public class TestGrupo {
 	
 	@Requisitos({"RF09"})
 	@Test
-	public void testAsignarAlumnoNoEncontrado() {
+	public void testAsignarMatriculaNoEncontrada() {
 		try {
-			Expediente expediente = new Expediente();
-			gestionGrupo.asignarGrupo(expediente);
-		} catch (ExpedienteNoEncontradoException e) {
+			Matricula matricula = new Matricula();
+			gestionGrupo.asignarGrupo(matricula);
+		} catch (MatriculaNoEncontradaException e) {
 			//OK
 		} catch (ProyectoException e) {
-			fail("Debería lanzar la exceptión de alumno no encontrado");
+			fail("Debería lanzar la exceptión de matricula no encontrada");
+		}
+	}
+	
+	@Requisitos({"RF09"})
+	@Test
+	public void testAsignarGrupo() throws ParseException {
+		try {
+			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
+			Date date1 = (Date) dateformat3.parse("22/09/2020");
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
+			List<Asignaturas_matricula> list_asig = new ArrayList<>();
+			for(long i = 0; i< 10; i++) {
+				Asignaturas_matricula asig = new Asignaturas_matricula(i, 0);
+				list_asig.add(asig);
+			}
+			matr1.setAsignaturas_matricula(list_asig);
+			gestionGrupo.asignarGrupo(matr1);
+		} catch (MatriculaNoEncontradaException e) {
+			fail("No debería lanzar la exceptión de matricula no encontrada");
+		} catch (ProyectoException e) {
+			fail("No debería lanzar exceptión");
 		}
 	}
 }

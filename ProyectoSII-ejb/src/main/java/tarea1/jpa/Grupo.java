@@ -24,6 +24,9 @@ public class Grupo implements Serializable {
 	private Boolean asignar;
 	private Long plazas;
 	
+	@OneToMany(targetEntity=Asignaturas_matricula.class)
+	private List<Asignaturas_matricula> asignaturas_matricula;
+	
 	@ManyToOne
 	private Grupo_asignatura grupo_asignatura;
 	
@@ -52,9 +55,9 @@ public class Grupo implements Serializable {
 	}
 	
 	public Grupo() {
-		
+		super();
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -135,12 +138,21 @@ public class Grupo implements Serializable {
 	public void setTitulacion(Titulacion titulacion) {
 		this.titulacion = titulacion;
 	}
+	
+	public List<Asignaturas_matricula> getAsignaturas_matricula() {
+		return asignaturas_matricula;
+	}
+
+	public void setAsignaturas_matricula(List<Asignaturas_matricula> asignaturas_matricula) {
+		this.asignaturas_matricula = asignaturas_matricula;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((asignar == null) ? 0 : asignar.hashCode());
+		result = prime * result + ((asignaturas_matricula == null) ? 0 : asignaturas_matricula.hashCode());
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
 		result = prime * result + ((grupo_asignatura == null) ? 0 : grupo_asignatura.hashCode());
@@ -168,6 +180,11 @@ public class Grupo implements Serializable {
 			if (other.asignar != null)
 				return false;
 		} else if (!asignar.equals(other.asignar))
+			return false;
+		if (asignaturas_matricula == null) {
+			if (other.asignaturas_matricula != null)
+				return false;
+		} else if (!asignaturas_matricula.equals(other.asignaturas_matricula))
 			return false;
 		if (curso == null) {
 			if (other.curso != null)
@@ -231,8 +248,8 @@ public class Grupo implements Serializable {
 	public String toString() {
 		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno_mañana_tarde="
 				+ turno_mañana_tarde + ", ingles=" + ingles + ", visible=" + visible + ", asignar=" + asignar
-				+ ", plazas=" + plazas + ", grupo_asignatura=" + grupo_asignatura + ", grupo=" + grupo + ", grupos="
-				+ grupos + ", titulacion=" + titulacion + "]";
+				+ ", plazas=" + plazas + ", asignaturas_matricula=" + asignaturas_matricula + ", grupo_asignatura="
+				+ grupo_asignatura + ", grupo=" + grupo + ", grupos=" + grupos + ", titulacion=" + titulacion + "]";
 	}
 
 }

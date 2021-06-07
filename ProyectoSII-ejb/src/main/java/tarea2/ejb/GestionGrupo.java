@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Local;
 
 import tarea1.jpa.*;
+import tarea2.exception.GrupoNoEncontradoException;
 import tarea2.exception.ProyectoException;;
 /**
 *
@@ -23,7 +24,9 @@ public interface GestionGrupo {
 	
 	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
-	public List<Grupo> obtenerListaGrupos(Grupo grupo) throws ProyectoException;
+	public List<Grupo> obtenerListaGrupos() throws ProyectoException;
 	
-	public void asignarGrupo(Expediente expediente) throws ProyectoException;
+	public void asignarGrupo(Matricula matricula) throws ProyectoException;
+
+	public List<Grupo> obtenerListaGruposRelacionados(Grupo grupo) throws GrupoNoEncontradoException;
 }

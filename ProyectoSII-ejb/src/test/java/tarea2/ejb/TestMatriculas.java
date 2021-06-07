@@ -44,10 +44,9 @@ public class TestMatriculas {
 	@Requisitos({"RF-007"})
 	@Test
 	public void testMatriculaExistente() throws ParseException {
-		List<Asignaturas_matricula> asignaturas = new ArrayList();
 		SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 		Date date1 = (Date) dateformat3.parse("22/09/2020");
-		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 			try {
 				gestionMatricula.insertarMatricula(matr1);
 			} catch (MatriculaExisteException e) {
@@ -61,10 +60,9 @@ public class TestMatriculas {
 	@Test
 	public void testEliminarMatriculaNoExiste() throws ParseException {
 		try {
-			List<Asignaturas_matricula> asignaturas = new ArrayList();
 			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = (Date) dateformat3.parse("22/09/2020");
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas);
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 			
 			gestionMatricula.eliminarMatricula(matr1);
 
@@ -79,10 +77,9 @@ public class TestMatriculas {
 	@Test
 	public void testActualizarMatriculaNoExiste() throws ParseException {
 		try {
-			List<Asignaturas_matricula> asignaturas = new ArrayList();
 			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = (Date) dateformat3.parse("22/09/2020");
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 
 			gestionMatricula.actualizarMatricula(matr1);
 
@@ -98,10 +95,9 @@ public class TestMatriculas {
 	public void testObtenerAsignaturaMatriculaMatriculaNoEncontrada() throws ParseException {
 				
 			try {
-				List<Asignaturas_matricula> asignaturas = new ArrayList();
 				SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 				Date date1 = (Date) dateformat3.parse("22/09/2020");
-				Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false,asignaturas );
+				Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 
 				gestionMatricula.obtenerAsignaturaMatricula(matr1);
 				
@@ -115,10 +111,9 @@ public class TestMatriculas {
 	@Test
 	public void testObtenerExpedientesMatriculaNoEncontrada() throws ParseException {
 		try {
-			List<Asignaturas_matricula> asignaturas = new ArrayList();
 			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = (Date) dateformat3.parse("22/09/2020");
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 
 			gestionMatricula.obtenerExpedientes(matr1);
 			
@@ -137,10 +132,9 @@ public class TestMatriculas {
 		try
 		{
 			String horario = "horario";
-			List<Asignaturas_matricula> asignaturas = new ArrayList();
 			SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 			Date date1 = (Date) dateformat3.parse("22/09/2020");
-			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+			Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 			
 			gestionMatricula.elegirHorario(matr1, horario);
 			

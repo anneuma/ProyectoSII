@@ -5,11 +5,14 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import tarea1.jpa.Alumno;
+import tarea1.jpa.Asignaturas_matricula;
 import tarea1.jpa.Expediente;
 import tarea1.jpa.Grupo;
 import tarea1.jpa.Grupo_asignatura;
+import tarea1.jpa.Matricula;
 import tarea1.jpa.Titulacion;
 import tarea2.exception.*;
 /**
@@ -21,14 +24,15 @@ public class GrupoEJB implements GestionGrupo {
 
 	@PersistenceContext(name="ProyectoSII")
 	private EntityManager em;
-
+	
 	@Override
 	public void insertarGrupo(Grupo grupo) throws GrupoExisteException {
+
 		Grupo grupoEntity = em.find(Grupo.class, grupo.getId());
 		if (grupoEntity != null) {
 			throw new GrupoExisteException();
 		}
-		em.persist(grupo);
+		em.merge(grupo);
 	}
 
 	@Override
@@ -73,7 +77,7 @@ public class GrupoEJB implements GestionGrupo {
 	}
 
 	@Override
-	public List<Grupo> obtenerListaGrupos(Grupo grupo) throws GrupoNoEncontradoException {
+	public List<Grupo> obtenerListaGruposRelacionados(Grupo grupo) throws GrupoNoEncontradoException {
 		Grupo grupoEntity = em.find(Grupo.class, grupo.getId());
 		if (grupoEntity == null) {
 			throw new GrupoNoEncontradoException();
@@ -82,11 +86,21 @@ public class GrupoEJB implements GestionGrupo {
 	}
 
 	@Override
-	public void asignarGrupo(Expediente expediente) throws ExpedienteNoEncontradoException {
-		Expediente expedienteEntity = em.find(Expediente.class, expediente.getNum_expediente());
-		if (expedienteEntity == null) {
-			throw new ExpedienteNoEncontradoException();
+	public void asignarGrupo(Matricula matricula) throws MatriculaNoEncontradaException {
+		Matricula matriculaEntity = em.find(Matricula.class, matricula.getId());
+		if (matriculaEntity == null) {
+			throw new MatriculaNoEncontradaException();
 		}
-		
+		Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
+		for (Asignaturas_matricula asig: matricula.getAsignaturas_matricula()) {
+			asig.setGrupo(grupo1A);
+		}
+	}
+
+	@Override
+	public List<Grupo> obtenerListaGrupos() throws ProyectoException {
+		Query query = em.createQuery("SELECT g FROM Grupo g");
+		List<Grupo> grupos = query.getResultList();
+		return grupos;
 	}
 }

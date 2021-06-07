@@ -20,7 +20,7 @@ public interface GestionMatricula {
 	
 	public void eliminarMatricula(Matricula matricula) throws ProyectoException;
 	
-	public List<Asignaturas_matricula> obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
+	public String obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
 	
 	
 	public List<Expediente> obtenerExpedientes(Matricula matricula) throws ProyectoException;

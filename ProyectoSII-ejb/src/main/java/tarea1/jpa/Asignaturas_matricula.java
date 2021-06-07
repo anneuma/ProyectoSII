@@ -23,23 +23,16 @@ public class Asignaturas_matricula implements Serializable {
 	@OneToMany(targetEntity=Asignatura.class)
 	private List<Asignatura> asignatura;
 	
-	@OneToMany(targetEntity=Grupo.class)
-	private List<Grupo> grupo;
-	
 	@ManyToOne
-	private Matricula matricula;
+	private Grupo grupo;
 	
 	private static final long serialVersionUID = 1L;
 
 	
-	public Asignaturas_matricula(Long id, Integer calificacion, List<Matricula> matriculas, List<Asignatura> asignatura,
-			List<Grupo> grupo) {
+	public Asignaturas_matricula(Long id, Integer calificacion) {
 		super();
 		this.id = id;
 		Calificacion = calificacion;
-		this.matriculas = matriculas;
-		this.asignatura = asignatura;
-		this.grupo = grupo;
 	}
 	
 	public Asignaturas_matricula() {
@@ -68,28 +61,22 @@ public class Asignaturas_matricula implements Serializable {
 		this.asignatura = asignatura;
 	}
 	
-	public List<Grupo> getGrupo () {
+	public Grupo getGrupo () {
 		return grupo;
 	}
 	
-	public void setGrupo (List<Grupo> grupo) {
+	public void setGrupo (Grupo grupo) {
 		this.grupo = grupo;
 	}
-	
-	public List<Matricula> getMatricula () {
-		return matriculas;
-	}
-	
-	public void setMatricula (List<Matricula> matricula) {
-		this.matriculas = matricula;
-	}
-	
+
 	public List<Matricula> getMatriculas() {
 		return matriculas;
 	}
+
 	public void setMatriculas(List<Matricula> matriculas) {
 		this.matriculas = matriculas;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -101,6 +88,7 @@ public class Asignaturas_matricula implements Serializable {
 		result = prime * result + ((matriculas == null) ? 0 : matriculas.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -137,13 +125,11 @@ public class Asignaturas_matricula implements Serializable {
 			return false;
 		return true;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Asignaturas_matricula [id=" + id + ", Calificacion=" + Calificacion + ", matriculas=" + matriculas
 				+ ", asignatura=" + asignatura + ", grupo=" + grupo + "]";
 	}
-	
-	
 	
 }

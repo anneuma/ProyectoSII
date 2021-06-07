@@ -25,10 +25,9 @@ public class BaseDatos {
 		Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
 		Grupo grupo2C = new Grupo((long) 2, "segundo", "C", "tarde", true, true, true, (long) 30);
 		Alumno alumno1 = new Alumno((long) 1, "95115697E", "Carmelita", "Enríquez", "Navarro", "06104200001@uma.es", "CarmelitaEnriquezNavarro@gustr.com", (long) 795115697, (long) 795115697, "Ventanilla de Beas 72", "Ourol", "MÁLAGA", "27865");
-		List<Asignaturas_matricula> asignaturas = new ArrayList();
 		SimpleDateFormat dateformat3 = new SimpleDateFormat("dd/MM/yyyy");
 		Date date1 = (Date) dateformat3.parse("22/09/2020");
-		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, asignaturas );
+		Matricula matr1 = new Matricula((long) 00001, "2020/2021", "Activa", (long) 306000001, "Mañana", date1, false, "101-,102-,105");
 		Titulacion titulacion1 = new Titulacion((long) 1, "Ingenieria Informática",240);
 
 		em.persist(grupo1A);
