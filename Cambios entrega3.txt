@@ -1,0 +1,17 @@
+jpa.grupo
+relacion grupo-titulacion
+
+jpa.titulacion
+relacion titulacion-asignatura
+
+jpa.matricula
+artibuto listado_asignaturas
+relacion asignturas_matricula-matricula
+
+ejb.matricula
+método obtenerAsignaturaMatricula
+ejb.asignatura
+metodo obtenerAsignaturaMatricula
+
+ejb.test.testMatricula
+actualizar de asignatura a asignaturas_matricula
