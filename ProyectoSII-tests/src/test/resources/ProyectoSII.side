@@ -1,0 +1,49 @@
+{
+  "id": "6a67c2c3-ecdb-4a4a-943b-56b4e0f68207",
+  "version": "2.0",
+  "name": "ProyectoSII",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "9117bccb-b9a1-49b6-a6ca-715c70f4ed2c",
+    "name": "PruebaSencilla",
+    "commands": [{
+      "id": "5e5eb8ec-c1c9-4917-a6aa-a054dfb012f0",
+      "comment": "",
+      "command": "open",
+      "target": "/ProyectoSII-war/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "98fe6e0a-f476-440b-b589-5ca453423492",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "908x754",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ccebd9dc-b9c0-4439-b90e-8986b9da1cbc",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=texto",
+      "targets": [
+        ["id=texto", "id"],
+        ["css=#texto", "css:finder"],
+        ["xpath=//span[@id='texto']", "xpath:attributes"],
+        ["xpath=//h1[@id='cabecera']/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Hola mundo')]", "xpath:innerText"]
+      ],
+      "value": "Hola mundo"
+    }]
+  }],
+  "suites": [{
+    "id": "f4fe230a-ca87-4d97-b957-84bfb54797d0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["9117bccb-b9a1-49b6-a6ca-715c70f4ed2c"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
