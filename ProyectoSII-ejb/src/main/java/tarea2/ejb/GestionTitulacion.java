@@ -29,4 +29,6 @@ public interface GestionTitulacion {
 	public List<Asignatura> obtenerAsignaturas(Titulacion titulacion) throws ProyectoException;
 	
 	public  List<Centro> obtenerCentros(Titulacion titulacion) throws ProyectoException;
+
+	public List<Titulacion> obtenerListaTitulaciones() throws ProyectoException;
 }

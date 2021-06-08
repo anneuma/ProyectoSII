@@ -26,18 +26,22 @@ public class GrupoEJB implements GestionGrupo {
 	private EntityManager em;
 	
 	@Override
-	public void insertarGrupo(Grupo grupo) throws GrupoExisteException {
-
+	public void insertarGrupo(Grupo grupo, Long titulacioncodigo) throws GrupoExisteException, TitulacionNoEncontradaException {
+		Titulacion TitulacionEntity = em.find(Titulacion.class, titulacioncodigo);
+		if (TitulacionEntity == null) {
+			throw new TitulacionNoEncontradaException();
+		}
 		Grupo grupoEntity = em.find(Grupo.class, grupo.getId());
 		if (grupoEntity != null) {
 			throw new GrupoExisteException();
 		}
+		grupo.setTitulacion(TitulacionEntity);
 		em.merge(grupo);
 	}
-
+	
 	@Override
-	public void actualizarGrupoTitulacion(Grupo grupo, Titulacion titulacion) throws TitulacionNoEncontradaException, GrupoNoEncontradoException {
-		Titulacion TitulacionEntity = em.find(Titulacion.class, titulacion.getCodigo());
+	public void actualizarGrupoTitulacion(Grupo grupo, Long titulacioncodigo) throws TitulacionNoEncontradaException, GrupoNoEncontradoException{
+		Titulacion TitulacionEntity = em.find(Titulacion.class, titulacioncodigo);
 		if (TitulacionEntity == null) {
 			throw new TitulacionNoEncontradaException();
 		}
@@ -45,8 +49,8 @@ public class GrupoEJB implements GestionGrupo {
 		if (grupoEntity == null) {
 			throw new GrupoNoEncontradoException();
 		}
-		grupo.setTitulacion(titulacion);
-		em.persist(grupo);
+		grupo.setTitulacion(TitulacionEntity);
+		em.merge(grupo);
 	}
 
 	@Override
@@ -103,4 +107,14 @@ public class GrupoEJB implements GestionGrupo {
 		List<Grupo> grupos = query.getResultList();
 		return grupos;
 	}
+	
+	@Override
+	public Titulacion obtenerTitulacion(long titulacioncodigo) throws TitulacionNoEncontradaException{
+		Titulacion TitulacionEntity = em.find(Titulacion.class, titulacioncodigo);
+		if (TitulacionEntity == null) {
+			throw new TitulacionNoEncontradaException();
+		}
+		return TitulacionEntity;
+	}
+
 }

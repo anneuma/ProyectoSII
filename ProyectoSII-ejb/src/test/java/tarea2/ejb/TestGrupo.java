@@ -46,8 +46,9 @@ public class TestGrupo {
 	public void testGrupoExistente() {
 		
 			Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
+			Titulacion informatica = new Titulacion((long) 1, "Ingenieria Informática",240);
 			try {
-				gestionGrupo.insertarGrupo(grupo1A);
+				gestionGrupo.insertarGrupo(grupo1A, (long) 1);
 			} catch (GrupoExisteException e) {
 				//OK
 			} catch (ProyectoException e) {
@@ -61,7 +62,7 @@ public class TestGrupo {
 			try {
 				Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
 				Titulacion informatica = new Titulacion((long) 1, "Ingenieria Informática",240);
-				gestionGrupo.actualizarGrupoTitulacion(grupo1A, informatica);
+				gestionGrupo.actualizarGrupoTitulacion(grupo1A, (long) 1);
 			} catch (GrupoNoEncontradoException|TitulacionNoEncontradaException e) {
 				//OK
 			} catch (ProyectoException e) {

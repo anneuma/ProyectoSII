@@ -23,6 +23,11 @@
                 <h:form id="grupos">
                 
                     <h:dataTable value="#{Grupos.grupos}" var="g">
+                                               <h:column>
+                        <f:facet name="header">Titulacion</f:facet>
+                            <h:outputText value="#{g.titulacion.nombre}"/>
+                        </h:column>
+                       
                         <h:column>
                             <f:facet name="header">Curso</f:facet>
                             <h:outputText value="#{g.curso}"/>
@@ -59,7 +64,7 @@
                         </h:column>
                         
                         <h:column>
-                            <h:commandButton class="ver" value="Modificar" action="#{Grupos.actualizar(g)}"/>
+                            <h:commandButton class="ver" value="Actualizar" action="#{Grupos.actualizar(g,g.titulacion.codigo)}"/>
                         </h:column>
                         
                         <h:column>

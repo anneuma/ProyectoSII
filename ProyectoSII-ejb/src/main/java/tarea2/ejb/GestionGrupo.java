@@ -5,8 +5,10 @@ import java.util.List;
 import javax.ejb.Local;
 
 import tarea1.jpa.*;
+import tarea2.exception.GrupoExisteException;
 import tarea2.exception.GrupoNoEncontradoException;
-import tarea2.exception.ProyectoException;;
+import tarea2.exception.ProyectoException;
+import tarea2.exception.TitulacionNoEncontradaException;;
 /**
 *
 * @author Francisco José Aragonés de la Rosa
@@ -14,9 +16,7 @@ import tarea2.exception.ProyectoException;;
 @Local
 public interface GestionGrupo {
 	
-	public void insertarGrupo(Grupo grupo) throws ProyectoException;
-	
-	public void actualizarGrupoTitulacion(Grupo grupo, Titulacion titulacion) throws ProyectoException;
+	public void insertarGrupo(Grupo grupo, Long titulacioncodigo) throws ProyectoException;
 	
 	public void actualizarGrupo(Grupo grupo) throws ProyectoException;
 
@@ -28,5 +28,10 @@ public interface GestionGrupo {
 	
 	public void asignarGrupo(Matricula matricula) throws ProyectoException;
 
-	public List<Grupo> obtenerListaGruposRelacionados(Grupo grupo) throws GrupoNoEncontradoException;
+	public List<Grupo> obtenerListaGruposRelacionados(Grupo grupo) throws ProyectoException;
+
+	public void actualizarGrupoTitulacion(Grupo grupo, Long titulacioncodigo) throws ProyectoException;
+
+	Titulacion obtenerTitulacion(long titulacioncodigo) throws ProyectoException;
+
 }

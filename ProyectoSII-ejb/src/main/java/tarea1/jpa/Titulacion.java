@@ -6,13 +6,11 @@ import java.util.List;
 import javax.persistence.*;
 
 @Entity
-
-
 public class Titulacion implements Serializable {
 
 	@Id
-	private Long Codigo;
-	private String Nombre;
+	private Long codigo;
+	private String nombre;
 	private Integer Creditos;
 	
 	@ManyToMany
@@ -20,9 +18,6 @@ public class Titulacion implements Serializable {
 	
 	@OneToMany(targetEntity=Expediente.class)
 	private List<Expediente> expedientes;
-	
-	@ManyToOne
-	private Titulacion titulacion;
 	
 	@OneToMany(targetEntity=Grupo.class)
 	private List<Grupo> grupos;
@@ -34,26 +29,26 @@ public class Titulacion implements Serializable {
 	
 	public Titulacion(Long codigo, String nombre, Integer creditos) {
 		super();
-		Codigo = codigo;
-		Nombre = nombre;
-		Creditos = creditos;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.Creditos = creditos;
 	}
 	public Titulacion() {
 		super();
 	}   
 	public Long getCodigo() {
-		return this.Codigo;
+		return this.codigo;
 	}
 
 	public void setCodigo(Long Codigo) {
-		this.Codigo = Codigo;
+		this.codigo = Codigo;
 	}   
 	public String getNombre() {
-		return this.Nombre;
+		return this.nombre;
 	}
 
-	public void setNombre(String Nombre) {
-		this.Nombre = Nombre;
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}   
 	public Integer getCreditos() {
 		return this.Creditos;
@@ -103,25 +98,18 @@ public class Titulacion implements Serializable {
 		this.asignaturas = lista;
 	}
 	
-	public Titulacion getTitulacion() {
-		return titulacion;
-	}
-	public void setTitulacion(Titulacion titulacion) {
-		this.titulacion = titulacion;
-	}
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((Codigo == null) ? 0 : Codigo.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		result = prime * result + ((Creditos == null) ? 0 : Creditos.hashCode());
-		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
 		result = prime * result + ((asignaturas == null) ? 0 : asignaturas.hashCode());
 		result = prime * result + ((centros == null) ? 0 : centros.hashCode());
 		result = prime * result + ((expedientes == null) ? 0 : expedientes.hashCode());
 		result = prime * result + ((grupos == null) ? 0 : grupos.hashCode());
-		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		return result;
 	}
 	
@@ -134,20 +122,20 @@ public class Titulacion implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Titulacion other = (Titulacion) obj;
-		if (Codigo == null) {
-			if (other.Codigo != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!Codigo.equals(other.Codigo))
-			return false;
+		} else if (!codigo.equals(other.codigo))
+			return false; 
 		if (Creditos == null) {
 			if (other.Creditos != null)
 				return false;
 		} else if (!Creditos.equals(other.Creditos))
 			return false;
-		if (Nombre == null) {
-			if (other.Nombre != null)
+		if (nombre == null) {
+			if (other.nombre != null)
 				return false;
-		} else if (!Nombre.equals(other.Nombre))
+		} else if (!nombre.equals(other.nombre))
 			return false;
 		if (asignaturas == null) {
 			if (other.asignaturas != null)
@@ -169,19 +157,12 @@ public class Titulacion implements Serializable {
 				return false;
 		} else if (!grupos.equals(other.grupos))
 			return false;
-		if (titulacion == null) {
-			if (other.titulacion != null)
-				return false;
-		} else if (!titulacion.equals(other.titulacion))
-			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
-		return "Titulacion [Codigo=" + Codigo + ", Nombre=" + Nombre + ", Creditos=" + Creditos + ", centros=" + centros
-				+ ", expedientes=" + expedientes + ", titulacion=" + titulacion + ", grupos=" + grupos
-				+ ", asignaturas=" + asignaturas + "]";
+		return "Titulacion [codigo=" + codigo + ", nombre=" + nombre + ", Creditos=" + Creditos + ", centros=" + centros
+				+ ", expedientes=" + expedientes + ", grupos=" + grupos + ", asignaturas=" + asignaturas + "]";
 	}
 	
 }

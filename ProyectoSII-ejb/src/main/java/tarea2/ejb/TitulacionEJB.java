@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 import tarea1.jpa.*;
 import tarea2.exception.*;
@@ -101,10 +102,11 @@ public class TitulacionEJB implements GestionTitulacion {
 		return titulacion.getAsignaturas();
 	}
 	
-	
-	
-	
-	
-	
+	@Override
+	public List<Titulacion> obtenerListaTitulaciones() throws ProyectoException {
+		Query query = em.createQuery("SELECT t FROM Titulacion t");
+		List<Titulacion> titulaciones = query.getResultList();
+		return titulaciones;
+	}
 	
 }

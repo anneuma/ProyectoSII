@@ -7,7 +7,9 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import tarea1.jpa.Grupo;
+import tarea1.jpa.Titulacion;
 import tarea2.ejb.GestionGrupo;
+import tarea2.ejb.GestionTitulacion;
 import tarea2.exception.GrupoExisteException;
 import tarea2.exception.GrupoNoEncontradoException;
 import tarea2.exception.ProyectoException;
@@ -27,6 +29,8 @@ public class grupos {
     
     private Grupo grupo;
     private Modo modo;
+    private Long titulacioncodigo;
+    private Titulacion titulacion;
     
     public grupos() {
         grupo = new Grupo();
@@ -59,8 +63,17 @@ public class grupos {
         this.grupo = grupo;
     }
 
-    public String actualizar(Grupo g) {
+	public Long getTitulacioncodigo() {
+		return titulacioncodigo;
+	}
+
+	public void setTitulacioncodigo(Long titulacioncodigo) {
+		this.titulacioncodigo = titulacioncodigo;
+	}
+
+	public String actualizar(Grupo g, Long t) {
         grupo = g;
+        titulacioncodigo = t;
         setModo(Modo.ACTUALIZAR);
         return "edicionGrupo.xhtml";
     }
@@ -88,14 +101,15 @@ public class grupos {
         try {
             switch (modo) {
                 case ACTUALIZAR:
-                	grupoEJB.actualizarGrupo(grupo);
+                	grupoEJB.actualizarGrupoTitulacion(grupo, titulacioncodigo);
                     break;
-                case INSERTAR:
+                case INSERTAR:  	
                 	Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
                 	Grupo grupo2A = new Grupo((long) 2, "primero", "A", "mañana", false, true, true, (long) 42);
-                	grupoEJB.insertarGrupo(grupo1A);
-                	grupoEJB.insertarGrupo(grupo2A);
-                    grupoEJB.insertarGrupo(grupo);
+        			Titulacion informatica = new Titulacion((long) 1, "Ingenieria Informática",240);
+                	grupoEJB.insertarGrupo(grupo1A, (long) 1);
+                	grupoEJB.insertarGrupo(grupo2A, (long) 1);
+                    grupoEJB.insertarGrupo(grupo, titulacioncodigo);
                     break;
             }
             return "grupos.xhtml";
@@ -104,14 +118,26 @@ public class grupos {
         }
     }
     
-    public synchronized List<Grupo> getGrupos(){
+    public Titulacion getTitulacion() {
+    	try {
+			return grupoEJB.obtenerTitulacion(titulacioncodigo);
+		} catch (ProyectoException e) {
+			return null;
+		}
+    }
+    
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+
+	public synchronized List<Grupo> getGrupos(){
     	try {
 			return grupoEJB.obtenerListaGrupos();
 		} catch (ProyectoException e) {
 			return null;
-			//e.printStackTrace();
 		}
     }
+    
     //public String refrescar()
     //{
       //  sesion.refrescarUsuario();
