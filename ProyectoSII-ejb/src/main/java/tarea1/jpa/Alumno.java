@@ -47,6 +47,11 @@ public class Alumno implements Serializable {
 		this.provincia = provincia;
 		this.CP = CP;
 	}
+	
+	public Alumno()
+	{
+		super();
+	}
 
 	public Long getId () {
    return id;
