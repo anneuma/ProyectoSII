@@ -29,14 +29,14 @@ public class Asignatura implements Serializable {
 	private String unidad_temporal;
 	private String idiomas;
 	
-	@ManyToOne 
-	private Grupo_asignatura grupo_asignatura;
+	@OneToMany(targetEntity=Grupo_asignatura.class) 
+	private List<Grupo_asignatura> grupo_asignatura;
 	
-	@ManyToOne 
-	private Clase clases;
+	@OneToMany(targetEntity=Clase.class) 
+	private List<Clase> clases;
 	
-	@ManyToOne 
-	private Asignaturas_matricula asignatura_matricula;
+	@OneToMany(targetEntity=Asignaturas_matricula.class)
+	private List<Asignaturas_matricula> asignatura_matricula;
 	
 	@ManyToOne
 	private Titulacion titulacion;
@@ -151,41 +151,28 @@ public class Asignatura implements Serializable {
 		this.idiomas = idiomas;
 	}
 	
-	public Asignaturas_matricula getAsignatura_Matricula() {
+	public List<Asignaturas_matricula> getAsignatura_Matricula() {
 		return this.asignatura_matricula;
 	}
 
-	public void setAsignatura_Matricula(Asignaturas_matricula asg) {
+	public void setAsignatura_Matricula(List<Asignaturas_matricula> asg) {
 		this.asignatura_matricula = asg;
 	}
 	
-	public Grupo_asignatura getGrupo_asignatura() {
+	public List<Grupo_asignatura> getGrupo_asignatura() {
 		return this.grupo_asignatura;
 	}
 
-	public void setGrupo_asignatura(Grupo_asignatura grup) {
-		this.grupo_asignatura = grup;
+	public void setGrupo_asignatura(List<Grupo_asignatura> grupo) {
+		this.grupo_asignatura = grupo;
 	}
 	
-	public Clase getClase() {
+	public List<Clase> getClase() {
 		return this.clases;
 	}
 
-	public void setClases(Clase clases) {
+	public void setClases(List<Clase> clases) {
 		this.clases = clases;
-	}
-	
-	
-	public Asignaturas_matricula getAsignatura_matricula() {
-		return asignatura_matricula;
-	}
-
-	public void setAsignatura_matricula(Asignaturas_matricula asignatura_matricula) {
-		this.asignatura_matricula = asignatura_matricula;
-	}
-
-	public Clase getClases() {
-		return clases;
 	}
 
 	public Titulacion getTitulacion() {

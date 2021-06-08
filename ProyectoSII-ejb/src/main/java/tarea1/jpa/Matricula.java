@@ -24,8 +24,8 @@ public class Matricula implements Serializable {
 	private Boolean nuevo_ingreso;
 	private String listado_asignaturas;
 	
-	@OneToMany (targetEntity=Expediente.class)
-	private List<Expediente> expedientes;
+	@ManyToOne
+	private Expediente expedientes;
 	
 	@OneToMany (targetEntity=Asignaturas_matricula.class)
 	private List<Asignaturas_matricula> asignaturas_matricula;
@@ -99,12 +99,12 @@ public class Matricula implements Serializable {
 		this.listado_asignaturas = listado_asignaturas;
 	}
 	
-	public List<Expediente> getExpedientes()
+	public Expediente getExpedientes()
 	{
 		return this.expedientes;
 	}
 	
-	public void setExpedientes(List<Expediente> expedientes)
+	public void setExpedientes(Expediente expedientes)
 	{
 		this.expedientes = expedientes;
 	}
@@ -204,5 +204,7 @@ public class Matricula implements Serializable {
 				+ ", nuevo_ingreso=" + nuevo_ingreso + ", listado_asignaturas=" + listado_asignaturas + ", expedientes="
 				+ expedientes + ", asignaturas_matricula=" + asignaturas_matricula + "]";
 	}
+
+	
 
 }

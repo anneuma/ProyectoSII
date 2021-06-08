@@ -27,8 +27,8 @@ public class Grupo implements Serializable {
 	@OneToMany(targetEntity=Asignaturas_matricula.class)
 	private List<Asignaturas_matricula> asignaturas_matricula;
 	
-	@ManyToOne
-	private Grupo_asignatura grupo_asignatura;
+	@OneToMany(targetEntity=Grupo_asignatura.class)
+	private List<Grupo_asignatura> grupo_asignatura;
 	
 	@ManyToOne
 	private Grupo grupo;
@@ -38,6 +38,9 @@ public class Grupo implements Serializable {
 	
 	@ManyToOne
 	private Titulacion titulacion;
+	
+	@OneToMany(targetEntity=Clase.class)
+	private List<Clase> clases;
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -107,11 +110,11 @@ public class Grupo implements Serializable {
 		this.plazas = plazas;
 	}
 
-	public Grupo_asignatura getGrupo_asignatura() {
+	public List<Grupo_asignatura> getGrupo_asignatura() {
 		return grupo_asignatura;
 	}
 
-	public void setGrupo_asignatura(Grupo_asignatura grupo_asignatura) {
+	public void setGrupo_asignatura(List<Grupo_asignatura> grupo_asignatura) {
 		this.grupo_asignatura = grupo_asignatura;
 	}
 
@@ -146,6 +149,14 @@ public class Grupo implements Serializable {
 	public void setAsignaturas_matricula(List<Asignaturas_matricula> asignaturas_matricula) {
 		this.asignaturas_matricula = asignaturas_matricula;
 	}
+	
+	public List<Clase> getClases() {
+		return clases;
+	}
+
+	public void setClases(List<Clase> clases) {
+		this.clases = clases;
+	}
 
 	@Override
 	public int hashCode() {
@@ -153,6 +164,7 @@ public class Grupo implements Serializable {
 		int result = 1;
 		result = prime * result + ((asignar == null) ? 0 : asignar.hashCode());
 		result = prime * result + ((asignaturas_matricula == null) ? 0 : asignaturas_matricula.hashCode());
+		result = prime * result + ((clases == null) ? 0 : clases.hashCode());
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((grupo == null) ? 0 : grupo.hashCode());
 		result = prime * result + ((grupo_asignatura == null) ? 0 : grupo_asignatura.hashCode());
@@ -185,6 +197,11 @@ public class Grupo implements Serializable {
 			if (other.asignaturas_matricula != null)
 				return false;
 		} else if (!asignaturas_matricula.equals(other.asignaturas_matricula))
+			return false;
+		if (clases == null) {
+			if (other.clases != null)
+				return false;
+		} else if (!clases.equals(other.clases))
 			return false;
 		if (curso == null) {
 			if (other.curso != null)
@@ -249,7 +266,8 @@ public class Grupo implements Serializable {
 		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno_mañana_tarde="
 				+ turno_mañana_tarde + ", ingles=" + ingles + ", visible=" + visible + ", asignar=" + asignar
 				+ ", plazas=" + plazas + ", asignaturas_matricula=" + asignaturas_matricula + ", grupo_asignatura="
-				+ grupo_asignatura + ", grupo=" + grupo + ", grupos=" + grupos + ", titulacion=" + titulacion + "]";
+				+ grupo_asignatura + ", grupo=" + grupo + ", grupos=" + grupos + ", titulacion=" + titulacion
+				+ ", clases=" + clases + "]";
 	}
 
 }

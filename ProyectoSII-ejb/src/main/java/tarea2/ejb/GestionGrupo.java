@@ -22,7 +22,7 @@ public interface GestionGrupo {
 
 	public void eliminarGrupo(Grupo grupo) throws ProyectoException;
 	
-	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
+	public List<Grupo_asignatura> obtenerGrupoAsignatura(Grupo grupo) throws ProyectoException;
 	
 	public List<Grupo> obtenerListaGrupos() throws ProyectoException;
 	

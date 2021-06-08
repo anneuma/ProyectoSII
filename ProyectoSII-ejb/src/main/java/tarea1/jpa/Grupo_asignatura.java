@@ -13,20 +13,20 @@ public class Grupo_asignatura implements Serializable {
 	private String curso_academico;
 	private String oferta;
 	
-	@OneToMany(targetEntity=Grupo.class)
-	private List<Grupo> grupo;
+	@ManyToOne
+	private Grupo grupo;
 	
 	@ManyToMany
 	private List<Encuesta> encuestas;
 	
-	@OneToMany(targetEntity=Asignatura.class)
-	private List<Asignatura> asignatura;
+	@ManyToOne
+	private Asignatura asignatura;
 	
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Grupo_asignatura(String curso_academico, String oferta, List<Grupo> grupo, List<Encuesta> encuestas,
-			List<Asignatura> asignatura) {
+	public Grupo_asignatura(String curso_academico, String oferta, Grupo grupo, List<Encuesta> encuestas,
+			Asignatura asignatura) {
 		super();
 		this.curso_academico = curso_academico;
 		this.oferta = oferta;
@@ -52,10 +52,10 @@ public class Grupo_asignatura implements Serializable {
 		this.oferta = oferta;
 	}
 	
-	public List<Grupo> getGrupo() {
+	public Grupo getGrupo() {
 		return grupo;
 	}
-	public void setGrupo(List<Grupo> grupo) {
+	public void setGrupo(Grupo grupo) {
 		this.grupo = grupo;
 	}
 	public List<Encuesta> getEncuestas() {
@@ -64,10 +64,10 @@ public class Grupo_asignatura implements Serializable {
 	public void setEncuestas(List<Encuesta> encuestas) {
 		this.encuestas = encuestas;
 	}
-	public List<Asignatura> getAsignatura() {
+	public Asignatura getAsignatura() {
 		return asignatura;
 	}
-	public void setAsignatura(List<Asignatura> asignatura) {
+	public void setAsignatura(Asignatura asignatura) {
 		this.asignatura = asignatura;
 	}
 	

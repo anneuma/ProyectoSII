@@ -68,7 +68,7 @@ public class GrupoEJB implements GestionGrupo {
 	}
 
 	@Override
-	public Grupo_asignatura obtenerGrupoAsignatura(Grupo grupo) throws GrupoNoEncontradoException {
+	public List<Grupo_asignatura> obtenerGrupoAsignatura(Grupo grupo) throws GrupoNoEncontradoException {
 		Grupo grupoEntity = em.find(Grupo.class, grupo.getId());
 		if (grupoEntity == null) {
 			throw new GrupoNoEncontradoException();

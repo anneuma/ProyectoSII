@@ -14,15 +14,15 @@ public class Clase implements Serializable {
 	private String hora_fin;
 	private String aula;
 	
-	@OneToMany(targetEntity=Asignatura.class)
-	private List<Asignatura> asignatura;
+	@ManyToOne
+	private Asignatura asignatura;
 	
-	@OneToMany(targetEntity=Grupo.class)
-	private List<Grupo> grupo;
+	@ManyToOne
+	private Grupo grupo;
 	
 	
-	public Clase(String dia, String hora_inicio, String hora_fin, String aula, List<Asignatura> asignatura,
-			List<Grupo> grupo) {
+	public Clase(String dia, String hora_inicio, String hora_fin, String aula, Asignatura asignatura,
+			Grupo grupo) {
 		super();
 		this.dia = dia;
 		this.hora_inicio = hora_inicio;
@@ -60,19 +60,19 @@ public class Clase implements Serializable {
 		this.hora_fin = hora_fin;
 	}
 	
-	public List<Asignatura> getAsignatura () {
+	public Asignatura getAsignatura () {
 		return asignatura;
 	}
 	
-	public void setAsignatura (List<Asignatura> asignatura) {
+	public void setAsignatura (Asignatura asignatura) {
 		this.asignatura = asignatura;
 	}
 	
-	public List<Grupo> getGrupo () {
+	public Grupo getGrupo () {
 		return grupo;
 	}
 	
-	public void setGrupo (List<Grupo> grupo) {
+	public void setGrupo (Grupo grupo) {
 		this.grupo = grupo;
 	}
 

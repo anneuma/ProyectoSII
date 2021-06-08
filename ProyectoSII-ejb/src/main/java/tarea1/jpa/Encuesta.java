@@ -24,13 +24,13 @@ public class Encuesta implements Serializable {
 	@ManyToMany(mappedBy = "encuestas")
 	private List<Grupo_asignatura> grupo_asignaturas;
 	
-	@OneToMany(targetEntity=Expediente.class)
-	private List<Expediente> expedientes;
+	@ManyToOne
+	private Expediente expedientes;
 	
 	private static final long serialVersionUID = 1L;
 
 	public Encuesta(Integer id, Date fecha_envio, List<Grupo_asignatura> grupo_asignaturas,
-			List<Expediente> expedientes) {
+			Expediente expedientes) {
 		super();
 		this.id = id;
 		this.fecha_envio = fecha_envio;
@@ -55,11 +55,11 @@ public class Encuesta implements Serializable {
 		this.fecha_envio = fecha_envio;
 	}
 	
-	public List<Expediente> getExpedientes () {
+	public Expediente getExpedientes () {
 		return expedientes;
 	}
 	
-	public void setExpedientes (List<Expediente> expedientes) {
+	public void setExpedientes (Expediente expedientes) {
 		this.expedientes = expedientes;
 	}
 	

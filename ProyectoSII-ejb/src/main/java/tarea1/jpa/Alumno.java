@@ -26,7 +26,8 @@ public class Alumno implements Serializable {
 	private String localidad;
 	private String provincia;
 	private String CP;
-	@OneToMany
+	
+	@OneToMany(targetEntity=Expediente.class)
 	private List<Expediente> expedientes;
 
 	public Alumno(Long id, String dni, String nombre, String apellido1, String apellido2, String email_i, String email_p, long telefono,

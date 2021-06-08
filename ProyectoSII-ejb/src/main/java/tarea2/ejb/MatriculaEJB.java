@@ -68,7 +68,7 @@ public class MatriculaEJB implements GestionMatricula
 	}
 	
 	@Override
-	public List<Expediente> obtenerExpedientes(Matricula matricula) throws MatriculaNoExisteException
+	public Expediente obtenerExpedientes(Matricula matricula) throws MatriculaNoExisteException
 	{
 		Matricula matriculaentity = em.find(Matricula.class, matricula.getId());
 		if (matriculaentity == null)

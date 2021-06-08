@@ -127,10 +127,15 @@ public class TestGrupo {
 			}
 			matr1.setAsignaturas_matricula(list_asig);
 			gestionGrupo.asignarGrupo(matr1);
+			Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
+			List<Asignaturas_matricula> list_asig_matr1 = matr1.getAsignaturas_matricula();
+			for(Asignaturas_matricula lam :list_asig_matr1) {
+				assertEquals(grupo1A, lam.getGrupo());
+			}
 		} catch (MatriculaNoEncontradaException e) {
-			fail("No debería lanzar la exceptión de matricula no encontrada");
+			fail("No debería lanzar la excepción de matricula no encontrada");
 		} catch (ProyectoException e) {
-			fail("No debería lanzar exceptión");
+			fail("No debería lanzar excepción");
 		}
 	}
 }

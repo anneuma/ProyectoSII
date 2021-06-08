@@ -20,8 +20,8 @@ public class Asignaturas_matricula implements Serializable {
 	@ManyToOne(targetEntity=Matricula.class)
 	private List<Matricula> matriculas;
 	
-	@OneToMany(targetEntity=Asignatura.class)
-	private List<Asignatura> asignatura;
+	@ManyToOne
+	private Asignatura asignatura;
 	
 	@ManyToOne
 	private Grupo grupo;
@@ -53,11 +53,11 @@ public class Asignaturas_matricula implements Serializable {
 		this.Calificacion = Calificacion;
 	}
 	
-	public List<Asignatura> getAsignatura () {
+	public Asignatura getAsignatura () {
 		return asignatura;
 	}
 	
-	public void setAsignatura (List<Asignatura> asignatura) {
+	public void setAsignatura (Asignatura asignatura) {
 		this.asignatura = asignatura;
 	}
 	

@@ -23,7 +23,7 @@ public interface GestionMatricula {
 	public String obtenerAsignaturaMatricula(Matricula matricula) throws ProyectoException;
 	
 	
-	public List<Expediente> obtenerExpedientes(Matricula matricula) throws ProyectoException;
+	public Expediente obtenerExpedientes(Matricula matricula) throws ProyectoException;
 	
 	public void elegirHorario(Matricula matricula, String horario) throws ProyectoException;
 	

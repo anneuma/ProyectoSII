@@ -19,16 +19,22 @@ public class Expediente implements Serializable {
 	private Boolean activo;
 	private Long nota_media_provisional;
 	
-	@ManyToOne
-	private Matricula matriculas;
+	@OneToMany(targetEntity=Matricula.class)
+	private List<Matricula> matriculas;
+	
+	@OneToMany(targetEntity=Encuesta.class)
+	private List<Encuesta> encuestas;
 	
 	@ManyToOne
-	private Encuesta encuestas;
+	private Titulacion titulacion;
+	
+	@ManyToOne
+	private Alumno alumno;
 	
 	private static final long serialVersionUID = 1L;
 
-	public Expediente(Long num_expediente, Boolean activo, Long nota_media_provisional, Matricula matriculas,
-			Encuesta encuestas) {
+	public Expediente(Long num_expediente, Boolean activo, Long nota_media_provisional, List<Matricula> matriculas,
+			List<Encuesta> encuestas) {
 		super();
 		this.num_expediente = num_expediente;
 		this.activo = activo;
@@ -61,22 +67,22 @@ public class Expediente implements Serializable {
 		this.nota_media_provisional = nota_media_provisional;
 	}
 	
-	public Matricula  getMatriculas()
+	public List<Matricula>  getMatriculas()
 	{
 		return this.matriculas;
 	}
 	
-	public void setMatriculas (Matricula matr)
+	public void setMatriculas (List<Matricula> matr)
 	{
 		this.matriculas = matr;
 	}
 	
-	public Encuesta  getEncuestas()
+	public List<Encuesta>  getEncuestas()
 	{
 		return this.encuestas;
 	}
 	
-	public void setEncuestas (Encuesta enc)
+	public void setEncuestas (List<Encuesta> enc)
 	{
 		this.encuestas = enc;
 	}
@@ -91,18 +97,33 @@ public class Expediente implements Serializable {
 		this.nota_media_provisional = nota_media_provisional;
 	}
 	
+	public Titulacion getTitulacion() {
+		return titulacion;
+	}
+	public void setTitulacion(Titulacion titulacion) {
+		this.titulacion = titulacion;
+	}
+	
+	public Alumno getAlumno() {
+		return alumno;
+	}
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((activo == null) ? 0 : activo.hashCode());
+		result = prime * result + ((alumno == null) ? 0 : alumno.hashCode());
 		result = prime * result + ((encuestas == null) ? 0 : encuestas.hashCode());
 		result = prime * result + ((matriculas == null) ? 0 : matriculas.hashCode());
 		result = prime * result + ((nota_media_provisional == null) ? 0 : nota_media_provisional.hashCode());
 		result = prime * result + ((num_expediente == null) ? 0 : num_expediente.hashCode());
+		result = prime * result + ((titulacion == null) ? 0 : titulacion.hashCode());
 		return result;
 	}
-	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -116,6 +137,11 @@ public class Expediente implements Serializable {
 			if (other.activo != null)
 				return false;
 		} else if (!activo.equals(other.activo))
+			return false;
+		if (alumno == null) {
+			if (other.alumno != null)
+				return false;
+		} else if (!alumno.equals(other.alumno))
 			return false;
 		if (encuestas == null) {
 			if (other.encuestas != null)
@@ -137,13 +163,21 @@ public class Expediente implements Serializable {
 				return false;
 		} else if (!num_expediente.equals(other.num_expediente))
 			return false;
+		if (titulacion == null) {
+			if (other.titulacion != null)
+				return false;
+		} else if (!titulacion.equals(other.titulacion))
+			return false;
 		return true;
 	}
-	
 	@Override
 	public String toString() {
 		return "Expediente [num_expediente=" + num_expediente + ", activo=" + activo + ", nota_media_provisional="
-				+ nota_media_provisional + ", matriculas=" + matriculas + ", encuestas=" + encuestas + "]";
+				+ nota_media_provisional + ", matriculas=" + matriculas + ", encuestas=" + encuestas + ", titulacion="
+				+ titulacion + ", alumno=" + alumno + "]";
 	}
+	
+
+	
    
 }

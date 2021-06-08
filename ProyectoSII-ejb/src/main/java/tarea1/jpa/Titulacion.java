@@ -18,7 +18,7 @@ public class Titulacion implements Serializable {
 	@ManyToMany
 	private List<Centro> centros;
 	
-	@ManyToMany
+	@OneToMany(targetEntity=Expediente.class)
 	private List<Expediente> expedientes;
 	
 	@ManyToOne
