@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+<h:head>
+	<title>Edici&oacute;n Asignatura</title>
+</h:head>
+<h:body>
+		<ul>
+			<li class ="active"><h:link outcome="asignatura.xhtml" value="Cancelar"/></li>
+		</ul>
+				
+		<div>
+			<h1>#{Asignatura.accion} Asignatura</h1>
+				
+			<h:form id="asignatura">
+				<h:panelGrid columns="3">
+					<c:set var = "modo" value = "#{Asignatura.modo}"/>
+
+					<h:outputText value="Codigo"/>
+                    <h:inputText id ="codigo" value="#{Asignatura.codigo}" required = "true"/>
+                    <h:message for="codigo"/>
+
+                    <h:outputText value="Creditos totales"/>
+                   	<h:inputText id ="creditos_totales" value="#{Asignatura.creditos_totales}" required = "true"/>
+                    <h:message for="creditos_totales"/>
+
+                    <h:outputText value="Creditos prácticos"/>
+                    <h:inputText id ="creditos_practicos" value="#{Asignatura.creditos_practicos}" required = "true"/>
+                    <h:message for="creditos_practicos"/>
+                        
+                    <h:outputText value="Creditos teoricos"/>
+                    <h:inputText id ="creditos_teoricos" value="#{Asignatura.creditos_teoricos}" required = "true"/>
+                    <h:message for="creditos_teoricos"/>
+                        
+                    <h:outputText value="Oferta"/>               
+                    <h:inputText id="oferta" value="#{Asignatura.oferta}" required = "true"/>
+                   	<h:message for="oferta"/>
+                     	
+                  	<h:outputText value="Nombre"/>               
+                    <h:inputText id="nombre" value="#{Asignatura.nombre}" required = "true"/>
+                    <h:message for="nombre"/>
+                     	
+                    <h:outputText value="Curso"/>               
+                    <h:inputText id="curso" value="#{Asignatura.curso}"/>
+                    <h:message for="curso"/>
+                     	
+                    <h:outputText value="Caracter"/>               
+                    <h:inputText id="caracter" value="#{Asignatura.caracter}"/>
+                    <h:message for="caracter"/>
+                     	
+                    <h:outputText value="Duracion"/>               
+                    <h:inputText id="duracion" value="#{Asignatura.duracion}"/>
+                    <h:message for="duracion"/>
+                     	
+                    <h:outputText value="Unidad temporal"/>               
+                    <h:inputText id="unidad_temporal" value="#{Asignatura.unidad_temporal}"/>
+                    <h:message for="unidad_temporal"/>
+                     	
+                    <h:outputText value="Idiomas de imparticion"/>               
+                    <h:inputText id="idiomas" value="#{Asignatura.idiomas}"/>
+                    <h:message for="idiomas"/>
+
+           	        <h:commandButton value="#{Asignatura.accion}" action="#{Asignatura.ejecutarAccion()}"/>
+
+                    <h:inputHidden value="#{Asignatura.modo}"/>
+                    <h:inputHidden value="#{Asignatura.referencia}"/>
+
+                </h:panelGrid>
+			</h:form>
+		</div>
+	</h:body>
+</html>
