@@ -17,7 +17,6 @@ public class asignaturas {
 
     public static enum Modo {
     	ACTUALIZAR,
-    	INSERTAR,
         NOACCION
     };
     
@@ -41,8 +40,6 @@ public class asignaturas {
         switch (modo) {
             case ACTUALIZAR:
                 return "Actualizar";
-            case INSERTAR:
-            	return "Insertar";
         }
         return null;
     }
@@ -69,19 +66,11 @@ public class asignaturas {
 			}
     }
     
-    public String insertarAsignatura () {
-    	setModo(Modo.INSERTAR);
-        return "edicionAsignatura.xhtml";
-    }
-    
     public String ejecutarAccion () {
         try {
             switch (modo) {
                 case ACTUALIZAR:
                 	asignaturaEJB.actualizarAsignatura(asi);
-                    break;
-                case INSERTAR:  	
-                    asignaturaEJB.insertarAsignatura(asi);
                     break;
             }
             return "asignaturas.xhtml";
