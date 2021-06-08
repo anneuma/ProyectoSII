@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	
+<h:head>
+       <title>
+           Edicion Alumno
+        </title>
+    </h:head>
+<h:body>
+		<h:outputStylesheet library="css" name="estiloIndex.css"/>
+		<h:outputStylesheet library="css" name="estiloEdita.css"/>
+				<ul>
+				<li class ="active"><h:link outcome="alumnos.xhtml" value="Cancelar"/></li>
+				</ul>
+				
+				<div>
+				<h1>#{Alumnos.accion} Alumnos</h1>
+				
+                <h:form id="alumno">
+                    <h:panelGrid columns="3">
+                    
+                     <c:set var = "modo" value = "#{Alumnos.modo}"/>
+                    
+                        <h:outputText value="Nombre"/>
+                        <h:inputText id ="nombre" value="#{Alumno.nombre}" required = "true"/>
+                        <h:message for="Nombre"/>
+
+                        <h:outputText value="Primer apellido"/>
+                        <h:inputText id ="apellido1" value="#{Alumno.apellido1}" required = "true"/>
+                        <h:message for="apellido1"/>
+
+                        <h:outputText value="Segundo Apellido"/>
+                        <h:inputText id ="apellido2" value="#{Alumno.apellido2}"/>
+                        <h:message for="apellido2"/>
+                        
+                        <h:outputText value="DNI"/>
+                        <h:inputText id ="dni" value="#{Alumno.DNI}" required = "true"/>
+                        <h:message for="dni"/>
+                        
+                        <h:outputText value="Email"/>               
+                        <h:inputText id="email_i" value="#{Alumno.email_i}" required = "true"/>
+                     	<h:message for="email_i"/>
+                     	
+                     	<h:outputText value="Email"/>               
+                        <h:inputText id="email_p" value="#{Alumno.email_p}"/>
+                     	<h:message for="email_p"/>
+                     	
+                     	<h:outputText value="Telefono"/>               
+                        <h:inputText id="telefono" value="#{Alumno.telefono"}/>
+                     	<h:message for="telefono"/>
+                     	
+                     	<h:outputText value="Movil"/>               
+                        <h:inputText id="movil" value="#{Alumno.movil"}/>
+                     	<h:message for="movil"/>
+                     	
+                     	<h:outputText value="Direccion"/>               
+                        <h:inputText id="direccion" value="#{Alumno.direccion"}/>
+                     	<h:message for="direccion"/>
+                     	
+                     	<h:outputText value="Localidad"/>               
+                        <h:inputText id="localidad" value="#{Alumno.localidad"}/>
+                     	<h:message for="localidad"/>
+                     	
+                     	<h:outputText value="Provincia"/>               
+                        <h:inputText id="provincia" value="#{Alumno.provincia"}/>
+                     	<h:message for="provincia"/>
+                     	
+                     	<h:outputText value="Código Postal"/>               
+                        <h:inputText id="cp" value="#{Alumno.CP"}/>
+                     	<h:message for="cp"/>
+
+           	            <h:commandButton value="#{Alumno.accion}" action="#{Alumno.ejecutarAccion()}"/>
+
+                        <h:inputHidden value="#{Alumno.modo}"/>
+                        <h:inputHidden value="#{Alumno.grupo.id}"/>
+
+                    </h:panelGrid>
+                </h:form>
+               </div>
+    </h:body>
+</html>
