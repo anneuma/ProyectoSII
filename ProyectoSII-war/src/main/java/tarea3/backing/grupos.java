@@ -104,11 +104,6 @@ public class grupos {
                 	grupoEJB.actualizarGrupoTitulacion(grupo, titulacioncodigo);
                     break;
                 case INSERTAR:  	
-                	Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
-                	Grupo grupo2A = new Grupo((long) 2, "primero", "A", "mañana", false, true, true, (long) 42);
-        			Titulacion informatica = new Titulacion((long) 1, "Ingenieria Informática",240);
-                	grupoEJB.insertarGrupo(grupo1A, (long) 1);
-                	grupoEJB.insertarGrupo(grupo2A, (long) 1);
                     grupoEJB.insertarGrupo(grupo, titulacioncodigo);
                     break;
             }
