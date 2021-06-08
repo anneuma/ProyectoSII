@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+        <title>Lista de asignaturas</title>
+</h:head>
+<h:body>
+	<ul>
+		<li><h:link outcome="index.xhtml" value="Inicio"/></li>
+		<li><h:link outcome="asignaturas.xhtml" value="Asignaturas"/></li>
+		<li><h:link outcome="grupos.xhtml" value="Titulaciones"/></li>
+		<li><h:link outcome="grupos.xhtml" value="Centros"/></li>
+		<li><h:link outcome="alumnos.xhtml" value="Alumnos"/></li>
+		<li class ="active"><h:link outcome="asignaturas.xhtml" value="Asignaturas"/></li>
+	</ul>
+	<h:form id="asignaturas">
+                
+		<h:dataTable value="#{Asignaturas.asignaturas}" var="asi">
+			<h:column>
+				<f:facet name="header">C&oacute;digo</f:facet>
+				<h:outputText value="#{asi.codigo}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Cr&eacute;ditos totales</f:facet>
+				<h:outputText id="cre" value="#{asi.creditos_totales}"/>
+			</h:column>
+                       
+			<h:column>
+				<f:facet name="header">Cr&eacute;ditos pr&aacute;cticos</f:facet>
+				<h:outputText value="#{asi.creditos_practicos}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Cr&eacute;ditos te&oacute;ricos</f:facet>
+				<h:outputText value="#{asi.creditos_teoricos}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Oferta</f:facet>
+				<h:outputText value="#{asi.oferta}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nombre</f:facet>
+				<h:outputText value="#{asi.nombre}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Car&aacute;cter</f:facet>
+				<h:outputText value="#{asi.caracter}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Duraci&oacute;n</f:facet>
+				<h:outputText value="#{asi.duracion}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Unidad temporal</f:facet>
+				<h:outputText value="#{asi.unidad_temporal}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Idiomas de impartici&oacute;n</f:facet>
+				<h:outputText value="#{asi.idiomas}"/>
+			</h:column>
+                        
+			<h:column>
+				<h:commandButton class="ver" value="Actualizar" action="#{Asignaturas.actualizar(asi)}"/>
+			</h:column>
+                        
+			<h:column>
+				<h:commandButton class="ver" value="Eliminar" action="#{Asignaturas.eliminar(asi)}"/>
+			</h:column>
+		</h:dataTable>
+        </h:form>
+    </h:body>
+</html>
