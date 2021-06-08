@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+        <title>Lista de expedientes</title>
+</h:head>
+<h:body>
+	<ul>
+		<li><h:link outcome="index.xhtml" value="Inicio"/></li>
+		<li><h:link outcome="asignaturas.xhtml" value="Asignaturas"/></li>
+		<li><h:link outcome="grupos.xhtml" value="Titulaciones"/></li>
+		<li><h:link outcome="grupos.xhtml" value="Centros"/></li>
+		<li><h:link outcome="alumnos.xhtml" value="Alumnos"/></li>
+		<li class ="active"><h:link outcome="expedientes.xhtml" value="Expedientes"/></li>
+	</ul>
+	<h:form id="expedientes">
+                
+		<h:dataTable value="#{Expedientes.expedientes}" var="e">
+			<h:column>
+				<f:facet name="header">Activo</f:facet>
+				<h:outputText value="#{e.activo}"/>
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Nota media provisional</f:facet>
+				<h:outputText id="cre" value="#{e.nota_media_provisional}"/>
+			</h:column>
+                        
+			<h:column>
+				<h:commandButton class="ver" value="Actualizar" action="#{Expedientes.actualizar(e)}"/>
+			</h:column>
+                        
+			<h:column>
+				<h:commandButton class="ver" value="Eliminar" action="#{Expedientes.eliminar(e)}"/>
+			</h:column>
+		</h:dataTable>
+        </h:form>
+    </h:body>
+</html>
