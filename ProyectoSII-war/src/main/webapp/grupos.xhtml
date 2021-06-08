@@ -10,8 +10,19 @@
         <title>Lista de grupos</title>
 </h:head>
 <h:body>
+	<h:outputStylesheet library="css" name="estiloIndex.css"/>
+	<h:outputStylesheet library="css" name="estiloGrupo.css"/>
+			<ul>
+				<li><h:link outcome="index.xhtml" value="Inicio"/></li>
+				<li  class ="active"><h:link outcome="grupos.xhtml" value="Grupos"/></li>
+				<li><h:link outcome="grupos.xhtml" value="Asignaturas"/></li>
+				<li><h:link outcome="grupos.xhtml" value="Titulaciones"/></li>
+				<li><h:link outcome="grupos.xhtml" value="Centros"/></li>
+				<li><h:link outcome="grupos.xhtml" value="Alumnos"/></li>
+			</ul>
                 <h:form id="grupos">
-                    <h:dataTable value="#{GrupoEJB.obtenerListaGrupos()}" var="g">
+                
+                    <h:dataTable value="#{Grupos.grupos}" var="g">
                         <h:column>
                             <f:facet name="header">Curso</f:facet>
                             <h:outputText value="#{g.curso}"/>
@@ -28,16 +39,35 @@
                         </h:column>
                         
                         <h:column>
-                            <h:commandButton value="Modificar" action="#{Grupos.actualizar(g)}"/>
+                            <f:facet name="header">Turno</f:facet>
+                            <h:outputText value="#{g.turno_mañana_tarde}"/>
+                        </h:column>
+                        
+						<h:column>
+                            <f:facet name="header">Ingles</f:facet>
+                            <h:selectBooleanCheckbox id="ingles" value="#{g.ingles}" disabled="true" />
+                        </h:column>
+                        
+                       	<h:column>
+                            <f:facet name="header">Asignar</f:facet>
+                            <h:selectBooleanCheckbox id="asignar" value="#{g.asignar}" disabled="true" />
                         </h:column>
                         
                         <h:column>
-                            <h:commandButton value="Eliminar" action="#{Grupos.eliminar(g)}"/>
+                            <f:facet name="header">Visible</f:facet>
+                            <h:selectBooleanCheckbox id="visible" value="#{g.visible}" disabled="true" />
+                        </h:column>
+                        
+                        <h:column>
+                            <h:commandButton class="ver" value="Modificar" action="#{Grupos.actualizar(g)}"/>
+                        </h:column>
+                        
+                        <h:column>
+                            <h:commandButton class="ver" value="Eliminar" action="#{Grupos.eliminar(g)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton value="Insertar" action="#{Grupos.insertarGrupo()}"/>
+                    <h:commandButton class="ver" value="Insertar" action="#{Grupos.insertarGrupo()}"/>
                 </h:form>
-		<h:button outcome="index.xhtml" value="Volver"/>
     </h:body>
     
 </html>

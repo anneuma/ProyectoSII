@@ -11,7 +11,15 @@
         </title>
     </h:head>
 <h:body>
-                <h1>#{Grupos.accion} grupos</h1>
+		<h:outputStylesheet library="css" name="estiloIndex.css"/>
+		<h:outputStylesheet library="css" name="estiloEdita.css"/>
+				<ul>
+				<li class ="active"><h:link outcome="grupos.xhtml" value="Cancelar"/></li>
+				</ul>
+				
+				<div>
+				<h1>#{Grupos.accion} grupos</h1>
+				
                 <h:form id="grupo">
                     <h:panelGrid columns="3">
                         <h:outputText value="Curso"/>
@@ -25,14 +33,30 @@
                         <h:outputText value="Plazas"/>
                         <h:inputText id ="plazas" value="#{Grupos.grupo.plazas}"/>
                         <h:message for="plazas"/>
+                        
+                        <h:outputText value="Turno (Mañana/Tarde)"/>
+                        <h:inputText id ="turno" value="#{Grupos.grupo.turno_mañana_tarde}"/>
+                        <h:message for="turno"/>
+                        
+                        <h:outputText value="Ingles"/>               
+                        <h:selectBooleanCheckbox id="ingles" value="#{Grupos.grupo.ingles}"/>
+                     	<h:message for="ingles"/>
+                     	
+                     	<h:outputText value="Asignar"/>               
+                        <h:selectBooleanCheckbox id="asignar" value="#{Grupos.grupo.asignar}"/>
+                     	<h:message for="asignar"/>
+                     	
+                     	<h:outputText value="Visible"/>               
+                        <h:selectBooleanCheckbox id="visible" value="#{Grupos.grupo.visible}"/>
+                     	<h:message for="visible"/>
 
-                        <h:commandButton value="#{Grupos.accion}" action="#{Grupos.ejecutarAccion()}"/>
-						<h:button outcome="grupos.xhtml" value="Cancelar"/>
+           	            <h:commandButton value="#{Grupos.accion}" action="#{Grupos.ejecutarAccion()}"/>
 
                         <h:inputHidden value="#{Grupos.modo}"/>
                         <h:inputHidden value="#{Grupos.grupo.id}"/>
 
                     </h:panelGrid>
                 </h:form>
+               </div>
     </h:body>
 </html>

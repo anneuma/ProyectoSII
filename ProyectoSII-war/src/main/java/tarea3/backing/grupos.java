@@ -29,7 +29,6 @@ public class grupos {
     private Modo modo;
     
     public grupos() {
-    	System.out.println("here");
         grupo = new Grupo();
         modo = Modo.NOACCION;
     }
@@ -48,7 +47,6 @@ public class grupos {
                 return "Actualizar";
             case INSERTAR:
                 return "Insertar";
-
         }
         return null;
     }
@@ -61,7 +59,7 @@ public class grupos {
         this.grupo = grupo;
     }
 
-    public String actulizar(Grupo g) {
+    public String actualizar(Grupo g) {
         grupo = g;
         setModo(Modo.ACTUALIZAR);
         return "edicionGrupo.xhtml";
@@ -93,6 +91,10 @@ public class grupos {
                 	grupoEJB.actualizarGrupo(grupo);
                     break;
                 case INSERTAR:
+                	Grupo grupo1A = new Grupo((long) 1, "primero", "A", "mañana", false, true, true, (long) 42);
+                	Grupo grupo2A = new Grupo((long) 2, "primero", "A", "mañana", false, true, true, (long) 42);
+                	grupoEJB.insertarGrupo(grupo1A);
+                	grupoEJB.insertarGrupo(grupo2A);
                     grupoEJB.insertarGrupo(grupo);
                     break;
             }
@@ -106,9 +108,9 @@ public class grupos {
     	try {
 			return grupoEJB.obtenerListaGrupos();
 		} catch (ProyectoException e) {
-			e.printStackTrace();
+			return null;
+			//e.printStackTrace();
 		}
-		return null;
     }
     //public String refrescar()
     //{

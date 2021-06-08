@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 @Entity
 public class Grupo implements Serializable {
-
+	private static final long serialVersionUID = 1L;
 	@Id 
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -41,16 +41,15 @@ public class Grupo implements Serializable {
 	
 	@OneToMany(targetEntity=Clase.class)
 	private List<Clase> clases;
+
 	
-	private static final long serialVersionUID = 1L;
-	
-	public Grupo(Long id, String curso, String letra, String turno_mañana_tarde, Boolean ingles, Boolean visible,
+	public Grupo(Long id, String curso, String letra, String turno, Boolean ingles, Boolean visible,
 			Boolean asignar, Long plazas) {
 		super();
 		this.id = id;
 		this.curso = curso;
 		this.letra = letra;
-		this.turno_mañana_tarde = turno_mañana_tarde;
+		this.turno_mañana_tarde = turno;
 		this.ingles = ingles;
 		this.visible = visible;
 		this.asignar = asignar;
@@ -82,8 +81,8 @@ public class Grupo implements Serializable {
 	public String getTurno_mañana_tarde() {
 		return turno_mañana_tarde;
 	}
-	public void setTurno_mañana_tarde(String turno_mañana_tarde) {
-		this.turno_mañana_tarde = turno_mañana_tarde;
+	public void setTurno_mañana_tarde(String turno) {
+		this.turno_mañana_tarde = turno;
 	}
 	public Boolean getIngles() {
 		return ingles;
@@ -263,7 +262,7 @@ public class Grupo implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno_mañana_tarde="
+		return "Grupo [id=" + id + ", curso=" + curso + ", letra=" + letra + ", turno="
 				+ turno_mañana_tarde + ", ingles=" + ingles + ", visible=" + visible + ", asignar=" + asignar
 				+ ", plazas=" + plazas + ", asignaturas_matricula=" + asignaturas_matricula + ", grupo_asignatura="
 				+ grupo_asignatura + ", grupo=" + grupo + ", grupos=" + grupos + ", titulacion=" + titulacion
