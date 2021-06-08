@@ -18,14 +18,14 @@
 				<li><h:link outcome="grupos.xhtml" value="Asignaturas"/></li>
 				<li><h:link outcome="grupos.xhtml" value="Titulaciones"/></li>
 				<li><h:link outcome="grupos.xhtml" value="Centros"/></li>
-				<li><h:link outcome="grupos.xhtml" value="Alumnos"/></li>
+				<li><h:link outcome="alumnos.xhtml" value="Alumnos"/></li>
 			</ul>
                 <h:form id="grupos">
                 
                     <h:dataTable value="#{Grupos.grupos}" var="g">
                                                <h:column>
                         <f:facet name="header">Titulacion</f:facet>
-                            <h:outputText value="#{g.titulacion.nombre}"/>
+                            <h:outputText id="titulacion_nombre" value="#{g.titulacion.nombre}"/>
                         </h:column>
                        
                         <h:column>

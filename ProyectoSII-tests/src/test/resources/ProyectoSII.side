@@ -1,49 +1,346 @@
 {
-  "id": "6a67c2c3-ecdb-4a4a-943b-56b4e0f68207",
+  "id": "cb75757a-03e9-4a62-96d5-f110fd0f96f8",
   "version": "2.0",
   "name": "ProyectoSII",
-  "url": "http://localhost:8080",
+  "url": "http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml",
   "tests": [{
-    "id": "9117bccb-b9a1-49b6-a6ca-715c70f4ed2c",
-    "name": "PruebaSencilla",
+    "id": "a0148475-471b-43e8-bcb5-0df96aa4607e",
+    "name": "1.BBDD",
     "commands": [{
-      "id": "5e5eb8ec-c1c9-4917-a6aa-a054dfb012f0",
+      "id": "54983019-d0e3-4c56-83cd-2e95c669cb75",
       "comment": "",
       "command": "open",
-      "target": "/ProyectoSII-war/",
+      "target": "/ProyectoSII-war/faces/index.xhtml",
       "targets": [],
       "value": ""
     }, {
-      "id": "98fe6e0a-f476-440b-b589-5ca453423492",
+      "id": "81e6afbb-4a93-43ba-881d-2be05bb7982c",
       "comment": "",
       "command": "setWindowSize",
-      "target": "908x754",
+      "target": "908x760",
       "targets": [],
       "value": ""
     }, {
-      "id": "ccebd9dc-b9c0-4439-b90e-8986b9da1cbc",
+      "id": "e14ad21c-3158-4abd-ae09-ca9ddc238304",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=BBDD",
+      "targets": [
+        ["linkText=BBDD", "linkText"],
+        ["css=a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'BBDD')]", "xpath:link"],
+        ["xpath=//a[@onclick=\"mojarra.jsfcljs(document.getElementById('j_idt19'),{'j_idt19:j_idt21':'j_idt19:j_idt21'},'');return false\"]", "xpath:attributes"],
+        ["xpath=//form[@id='j_idt19']/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#')]", "xpath:href"],
+        ["xpath=//form/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'BBDD')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "71fb01a7-6942-4f41-8776-4d676f07c262",
       "comment": "",
       "command": "assertText",
-      "target": "id=texto",
+      "target": "id=grupos:j_idt20:0:titulacion_nombre",
       "targets": [
-        ["id=texto", "id"],
-        ["css=#texto", "css:finder"],
-        ["xpath=//span[@id='texto']", "xpath:attributes"],
-        ["xpath=//h1[@id='cabecera']/span", "xpath:idRelative"],
-        ["xpath=//span", "xpath:position"],
-        ["xpath=//span[contains(.,'Hola mundo')]", "xpath:innerText"]
+        ["id=grupos:j_idt20:0:titulacion_nombre", "id"],
+        ["css=#grupos\\3Aj_idt20\\3A 0\\3Atitulacion_nombre", "css:finder"],
+        ["xpath=//span[@id='grupos:j_idt20:0:titulacion_nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td/span", "xpath:idRelative"],
+        ["xpath=//td/span", "xpath:position"],
+        ["xpath=//span[contains(.,'Ingenieria Informática')]", "xpath:innerText"]
       ],
-      "value": "Hola mundo"
+      "value": "Ingenieria Informática"
+    }]
+  }, {
+    "id": "cd3ebf74-7b2e-42f9-8f8d-9392a0f03738",
+    "name": "2.Actualizar grupo",
+    "commands": [{
+      "id": "cc3dff87-bdde-46d5-9872-69b735eace57",
+      "comment": "",
+      "command": "open",
+      "target": "http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0f61da44-8537-48a3-b7f4-efd870dd94d5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "908x760",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d20f5728-9b67-4a64-9328-1c7ec3eb13de",
+      "comment": "",
+      "command": "click",
+      "target": "name=grupos:j_idt20:0:j_idt42",
+      "targets": [
+        ["name=grupos:j_idt20:0:j_idt42", "name"],
+        ["css=tr:nth-child(1) > td:nth-child(9) > .ver", "css:finder"],
+        ["xpath=//input[@name='grupos:j_idt20:0:j_idt42']", "xpath:attributes"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[9]/input", "xpath:idRelative"],
+        ["xpath=//td[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e48c9ee-391b-49b5-9fc8-f7c9ece46dd9",
+      "comment": "",
+      "command": "type",
+      "target": "grupo:curso",
+      "targets": [],
+      "value": "Segundo"
+    }, {
+      "id": "b71f6f62-fec6-4faf-92cf-cd3b6ca0ee9e",
+      "comment": "",
+      "command": "type",
+      "target": "id=grupo:letra",
+      "targets": [
+        ["id=grupo:letra", "id"],
+        ["name=grupo:letra", "name"],
+        ["css=#grupo\\3Aletra", "css:finder"],
+        ["xpath=//input[@id='grupo:letra']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr[3]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "B"
+    }, {
+      "id": "69575d36-2af0-4f9c-a668-bea0f49d3e42",
+      "comment": "",
+      "command": "type",
+      "target": "id=grupo:plazas",
+      "targets": [
+        ["id=grupo:plazas", "id"],
+        ["name=grupo:plazas", "name"],
+        ["css=#grupo\\3Aplazas", "css:finder"],
+        ["xpath=//input[@id='grupo:plazas']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr[4]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[4]/td[2]/input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "52bbc943-6cc3-4d47-a110-70299d9b30df",
+      "comment": "",
+      "command": "click",
+      "target": "id=grupo:ingles",
+      "targets": [
+        ["id=grupo:ingles", "id"],
+        ["name=grupo:ingles", "name"],
+        ["css=#grupo\\3Aingles", "css:finder"],
+        ["xpath=//input[@id='grupo:ingles']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr[6]/td[2]/input", "xpath:idRelative"],
+        ["xpath=//tr[6]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d8d5cf1e-4854-47fb-9c34-ccdbab7f4b1a",
+      "comment": "",
+      "command": "click",
+      "target": "name=grupo:j_idt29",
+      "targets": [
+        ["name=grupo:j_idt29", "name"],
+        ["css=td:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='grupo:j_idt29']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr[9]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[9]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b9b53b6c-32d8-44c5-836d-9c0e84d8abcf",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[2]", "xpath:idRelative"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'Segundo')]", "xpath:innerText"]
+      ],
+      "value": "Segundo"
+    }, {
+      "id": "3174edd7-a32a-4089-a28f-2886e137f2d0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(3)", "css:finder"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[3]", "xpath:idRelative"],
+        ["xpath=//td[3]", "xpath:position"],
+        ["xpath=//td[contains(.,'A')]", "xpath:innerText"]
+      ],
+      "value": "B"
+    }, {
+      "id": "c6ef60df-8e15-41f3-9d58-d08833a145ff",
+      "comment": "",
+      "command": "assertChecked",
+      "target": "id=grupos:j_idt20:0:ingles",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(6)", "css:finder"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[6]", "xpath:idRelative"],
+        ["xpath=//td[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "994eb589-cf33-40f5-9568-7fe04828e1c6",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(1) > td:nth-child(4)",
+      "targets": [
+        ["css=tr:nth-child(1) > td:nth-child(4)", "css:finder"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[4]", "xpath:idRelative"],
+        ["xpath=//td[4]", "xpath:position"],
+        ["xpath=//td[contains(.,'42')]", "xpath:innerText"]
+      ],
+      "value": "50"
+    }]
+  }, {
+    "id": "7378ca56-2c73-43bc-8e33-d8741f738df8",
+    "name": "3.Eliminar grupo",
+    "commands": [{
+      "id": "c0951224-0707-4c32-8af9-297056e094d3",
+      "comment": "",
+      "command": "open",
+      "target": "http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ce7e33ba-0140-4780-9d42-a46638a5e2d0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "908x760",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9b51995b-d29e-4df0-9dcd-8a2cd12b43c9",
+      "comment": "",
+      "command": "click",
+      "target": "name=grupos:j_idt20:2:j_idt44",
+      "targets": [
+        ["name=grupos:j_idt20:2:j_idt44", "name"],
+        ["css=tr:nth-child(3) > td:nth-child(10) > .ver", "css:finder"],
+        ["xpath=//input[@name='grupos:j_idt20:2:j_idt44']", "xpath:attributes"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr[3]/td[10]/input", "xpath:idRelative"],
+        ["xpath=//tr[3]/td[10]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f77f2303-d650-4098-8632-b4fa3c11e134",
+      "comment": "",
+      "command": "assertElementNotPresent",
+      "target": "xpath=//form[@id='grupos']/table/tbody/tr[3]/td",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr[2]/td", "xpath:idRelative"],
+        ["xpath=//tr[2]/td", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "26f5a8b9-8fe7-425f-bbe2-6383a786e686",
+    "name": "f",
+    "commands": [{
+      "id": "db6b263b-d887-45e5-bf3c-24e82ceaf16c",
+      "comment": "",
+      "command": "open",
+      "target": "http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b6c8d183-2ee2-402f-8d69-f8d2bf33405e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "907x758",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f51cb4e5-9f6e-454f-8a8f-f98b22e01d69",
+      "comment": "",
+      "command": "click",
+      "target": "name=grupos:j_idt20:0:j_idt42",
+      "targets": [
+        ["name=grupos:j_idt20:0:j_idt42", "name"],
+        ["css=tr:nth-child(1) > td:nth-child(9) > .ver", "css:finder"],
+        ["xpath=//input[@name='grupos:j_idt20:0:j_idt42']", "xpath:attributes"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td[9]/input", "xpath:idRelative"],
+        ["xpath=//td[9]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "482fc396-ca38-41c4-81db-261ce5f2fe7d",
+      "comment": "",
+      "command": "click",
+      "target": "id=grupo:titulacion",
+      "targets": [
+        ["id=grupo:titulacion", "id"],
+        ["name=grupo:titulacion", "name"],
+        ["css=#grupo\\3Atitulacion", "css:finder"],
+        ["xpath=//select[@id='grupo:titulacion']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr/td[2]/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "be475e59-a7b3-4229-b3d5-616632d7f8f6",
+      "comment": "",
+      "command": "select",
+      "target": "id=grupo:titulacion",
+      "targets": [],
+      "value": "label=Ingenieria de Computadores"
+    }, {
+      "id": "ae8dc069-d869-42b7-802c-5854bc69ce46",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='2']", "xpath:attributes"],
+        ["xpath=//select[@id='grupo:titulacion']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Ingenieria de Computadores')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "059823ec-06f7-4b82-85fe-ffc25db14128",
+      "comment": "",
+      "command": "click",
+      "target": "name=grupo:j_idt29",
+      "targets": [
+        ["name=grupo:j_idt29", "name"],
+        ["css=td:nth-child(1) > input", "css:finder"],
+        ["xpath=//input[@name='grupo:j_idt29']", "xpath:attributes"],
+        ["xpath=//form[@id='grupo']/table/tbody/tr[9]/td/input", "xpath:idRelative"],
+        ["xpath=//tr[9]/td/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "22a150a9-efa5-4f48-b8a2-9895de9c8d48",
+      "comment": "",
+      "command": "assertText",
+      "target": "id=grupos:j_idt20:0:titulacion_nombre",
+      "targets": [
+        ["id=grupos:j_idt20:0:titulacion_nombre", "id"],
+        ["css=#grupos\\3Aj_idt20\\3A 0\\3Atitulacion_nombre", "css:finder"],
+        ["xpath=//span[@id='grupos:j_idt20:0:titulacion_nombre']", "xpath:attributes"],
+        ["xpath=//form[@id='grupos']/table/tbody/tr/td/span", "xpath:idRelative"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'Ingenieria de Computadores')]", "xpath:innerText"]
+      ],
+      "value": "Ingenieria de Computadores"
+    }, {
+      "id": "bb9aa052-26c9-4fcc-882f-d20141c33f59",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
     }]
   }],
   "suites": [{
-    "id": "f4fe230a-ca87-4d97-b957-84bfb54797d0",
+    "id": "8f900480-e481-404d-a3fb-1754ccaeb038",
     "name": "Default Suite",
     "persistSession": false,
     "parallel": false,
     "timeout": 300,
-    "tests": ["9117bccb-b9a1-49b6-a6ca-715c70f4ed2c"]
+    "tests": ["a0148475-471b-43e8-bcb5-0df96aa4607e"]
   }],
-  "urls": ["http://localhost:8080/"],
+  "urls": ["http://localhost:8080/", "http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml"],
   "plugins": []
 }
