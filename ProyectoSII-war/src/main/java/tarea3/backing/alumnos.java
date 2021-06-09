@@ -59,7 +59,7 @@ public class alumnos {
     }
 
 
-	public String actualizar(Alumno al)
+	public String actualizar(Alumno al) {
         alumno = al;
         setModo(Modo.ACTUALIZAR);
         return "edicionAlumno.xhtml";
@@ -67,7 +67,7 @@ public class alumnos {
 
     public void eliminar(Alumno al) {
             try {
-				alumnoEJB.eliminarGrupo(Al);
+				alumnoEJB.eliminarAlumno(al);
 			} catch (ProyectoException e) {
 				e.printStackTrace();
 			}
