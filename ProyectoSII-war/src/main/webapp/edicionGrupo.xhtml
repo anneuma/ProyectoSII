@@ -80,7 +80,7 @@
                         <h:selectBooleanCheckbox id="visible" value="#{Grupos.grupo.visible}"/>
                      	<h:message for="visible"/>
 
-           	            <h:commandButton value="#{Grupos.accion}" action="#{Grupos.ejecutarAccion()}"/>
+           	            <h:commandButton id="accion" value="#{Grupos.accion}" action="#{Grupos.ejecutarAccion()}"/>
 
                         <h:inputHidden value="#{Grupos.modo}"/>
                         <h:inputHidden value="#{Grupos.grupo.id}"/>

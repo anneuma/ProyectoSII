@@ -15,7 +15,7 @@
 			<ul>
 				<li><h:link outcome="index.xhtml" value="Inicio"/></li>
 				<li  class ="active"><h:link outcome="grupos.xhtml" value="Grupos"/></li>
-				<li><h:link outcome="asignaturas.xhtml" value="Asignaturas"/></li>
+				<li><h:link outcome="asignatura.xhtml" value="Asignaturas"/></li>
 				<li><h:link outcome="titulaciones.xhtml" value="Titulaciones"/></li>
 				<li><h:link outcome="centros.xhtml" value="Centros"/></li>
 				<li><h:link outcome="alumnos.xhtml" value="Alumnos"/></li>
@@ -34,22 +34,22 @@
                        
                         <h:column>
                             <f:facet name="header">Curso</f:facet>
-                            <h:outputText value="#{g.curso}"/>
+                            <h:outputText id="curso" value="#{g.curso}"/>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Letra</f:facet>
-                            <h:outputText value="#{g.letra}"/>
+                            <h:outputText id="letra" value="#{g.letra}"/>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Plazas</f:facet>
-                            <h:outputText value="#{g.plazas}"/>
+                            <h:outputText id="plazas" value="#{g.plazas}"/>
                         </h:column>
                         
                         <h:column>
                             <f:facet name="header">Turno</f:facet>
-                            <h:outputText value="#{g.turno_mañana_tarde}"/>
+                            <h:outputText id="turno" value="#{g.turno_mañana_tarde}"/>
                         </h:column>
                         
 						<h:column>
@@ -68,14 +68,14 @@
                         </h:column>
                         
                         <h:column>
-                            <h:commandButton class="ver" value="Actualizar" action="#{Grupos.actualizar(g,g.titulacion.codigo)}"/>
+                            <h:commandButton id="actualizar" class="ver" value="Actualizar" action="#{Grupos.actualizar(g,g.titulacion.codigo)}"/>
                         </h:column>
                         
                         <h:column>
-                            <h:commandButton class="ver" value="Eliminar" action="#{Grupos.eliminar(g)}"/>
+                            <h:commandButton id="eliminar" class="ver" value="Eliminar" action="#{Grupos.eliminar(g)}"/>
                         </h:column>
                     </h:dataTable>
-                    <h:commandButton class="ver" value="Insertar" action="#{Grupos.insertarGrupo()}"/>
+                    <h:commandButton id="insertar" class="ver" value="Insertar" action="#{Grupos.insertarGrupo()}"/>
                 </h:form>
     </h:body>
     

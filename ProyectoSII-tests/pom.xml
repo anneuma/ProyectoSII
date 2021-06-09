@@ -17,7 +17,11 @@
   		<type>ear</type>
   		<scope>test</scope>
   	</dependency>
-
+	<dependency>
+		<groupId>es.uma.informatica.sii</groupId>
+		<artifactId>anotaciones</artifactId>
+		<version>0.0.1</version>
+	</dependency>
 	<dependency>
 		<groupId>junit</groupId>
 		<artifactId>junit</artifactId>

@@ -18,6 +18,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import es.uma.informatica.sii.anotaciones.Requisitos;
+
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
@@ -41,6 +44,28 @@ public class GrupoTestIT {
   public void tearDown() {
     driver.quit();
   }
+  @Requisitos({"RF-008"})
+  @Test
+  public void t1_Creargrupo() {
+	    driver.get("http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml");
+	    driver.manage().window().setSize(new Dimension(907, 759));
+	    driver.findElement(By.id("grupos:insertar")).click();
+	    driver.findElement(By.id("grupo:titulacion")).click();
+	    {
+	      WebElement dropdown = driver.findElement(By.id("grupo:titulacion"));
+	      dropdown.findElement(By.xpath("//option[. = 'Ingenieria Informática']")).click();
+	    }
+	    driver.findElement(By.cssSelector("option:nth-child(2)")).click();
+	    driver.findElement(By.id("grupo:curso")).sendKeys("Cuarto");
+	    driver.findElement(By.id("grupo:letra")).sendKeys("B");
+	    driver.findElement(By.id("grupo:plazas")).sendKeys("30");
+	    driver.findElement(By.id("grupo:turno")).sendKeys("Tarde");
+	    driver.findElement(By.id("grupo:asignar")).click();
+	    driver.findElement(By.id("grupo:visible")).click();
+	    driver.findElement(By.id("grupo:accion")).click();
+	    assertThat(driver.findElement(By.id("grupos:j_idt20:3:curso")).getText(), is("Tercero"));
+	  }
+  
 //  @Test
 //  public void BBDD() {
 //    driver.get("http://local:8080/ProyectoSII-war/faces/index.xhtml");
@@ -48,12 +73,12 @@ public class GrupoTestIT {
 //    driver.findElement(By.linkText("BBDD")).click();
 //    assertThat(driver.findElement(By.id("grupos:j_idt20:0:titulacion_nombre")).getText(), is("Ingenieria Informática"));
 //  }
-  
+  @Requisitos({"RF-008"})
   @Test
-  public void t1_Actualizargrupo() {
+  public void t3_Actualizargrupo() {
     driver.get("http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml");
     driver.manage().window().setSize(new Dimension(908, 760));
-    driver.findElement(By.name("grupos:j_idt20:0:j_idt42")).click();
+    driver.findElement(By.id("grupos:j_idt24:0:actualizar")).click();
     driver.findElement(By.id("grupo:titulacion")).click();
     {
       WebElement dropdown = driver.findElement(By.id("grupo:titulacion"));
@@ -67,19 +92,20 @@ public class GrupoTestIT {
     driver.findElement(By.id("grupo:plazas")).clear();
     driver.findElement(By.id("grupo:plazas")).sendKeys("50");
     driver.findElement(By.id("grupo:ingles")).click();
-    driver.findElement(By.name("grupo:j_idt29")).click();
-    assertThat(driver.findElement(By.id("grupos:j_idt20:0:titulacion_nombre")).getText(), is("Ingenieria de Computadores"));
-    assertThat(driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(2)")).getText(), is("Segundo"));
-    assertThat(driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(3)")).getText(), is("B"));
-    assertTrue(driver.findElement(By.id("grupos:j_idt20:0:ingles")).isSelected());
-    assertThat(driver.findElement(By.cssSelector("tr:nth-child(1) > td:nth-child(4)")).getText(), is("50"));
+    driver.findElement(By.id("grupo:accion")).click();
+    assertThat(driver.findElement(By.id("grupos:j_idt24:0:titulacion_nombre")).getText(), is("Ingenieria de Computadores"));
+    assertThat(driver.findElement(By.id("grupos:j_idt24:0:curso")).getText(), is("Segundo"));
+    assertThat(driver.findElement(By.id("grupos:j_idt24:0:letra")).getText(), is("B"));
+    assertTrue(driver.findElement(By.id("grupos:j_idt24:0:ingles")).isSelected());
+    assertThat(driver.findElement(By.id("grupos:j_idt24:0:plazas")).getText(), is("50"));
   }
   
+  @Requisitos({"RF-008"})
   @Test
   public void t2_Eliminargrupo() {
     driver.get("http://0.0.0.0:8080/ProyectoSII-war/faces/grupos.xhtml");
     driver.manage().window().setSize(new Dimension(908, 760));
-    driver.findElement(By.name("grupos:j_idt20:2:j_idt44")).click();
+    driver.findElement(By.id("grupos:j_idt24:2:eliminar")).click();
     {
       List<WebElement> elements = driver.findElements(By.xpath("//form[@id=\'grupos\']/table/tbody/tr[3]/td"));
       assert(elements.size() == 0);
