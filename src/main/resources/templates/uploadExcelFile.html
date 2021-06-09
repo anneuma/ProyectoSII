@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cargar archivo</title>
+
+</head>
+
+<body>
+<th:block th:include="/_menu"></th:block>
+
+<h3>Cargar un archivo :</h3>
+
+<form th:object="${myUploadForm}" method="POST"
+      action="" enctype="multipart/form-data">
+    <br>
+    <select th:field="*{option}"  id="pet-select">
+        <option value="">--Selectionar una option--</option>
+        <option value="0">Asignaturas</option>
+        <option value="1">Alumnos</option>
+    </select>
+        <br/>
+    Archivo a cargar: <input th:field="*{fileDatas}" type="file" accept=".xlsx"/>
+    <br />
+    <input type="submit" value="Enviar">
+</form>
+
+</body>
+</html>

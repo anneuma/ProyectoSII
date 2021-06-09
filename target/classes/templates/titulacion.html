@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Titulaciones</title>
+</head>
+
+<body>
+<th:block th:include="/_menu"></th:block>
+<table>
+    <thead>
+    <tr>
+        <th>Codigo</th>
+        <th>Nombre</th>
+        <th>Creditos</th>
+        <th>Titulacion Codigo</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody th:each="titulacion : ${titulaciones}" th:remove="tag">
+    <tr>
+        <td th:text="${titulacion.getCodigo()}"></td>
+        <td th:text="${titulacion.getNombre()}"></td>
+        <td  th:text="${titulacion.getCreditos()}"></td>
+        <td th:text="${titulacion.getTitulation_codigo()}"></td>
+        <td>
+            <a th:href="@{/titulacion/modificar(id=${titulacion.getCodigo()})}">Modificar</a>
+            <a th:href="@{/titulacion/borrar(id=${titulacion.getCodigo()})}">Borrar</a>
+        </td>
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

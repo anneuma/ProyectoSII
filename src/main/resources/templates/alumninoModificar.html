@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="'Alumno '+${alumno.nombre}"></title>
+</head>
+
+<body>
+<th:block th:include="/_menu"></th:block>
+<h1>Modificar Alumno</h1>
+<form action="#" th:action="@{/alumnos/modificar}" th:object="${alumno}" method="post">
+    <p>Id: <input type="text" th:field="*{id}" /></p>
+    <p>dni: <input type="text" th:field="*{dni}" /></p>
+    <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+    <p>apellido1: <input type="text" th:field="*{apellido1}" /></p>
+    <p>apellido2: <input type="text" th:field="*{apellido2}" /></p>
+    <p>email i: <input type="text" th:field="*{email_i}" /></p>
+    <p>email p: <input type="text" th:field="*{email_p}" /></p>
+    <p>Movil: <input type="text" th:field="*{movil}" /></p>
+    <p>Provincia: <input type="text" th:field="*{provincia}" /></p>
+    <p>Telefono: <input type="text" th:field="*{telefono}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+</body>
+</html>
