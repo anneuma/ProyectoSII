@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Alumnos</title>
+</head>
+
+<body>
+<th:block th:include="/_menu"></th:block>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nombre</th>
+        <th>apellidos</th>
+        <th>mail personal</th>
+        <th>provincia</th>
+        <th>movil</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody th:each="alumno : ${alumnos}" th:remove="tag">
+    <tr>
+        <td th:text="${alumno.id}"></td>
+        <td th:text="${alumno.nombre}"></td>
+        <td th:text="${alumno.apellido1+' '+alumno.apellido2}"></td>
+        <td  th:text="${alumno.email_p}"></td>
+        <td  th:text="${alumno.provincia}"></td>
+        <td  th:text="${alumno.movil}"></td>
+        <td>
+            <a th:href="@{/alumnos/assignaturas(id=${alumno.id})}">Assignaturas</a>
+            <a th:href="@{/alumnos/modificar(id=${alumno.id})}">Modificar</a>
+            <a th:href="@{/alumnos/borrar(id=${alumno.id})}">Borrar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

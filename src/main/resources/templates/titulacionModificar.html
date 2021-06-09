@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title th:text="Titulacion ${titulacion.nombre}"></title>
+</head>
+
+<body>
+<th:block th:include="/_menu"></th:block>
+<h1>Modificar Alumno</h1>
+<form action="#" th:action="@{/titulacion/modificar}" th:object="${titulacion}" method="post">
+    <p>Nombre: <input type="text" th:field="*{nombre}" /></p>
+    <p>apellido1: <input type="text" th:field="*{codigo}" /></p>
+    <p>apellido2: <input type="text" th:field="*{creditos}" /></p>
+    <p>email i: <input type="text" th:field="*{titulation_codigo}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+
+</body>
+</html>
